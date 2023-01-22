@@ -1,0 +1,200 @@
+Hi! Sorry for the inconvenience but this is a temporary solution to giving out the UI while the installer is undergoing repairs (some issues occurred due to the new way ElvUI handles their database for Dragonflight, hopefully it will be fixed soon!
+
+These are the instructions on how to install in this more barbaric version of UI importing.
+
+
+1. Take the Fonts and Interface folders, and install them into your WoW folder. (This process is similar to how you would handle it with the installer)
+2. Go to your World of Warcraft\_retail_\WTF\Account\xxxxxx#x(YOURACCOUNTNAME)\SavedVariables folder and backup everything there to your desktop.
+3. Navigate to either the 1080p or 1440p folder (depending on your resolution) and drag all of the files in that folder into the folder above (SavedVariables).
+4. Log into WoW and set each addon to the correct profile.
+Here are some shortcuts to type in for step 4.
+
+a. /bw -> Profiles -> AtrocityUI
+b. /details config -> Profiles -> AtrocityUI
+c. /ec -> Profiles -> AtrocityUI, then Private tab -> AtrocityUI
+d. /gex -> Profiles -> AtrocityUI
+e. /rt -> Profiles -> AtrocityUI
+f. /plater -> Profiles -> AtrocityUI
+g. /warpdeplete -> Profiles -> AtrocityUI
+f. /oc -> Profiles -> Atrocity UI
+
+Again, sorry for the minor inconvenience and I hope to have the installer working again properly soon!
+
+Zoxe's Tweaks to AtrocityUI
+
+- GladiusEx: Arena > Class Icon > General Tab > Widget > Show > Change dropdown to "Spec"
+- GladiusEx: Arena > Class Icon > General Tab > Side-view Icon > Uncheck "Enable"
+- GladiusEx: General > Global Settings > Font size > set to 16
+- GladiusEx: General > unlock frame and move it to a more sensible location.
+- GladiusEx: Arena > Cast Bar > Cast Text Tab > check "Global font size"
+- GladiusEx: Arena > Cast Bar > Cast Time Text Tab > check "Global font size"
+
+- BigWigs: Bars > Bars Tab > Font size > set to 16
+- BigWigs: Bars > Bars Tab > Width > set to 233
+- BigWigs: Bars > Bars Tab > X Position > set to 1708
+- BigWigs: Bars > Bars Tab > Y Position > set to 614
+- BigWigs: Bars > Emphasized Bars Tab > Font size > set to 16
+- BigWigs: Move InfoBox to a reasonable spot
+- For the Atrocity UI Healer profile in BigWigs
+    - Big Wigs: Bars > Emphasized Bars Tab > X Position > set to 634
+
+- Mythic Raid Tools: Raid cooldowns > Appearance Tab > Font > Font Size > set to 13
+- Mythic Raid Tools: Raid cooldowns > Spells Tab > check "Rallying Cry"
+- Mythic Raid Tools: Invite tools > delete all names from autopromote section
+
+- OmniCD: General > Fonts Tab > Anchor > Font Size > set to 16
+- OmniCD: General > Fonts Tab > Icon > Font Size > set to 16
+- OmniCD: General > Fonts Tab > Status Bar > Font Size > set to 24
+- For the Atrocity UI profile in OmniCD:
+    - OmniCD: Dungeons > Icons Tab > Icon Size > set to 105%
+    - OmniCD: Dungeons > Position Tab > Offset X > set to 2
+    - OmniCD: Dungeons > Position Tab > Offset Y > set to 3
+    - OmniCD: Dungeons > Extra Bars Tab > 1 Tab > unlock frame and move it manually beneath party frame
+    - OmniCD: Dungeons > Extra Bars Tab > 2 Tab > uncheck "Enable"
+    - OmniCD: Dungeons > Extra Bars Tab > Interrupt Bar Tab > unlock frame and move it manually above party frame
+- For the Atrocity UI Healer profile in OmniCD:
+    - OmniCD: Dungeons > Extra Bars Tab > Interrupt Bar Tab > unlock frame and move it manually above the player frame
+
+- Details: Bars (Texts) > Text Size > set to 16
+- Details: Tooltips > Text Size > set to 16
+- Details: Tooltips > Anchor > Move Anchor Point > drag the anchor to right next to the right chat box.
+
+- Plater: Buff Settings > Enemy Npc Tab > set all Font Size boxes to 8
+- Plater: Buff Settings > Enemy Player Tab > set all Font Size boxes to 8
+
+- WeakAuras: Essentials > Player Castbar > Display Tab > set both Font Size fields to 16
+- WeakAuras: Essentials > Player Castbar (Caster) > Display Tab > set both Font Size fields to 16
+- WeakAuras: Essentials > Player Castbar (Healer) > Display Tab > set both Font Size fields to 16
+- WeakAuras: Essentials > Focus Castbar > Display Tab > set both Font Size fields to 16
+- WeakAuras: Essentials > Combat Time > Display Tab > Position Settings > X Offset > set to -1265
+- WeakAuras: Essentials > Combat Time > Display Tab > Position Settings > Y Offset > set to -432
+- WeakAuras: Essentials > Combat Ress > Display Tab > Position Settings > X Offset > set to -1643
+- WeakAuras: Essentials > Combat Ress > Display Tab > Position Settings > Y Offset > set to -432
+- WeakAuras: Shaman > Elemental: Elemental Equilibrium > Load Tab > check "never"
+- WeakAuras: Shaman > Elemental: Primordial Surge > Load Tab > check "never"
+- WeakAuras: Shaman > Mana Spring Totem > Load Tab > check "never"
+- WeakAuras: Warrior > Fury: Execute > Load Tab > check "never"
+- WeakAuras: Warrior > Fury: Whirlwind Buff > Load Tab > check "never"
+- WeakAuras: Warrior > Warrior: Current Stance > Load Tab > check "never"
+- WeakAuras: Warrior > Protection: Outburst > nudge the WA up above Hekili
+- WeakAuras: Warrior > Protection: Execute > Load Tab > check "never"
+- WeakAuras: Warrior > Arms: Execute > Load Tab > check "never"
+- WeakAuras: Warrior > Arms: Rend > Load Tab > check "never"
+
+- ElvUI: General > Media Tab > Default Font > Font Size > set to 16 and click "Apply Font To All"
+- ElvUI: General > Media Tab > Default Font > Font Size > set back to 14 to fix scaling on Blizzard frames
+- ElvUI: General > Media Tab > Normal Font > Normal Size > set to 16
+- ElvUI: General > Media Tab > Larger Font > Larger Size > set to 16
+- ElvUI: General > Cosmetic Tab > Chat Bubbles > Font Size > set to 12
+- ElvUI: General > Alternative Power > Text > Font Size > set to 16
+- ElvUI: General > BlizzUI Improvements > Loot Roll Tab > Font Group > Font Size > set to 16
+- ElvUI: General > BlizzUI Improvements > Item Level Tab > Font Group > Font Size > set to 16
+- ElvUI: Action Bars > Player Bars > ALL numbered tabs > Profession Quality > uncheck "Enable"
+- ElvUI: Action Bars > Extra Buttons > Boss Button > Font Size > set to 16
+- For the Atrocity UI Profile in ElvUI
+    - ElvUI: Action Bars > Player Bars > ALL numbered tabs > Count Text > Font Size > set to 16
+    - ElvUI: Action Bars > Player Bars > ALL numbered tabs > Keybind Text > Font Size > set to 16
+    - ElvUI: Action Bars > Player Bars > ALL numbered tabs > Keybind Text > Y-Offset > set to -4
+    - ElvUI: Action Bars > Player Bars > 1 Tab > Button Size > set to 40
+    - ElvUI: Action Bars > Player Bars > 4 Tab > Button Size > set to 34
+    - ElvUI: Action Bars > Player Bars > 5 Tab > Button Size > set to 34
+    - ElvUI: Action Bars > Player Bars > 6 Tab > Button Size > set to 40
+- For the Atrocity UI Healer Profile in ElvUI
+    - ElvUI: Action Bars > Player Bars > ALL numbered tabs > Keybind Text > Y-Offset > set to -2
+    - ElvUI: Action Bars > Player Bars > 1 Tab > Button Size > set to 30
+    - ElvUI: Action Bars > Player Bars > 4 Tab > Button Size > set to 28
+    - ElvUI: Action Bars > Player Bars > 5 Tab > Button Size > set to 28
+    - ElvUI: Action Bars > Player Bars > 6 Tab > Button Size > set to 30
+- ElvUI: Action Bars > Player Bars > 3 Tab > Buttons > set to 12
+- ElvUI: Action Bars > Player Bars > 4 Tab > Bar Settings > Anchor Point > set to BOTTOMLEFT
+- ElvUI: Action Bars > Player Bars > 5 Tab > Buttons Per Row > set to 6
+- ElvUI: Action Bars > Player Bars > 5 Tab > check "Backdrop"
+- ElvUI: Action Bars > Player Bars > 6 Tab > Buttons Per Row > set to 12
+- ElvUI: Action Bars > Player Bars > 6 Tab > uncheck "Backdrop"
+- ElvUI: Bags > uncheck "Enable"
+- ElvUI: Chat > General Tab > Voice Chat > check "Hide Voice Buttons"
+- ElvUI: Chat > Panels Tab > Panel Height > set to 272
+- ElvUI: Chat > Panels Tab > Panel Width > set to 500
+- ElvUI: DataBars > Experience Tab > Height > set to 20
+- ElvUI: DataBars > Experience Tab > Fonts > set Font Size to 16
+- ElvUI: DataTexts > Panels Tab > Minimap Panels > check "Enable"
+- ElvUI: DataTexts > Panels Tab > Minimap Panels > check "Backdrop"
+- ElvUI: DataTexts > Panels Tab > Clock > Width > set to 295
+- ElvUI: Maps > World Map Tab > General > uncheck "Smaller World Map"
+- ElvUI: Maps > World Map Tab > World Map Coordinates > uncheck "Enable"
+- ElvUI: Maps > Minimap Tab > Size > set to 210
+- ElvUI: Maps > Minimap Tab > Scale > set to 125%
+- ElvUI: Maps > Minimap Tab > Location Text > Font Size > set to 16
+- ElvUI: Maps > Minimap Tab > Time Text > Font Size > set to 16
+- ElvUI: Tooltip > General Tab > Spell/Item IDs > Modifier for IDs > change to "SHIFT"
+- ElvUI: Tooltip > General Tab > Spell/Item IDs > Item Count > change to "None"
+- ElvUI: UnitFrames > General Tab > Fonts > Font Size > set to 16
+- For the Atrocity UI Profile in ElvUI
+    - ElvUI: UnitFrames > Group Units Tab > Raid 1 Tab > General > Size and Positions > Width > set to 99
+    - ElvUI: UnitFrames > Group Units Tab > Raid 2 Tab > General > Size and Positions > Width > set to 99
+    - ElvUI: UnitFrames > Group Units Tab > Raid 3 Tab > General > Size and Positions > Width > set to 99
+    - ElvUI: UnitFrames > Group Units Tab > Raid 3 Tab > General > Number of Groups > set to 8
+- ElvUI: UnitFrames > Group Units Tab > Raid 1 Tab > Buffs > Stack Counter > Font Size > set to 14
+- ElvUI: UnitFrames > Group Units Tab > Raid 1 Tab > Debuffs > Stack Counter > Font Size > set to 14
+- ElvUI: UnitFrames > Group Units Tab > Raid 2 Tab > Buffs > Stack Counter > Font Size > set to 14
+- ElvUI: UnitFrames > Group Units Tab > Raid 2 Tab > Debuffs > Stack Counter > Font Size > set to 14
+- ElvUI: UnitFrames > Group Units Tab > Raid 3 Tab > Buffs > Stack Counter > Font Size > set to 14
+- ElvUI: UnitFrames > Group Units Tab > Raid 3 Tab > Debuffs > Stack Counter > Font Size > set to 14
+- ElvUI: Toggle Anchors > Move BNet Frame to -3, -290
+- ElvUI: Toggle Anchors > Move Clock to -3, -238
+- ElvUI: Toggle Anchors > Move Pet Bar to -504, 3
+- ElvUI: Toggle Anchors > Move bar 3 to 504, 3
+- ElvUI: Toggle Anchors > Move Vehicle Leave Button to -473, 276
+- ElvUI: Toggle Anchors > Move Tooltip to -3, 239
+- ElvUI: Toggle Anchors > Move Loss Control Icon to 0, -500
+- ElvUI: Toggle Anchors > Move Boss Frames to -700, -300
+- ElvUI: Toggle Anchors > Move Focus Frame to -800, 550
+- ElvUI: Toggle Anchors > Move Player Buffs frame to -269, -3
+- ElvUI: Toggle Anchors > Move Player Debuffs frame to -269, -211
+- For the Atrocity UI Profile in ElvUI
+    - ElvUI: Toggle Anchors > Move bar 4 to 360, 3
+    - ElvUI: Toggle Anchors > Move bar 5 to -360, 3
+    - ElvUI: Toggle Anchors > Move bar 6 to 0, 46
+    - ElvUI: Toggle Anchors > Move Alternative Power to 0, 292
+    - ElvUI: Toggle Anchors > Move Raid Frames 1 to 3, 300
+    - ElvUI: Toggle Anchors > Move Raid Frames 2 to 3, 300
+    - ElvUI: Toggle Anchors > Move Raid Frames 3 to 3, 300
+    - ElvUI: Toggle Anchors > Move Party Frames to 893, 580
+- For the Atrocity UI Healer Profile in ElvUI
+    - ElvUI: Toggle Anchors > Move Pet Frame to -418, 396
+    - ElvUI: Toggle Anchors > Move bar 4 to 278, 3
+    - ElvUI: Toggle Anchors > Move bar 5 to -278, 3
+    - ElvUI: Toggle Anchors > Move bar 6 to 0, 38
+
+- AddOnSkins: Embed Settings > Two Window Embed System > Window One Width > set to 250
+
+- Shadow & Light: Media Tab > Zone Text Tab > Zone Text > set Font to "Expressway" for all texts
+- Shadow & Light: Media Tab > Misc Texts Tab > set Font to "Expressway" for all texts
+- Shadow & Light: Media Tab > Misc Texts Tab > set Font Size to 14 for all texts except "Big Banner Text"
+- Shadow & Light: Skins Tab > BLizzard Tab > Talking Head Frame > check "Hide"
+- Shadow & Light: Modules Tab > Armory Mode > check "Character Armory"
+- Shadow & Light: Modules Tab > Armory Mode > check "Inspect Armory"
+- Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Item Level > set Font to "Expressway"
+- Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Item Level > set Font Size to 14
+- Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Enchant String > set Font to "Expressway"
+- Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Enchant String > set Font Size to 14
+- Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Enchant String > set Y-Offset to -1
+- Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Enchant String > uncheck "Display Quality"
+- Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Gem Sockets > set Y-Offset to -1
+- Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Transmog > uncheck "Enable Arrow"
+- Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Durability > Visibility > set to "Hide"
+- Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Item Level > set Font to "Expressway"
+- Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Item Level > set Font Size to 14
+- Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Enchant String > set Font to "Expressway"
+- Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Enchant String > set Font Size to 14
+- Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Enchant String > set Y-Offset to -1
+- Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Enchant String > uncheck "Display Quality"
+- Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Gem Sockets > set Y-Offset to -1
+- Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Transmog > uncheck "Enable Arrow"
+- Shadow & Light: Modules Tab > Armory Mode > Attributes Tab > set Font to "Expressway" for all texts
+- Shadow & Light: Modules Tab > Armory Mode > Attributes Tab > set Font Outline to "Outline" for all texts
+- Shadow & Light: Modules Tab > Armory Mode > Attributes Tab > set Font Size to 22 for Item Level text
+- Shadow & Light: Modules Tab > Armory Mode > Attributes Tab > set Font Size to 14 for Attributes and Categories texts
+- Shadow & Light: Modules Tab > Enhance Shadows > uncheck "Enable"
+- Shadow & Light: Modules Tab > PvP > PvP Auto Release > check "Enable"
+- Shadow & Light: Modules Tab > Raid Markers > uncheck "Enable"
