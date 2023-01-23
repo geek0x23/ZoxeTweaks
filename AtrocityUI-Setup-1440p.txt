@@ -178,18 +178,18 @@ Zoxe's Tweaks to AtrocityUI
 - Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Item Level > set Font Size to 14
 - Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Enchant String > set Font to "Expressway"
 - Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Enchant String > set Font Size to 14
-- Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Enchant String > set Y-Offset to -1
+- Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Enchant String > set Y-Offset to -2
 - Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Enchant String > uncheck "Display Quality"
-- Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Gem Sockets > set Y-Offset to -1
+- Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Gem Sockets > set Y-Offset to -2
 - Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Transmog > uncheck "Enable Arrow"
 - Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Durability > Visibility > set to "Hide"
 - Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Item Level > set Font to "Expressway"
 - Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Item Level > set Font Size to 14
 - Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Enchant String > set Font to "Expressway"
 - Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Enchant String > set Font Size to 14
-- Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Enchant String > set Y-Offset to -1
+- Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Enchant String > set Y-Offset to -2
 - Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Enchant String > uncheck "Display Quality"
-- Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Gem Sockets > set Y-Offset to -1
+- Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Gem Sockets > set Y-Offset to -2
 - Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Transmog > uncheck "Enable Arrow"
 - Shadow & Light: Modules Tab > Armory Mode > Attributes Tab > set Font to "Expressway" for all texts
 - Shadow & Light: Modules Tab > Armory Mode > Attributes Tab > set Font Outline to "Outline" for all texts

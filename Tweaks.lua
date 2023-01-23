@@ -41,10 +41,12 @@ zt.FixScaling = function(scale)
     ProfessionsFrame:HookScript("OnShow", function(self) self:SetScale(scale); end)
     PVEFrame:SetScale(scale)
     QuestFrame:SetScale(scale)
+    ReadyCheckListenerFrame:SetScale(scale)
     SettingsPanel:HookScript("OnShow", function(self) self:SetScale(scale); end)
     SpellBookFrame:SetScale(scale)
     SuperTrackedFrame:SetScale(scale)
     TimeManagerFrame:SetScale(scale)
+    WeeklyRewardsFrame:SetScale(scale)
 
     -- The profession frame is constantly re-scaling itself...
     hooksecurefunc(ProfessionsFrame.TabSystem, "SetTabVisuallySelected", function(self)
@@ -75,6 +77,8 @@ zt.FixScaling = function(scale)
             EncounterJournal:SetScale(scale)
         elseif addonName == "Blizzard_InspectUI" then
             InspectFrame:SetScale(scale)
+        elseif addonName == "Blizzard_ItemSocketingUI" then
+            ItemSocketingFrame:SetScale(scale)
         elseif addonName == "Blizzard_MacroUI" then
             MacroFrame:SetScale(scale)
         elseif addonName == "Blizzard_ProfessionsCustomerOrders" then
