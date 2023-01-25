@@ -41,7 +41,7 @@ zt.FixScaling = function(scale)
     ProfessionsFrame:HookScript("OnShow", function(self) self:SetScale(scale); end)
     PVEFrame:SetScale(scale)
     QuestFrame:SetScale(scale)
-    ReadyCheckListenerFrame:SetScale(scale)
+    ReadyCheckListenerFrame:HookScript("OnShow", function(self) self:SetScale(scale); end)
     SettingsPanel:HookScript("OnShow", function(self) self:SetScale(scale); end)
     SpellBookFrame:SetScale(scale)
     SuperTrackedFrame:SetScale(scale)
@@ -77,6 +77,8 @@ zt.FixScaling = function(scale)
             EncounterJournal:SetScale(scale)
         elseif addonName == "Blizzard_InspectUI" then
             InspectFrame:SetScale(scale)
+        elseif addonName == "Blizzard_ItemInteractionUI" then
+            ItemInteractionFrame:SetScale(scale)
         elseif addonName == "Blizzard_ItemSocketingUI" then
             ItemSocketingFrame:SetScale(scale)
         elseif addonName == "Blizzard_MacroUI" then
@@ -88,13 +90,8 @@ zt.FixScaling = function(scale)
         end
     end)
 
-    hooksecurefunc("AlertFrame_ShowNewAlert", function(self)
-        self:SetScale(scale)
-    end)
-
-    hooksecurefunc("StaticPopup_OnShow", function(self)
-        self:SetScale(scale)
-    end)
+    hooksecurefunc("AlertFrame_ShowNewAlert", function(self) self:SetScale(scale) end)
+    hooksecurefunc("StaticPopup_OnShow", function(self) self:SetScale(scale) end)
 
     hooksecurefunc("ToggleDropDownMenu", function(level, _, _, anchorName, xOffset, yOffset)
         if not level then level = 1; end
