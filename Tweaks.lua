@@ -13,9 +13,13 @@ zt.eventFrame:SetScript("OnEvent", function(self, event)
 end)
 
 zt.FixScaling = function(scale)
-    zt.debug("zt.FixScaling called.")
     -- only scale on 1440p
     if GetScreenHeight() < 1440 then return; end
+
+    zt.debug("zt.FixScaling called.")
+
+    local globalScale = UIParent:GetEffectiveScale()
+    local scaledScreenWidth = GetScreenWidth() * globalScale
 
     -- Blizzard Frames
     AddonList:SetScale(scale)
@@ -46,6 +50,7 @@ zt.FixScaling = function(scale)
     SpellBookFrame:SetScale(scale)
     SuperTrackedFrame:SetScale(scale)
     TimeManagerFrame:SetScale(scale)
+    TradeFrame:SetScale(scale)
     WeeklyRewardsFrame:SetScale(scale)
 
     ProfessionsFrame:SetScale(scale)
@@ -112,19 +117,36 @@ zt.FixScaling = function(scale)
         local listFrame = _G["DropDownList"..level];
         if not listFrame then return end
 
-        local globalScale = UIParent:GetScale()
         local listScale = globalScale * scale
         listFrame:SetScale(listScale)
 
         -- frames anchored to mouse pointer need to be re-positioned because this manual scaling
         -- throws off Blizz's default calculations.
         if anchorName == "cursor" then
-            local cursorX, cursorY = GetCursorPosition();
             if not xOffset then xOffset = 0; end
             if not yOffset then yOffset = 0; end
-            xOffset = cursorX / listScale + xOffset
+
+            local verticalAnchorPoint = "TOP"
+            local horizontalAnchorPoint = "LEFT"
+            local cursorX, cursorY = GetCursorPosition()
+            local dropDownHeight = listFrame:GetHeight() * listScale
+            local dropDownWidth = listFrame:GetWidth() * listScale
+
+            if cursorY - dropDownHeight < 0 then
+                verticalAnchorPoint = "BOTTOM"
+            end
+
+            if cursorX + dropDownWidth > scaledScreenWidth then
+                horizontalAnchorPoint = "RIGHT"
+            end
+
             yOffset = cursorY / listScale + yOffset
-            listFrame:SetPoint("TOPLEFT", nil, "BOTTOMLEFT", xOffset, yOffset)
+            xOffset = cursorX / listScale + xOffset
+
+            local anchorPoint = verticalAnchorPoint .. horizontalAnchorPoint
+
+            listFrame:ClearAllPoints()
+            listFrame:SetPoint(anchorPoint, nil, "BOTTOMLEFT", xOffset, yOffset)
         end
     end)
 
@@ -143,6 +165,7 @@ zt.FixScaling = function(scale)
             if not yOffset then yOffset = 0; end
             xOffset = xOffset / scale
             yOffset = yOffset / scale
+            self:ClearAllPoints()
             self:SetPoint(point, relativeTo, relativePoint, xOffset, yOffset)
         end)
     end
