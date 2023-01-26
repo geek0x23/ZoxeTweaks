@@ -38,7 +38,7 @@ Zoxe's Tweaks to AtrocityUI
 - For the Atrocity UI Healer profile in BigWigs
     - Big Wigs: Bars > Emphasized Bars Tab > X Position > set to 634
 
-- Mythic Raid Tools: Raid cooldowns > Appearance Tab > Font > Font Size > set to 13
+- Mythic Raid Tools: Raid cooldowns > Appearance Tab > Font > Font Size > set to 16
 - Mythic Raid Tools: Raid cooldowns > Spells Tab > check "Rallying Cry"
 - Mythic Raid Tools: Invite tools > delete all names from autopromote section
 
