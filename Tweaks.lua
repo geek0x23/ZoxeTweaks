@@ -9,7 +9,7 @@ zt.eventFrame = CreateFrame("Frame", "ZoxeTweaksLoaderFrame", UIParent)
 zt.eventFrame:RegisterEvent("ADDON_LOADED")
 zt.eventFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
 zt.eventFrame:SetScript("OnEvent", function(self, event)
-    if event == "PLAYER_ENTERING_WORLD" then return zt.FixScaling(1.25); end
+    if event == "PLAYER_ENTERING_WORLD" then return zt.FixScaling(1.2); end
 end)
 
 zt.FixScaling = function(scale)
@@ -38,6 +38,7 @@ zt.FixScaling = function(scale)
     MirrorTimer2:SetScale(scale)
     MirrorTimer3:SetScale(scale)
     ObjectiveTrackerFrame:SetScale(scale)
+    OpenMailFrame:SetScale(scale)
     PVEFrame:SetScale(scale)
     QuestFrame:SetScale(scale)
     ReadyCheckListenerFrame:HookScript("OnShow", function(self) self:SetScale(scale); end)
@@ -74,12 +75,17 @@ zt.FixScaling = function(scale)
             CommunitiesFrame:SetScale(scale)
         elseif addonName == "Blizzard_EncounterJournal" then
             EncounterJournal:SetScale(scale)
+        elseif addonName == "Blizzard_GenericTraitUI" then
+            GenericTraitFrame:SetScale(scale)
         elseif addonName == "Blizzard_InspectUI" then
             InspectFrame:SetScale(scale)
         elseif addonName == "Blizzard_ItemInteractionUI" then
             ItemInteractionFrame:SetScale(scale)
         elseif addonName == "Blizzard_ItemSocketingUI" then
             ItemSocketingFrame:SetScale(scale)
+        elseif addonName == "Blizzard_ItemUpgradeUI" then
+            ItemUpgradeFrame:SetScale(scale)
+            EquipmentFlyoutFrame:SetScale(scale)
         elseif addonName == "Blizzard_MacroUI" then
             MacroFrame:SetScale(scale)
         elseif addonName == "Blizzard_ProfessionsCustomerOrders" then
@@ -90,6 +96,8 @@ zt.FixScaling = function(scale)
             ProfessionsCustomerOrdersFrame.Form:HookScript("OnHide", function(self) self:GetParent():SetScale(scale); end)
             ProfessionsCustomerOrdersFrameOrdersTab:HookScript("OnClick", function(self) self:GetParent():SetScale(scale); end)
             ProfessionsCustomerOrdersFrameBrowseTab:HookScript("OnClick", function(self) self:GetParent():SetScale(scale); end)
+        elseif addonName == "Blizzard_RaidUI" then
+            RaidUtilityPanel:SetScale(scale)
         elseif addonName == "Blizzard_TrainerUI" then
             ClassTrainerFrame:HookScript("OnShow", function(self) self:SetScale(scale); end)
         end
@@ -121,6 +129,10 @@ zt.FixScaling = function(scale)
     end)
 
     -- Addon Frames
+    if AstralKeys then
+        AstralKeyFrame:SetScale(scale)
+    end
+
     if MinimapRightClickMenu then
         MinimapRightClickMenu:SetScale(scale)
         MinimapRightClickMenu:SetScript("OnShow", function(self)

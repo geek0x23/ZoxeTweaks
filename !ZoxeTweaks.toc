@@ -3,6 +3,6 @@
 ## Notes: Just some tweaks
 ## Title: ZoxeTweaks
 ## Version: 1.0.0
-## OptionalDeps: Auctionator, ElvUI, _DebugLog
+## OptionalDeps: AstralKeys, Auctionator, ElvUI, _DebugLog
 
 Tweaks.lua
