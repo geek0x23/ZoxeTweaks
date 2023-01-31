@@ -1,7 +1,9 @@
+---@diagnostic disable: undefined-global
+
 local _, zt = ...
 
 zt.debug = function(...)
-    if not DLAPI then return; end
+    if not DLAPI then return end
     DLAPI.DebugLog("ZoxeTweaks", ...)
 end
 
@@ -9,12 +11,12 @@ zt.eventFrame = CreateFrame("Frame", "ZoxeTweaksLoaderFrame", UIParent)
 zt.eventFrame:RegisterEvent("ADDON_LOADED")
 zt.eventFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
 zt.eventFrame:SetScript("OnEvent", function(self, event)
-    if event == "PLAYER_ENTERING_WORLD" then return zt.FixScaling(1.2); end
+    if event == "PLAYER_ENTERING_WORLD" then zt.FixScaling(1.2) end
 end)
 
 zt.FixScaling = function(scale)
     -- only scale on 1440p
-    if GetScreenHeight() < 1440 then return; end
+    if GetScreenHeight() < 1440 then return end
 
     zt.debug("zt.FixScaling called.")
 
@@ -22,6 +24,7 @@ zt.FixScaling = function(scale)
     local scaledScreenWidth = GetScreenWidth() * globalScale
 
     -- Blizzard Frames
+    ---@type Frame
     AddonList:SetScale(scale)
     ChannelFrame:SetScale(scale)
     CharacterFrame:SetScale(scale)
@@ -35,9 +38,9 @@ zt.FixScaling = function(scale)
     LFGDungeonReadyPopup:SetScale(scale)
     LFGListApplicationDialog:SetScale(scale)
     LFGListInviteDialog:SetScale(scale)
-    if MajorFactionRenownFrame then MajorFactionRenownFrame:SetScale(scale); end
+    if MajorFactionRenownFrame then MajorFactionRenownFrame:SetScale(scale) end
     MailFrame:SetScale(scale)
-    MerchantFrame:HookScript("OnShow", function(self) self:SetScale(scale); end)
+    MerchantFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
     MirrorTimer1:SetScale(scale)
     MirrorTimer2:SetScale(scale)
     MirrorTimer3:SetScale(scale)
@@ -45,8 +48,9 @@ zt.FixScaling = function(scale)
     OpenMailFrame:SetScale(scale)
     PVEFrame:SetScale(scale)
     QuestFrame:SetScale(scale)
-    ReadyCheckListenerFrame:HookScript("OnShow", function(self) self:SetScale(scale); end)
-    SettingsPanel:HookScript("OnShow", function(self) self:SetScale(scale); end)
+    QueueStatusFrame:SetScale(scale)
+    ReadyCheckListenerFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
+    SettingsPanel:HookScript("OnShow", function(self) self:SetScale(scale) end)
     SpellBookFrame:SetScale(scale)
     SuperTrackedFrame:SetScale(scale)
     TimeManagerFrame:SetScale(scale)
@@ -54,17 +58,17 @@ zt.FixScaling = function(scale)
     WeeklyRewardsFrame:SetScale(scale)
 
     ProfessionsFrame:SetScale(scale)
-    ProfessionsFrame:HookScript("OnShow", function(self) self:SetScale(scale); end)
-    ProfessionsFrame:HookScript("OnHide", function(self) self:SetScale(scale); end)
-    EventRegistry:RegisterCallback("ProfessionsFrame.TabSet", function() ProfessionsFrame:SetScale(scale); end)
+    ProfessionsFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
+    ProfessionsFrame:HookScript("OnHide", function(self) self:SetScale(scale) end)
+    EventRegistry:RegisterCallback("ProfessionsFrame.TabSet", function() ProfessionsFrame:SetScale(scale) end)
     ProfessionsFrame.CraftingPage.CraftingOutputLog:HookScript("OnShow", function(self)
         self:GetParent():GetParent():SetScale(scale)
     end)
 
-    zt.eventFrame:SetScript("OnEvent", function(self, event, addonName)
-        if event ~= "ADDON_LOADED" then return; end
+    zt.eventFrame:SetScript("OnEvent", function(_, event, addonName)
+        if event ~= "ADDON_LOADED" then return end
 
-        zt.debug("Addon loaded: %s", addonName);
+        zt.debug("Addon loaded: %s", addonName)
         if addonName == "Blizzard_AchievementUI" then
             AchievementFrame:SetScale(scale)
         elseif addonName == "Blizzard_AuctionHouseUI" then
@@ -72,7 +76,7 @@ zt.FixScaling = function(scale)
         elseif addonName == "Blizzard_Calendar" then
             CalendarFrame:SetScale(scale)
         elseif addonName == "Blizzard_ClassTalentUI" then
-            ClassTalentFrame:HookScript("OnShow", function(self) self:SetScale(scale); end)
+            ClassTalentFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
         elseif addonName == "Blizzard_Collections" then
             CollectionsJournal:SetScale(scale)
             WardrobeFrame:SetScale(scale)
@@ -95,16 +99,18 @@ zt.FixScaling = function(scale)
             MacroFrame:SetScale(scale)
         elseif addonName == "Blizzard_ProfessionsCustomerOrders" then
             ProfessionsCustomerOrdersFrame:SetScale(scale)
-            ProfessionsCustomerOrdersFrame:HookScript("OnShow", function(self) self:SetScale(scale); end)
-            ProfessionsCustomerOrdersFrame:HookScript("OnHide", function(self) self:SetScale(scale); end)
-            ProfessionsCustomerOrdersFrame.Form:HookScript("OnShow", function(self) self:GetParent():SetScale(scale); end)
-            ProfessionsCustomerOrdersFrame.Form:HookScript("OnHide", function(self) self:GetParent():SetScale(scale); end)
-            ProfessionsCustomerOrdersFrameOrdersTab:HookScript("OnClick", function(self) self:GetParent():SetScale(scale); end)
-            ProfessionsCustomerOrdersFrameBrowseTab:HookScript("OnClick", function(self) self:GetParent():SetScale(scale); end)
+            ProfessionsCustomerOrdersFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
+            ProfessionsCustomerOrdersFrame:HookScript("OnHide", function(self) self:SetScale(scale) end)
+            ProfessionsCustomerOrdersFrame.Form:HookScript("OnShow", function(self) self:GetParent():SetScale(scale) end)
+            ProfessionsCustomerOrdersFrame.Form:HookScript("OnHide", function(self) self:GetParent():SetScale(scale) end)
+            ProfessionsCustomerOrdersFrameOrdersTab:HookScript("OnClick", function(self) self:GetParent():SetScale(scale) end)
+            ProfessionsCustomerOrdersFrameBrowseTab:HookScript("OnClick", function(self) self:GetParent():SetScale(scale) end)
         elseif addonName == "Blizzard_RaidUI" then
             RaidUtilityPanel:SetScale(scale)
+            RaidUtility_ShowButton:HookScript("OnShow", function(self) self:SetScale(scale) end)
+            RaidUtility_CloseButton:HookScript("OnShow", function(self) self:SetScale(scale) end)
         elseif addonName == "Blizzard_TrainerUI" then
-            ClassTrainerFrame:HookScript("OnShow", function(self) self:SetScale(scale); end)
+            ClassTrainerFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
         end
     end)
 
@@ -112,9 +118,9 @@ zt.FixScaling = function(scale)
     hooksecurefunc("StaticPopup_OnShow", function(self) self:SetScale(scale) end)
 
     hooksecurefunc("ToggleDropDownMenu", function(level, _, _, anchorName, xOffset, yOffset)
-        if not level then level = 1; end
+        if not level then level = 1 end
 
-        local listFrame = _G["DropDownList"..level];
+        local listFrame = _G["DropDownList"..level]
         if not listFrame then return end
 
         local listScale = globalScale * scale
@@ -123,8 +129,8 @@ zt.FixScaling = function(scale)
         -- frames anchored to mouse pointer need to be re-positioned because this manual scaling
         -- throws off Blizz's default calculations.
         if anchorName == "cursor" then
-            if not xOffset then xOffset = 0; end
-            if not yOffset then yOffset = 0; end
+            if not xOffset then xOffset = 0 end
+            if not yOffset then yOffset = 0 end
 
             local verticalAnchorPoint = "TOP"
             local horizontalAnchorPoint = "LEFT"
@@ -140,13 +146,13 @@ zt.FixScaling = function(scale)
                 horizontalAnchorPoint = "RIGHT"
             end
 
-            yOffset = cursorY / listScale + yOffset
-            xOffset = cursorX / listScale + xOffset
+            local xPosition = cursorX / listScale + xOffset
+            local yPosition = cursorY / listScale + yOffset
 
             local anchorPoint = verticalAnchorPoint .. horizontalAnchorPoint
 
             listFrame:ClearAllPoints()
-            listFrame:SetPoint(anchorPoint, nil, "BOTTOMLEFT", xOffset, yOffset)
+            listFrame:SetPoint(anchorPoint, nil, "BOTTOMLEFT", xPosition, yPosition)
         end
     end)
 
@@ -159,10 +165,10 @@ zt.FixScaling = function(scale)
         MinimapRightClickMenu:SetScale(scale)
         MinimapRightClickMenu:SetScript("OnShow", function(self)
             local point, relativeTo, relativePoint, xOffset, yOffset = self:GetPoint()
-            if not point then return; end
-            if not relativePoint then return; end
-            if not xOffset then xOffset = 0; end
-            if not yOffset then yOffset = 0; end
+            if not point then return end
+            if not relativePoint then return end
+            if not xOffset then xOffset = 0 end
+            if not yOffset then yOffset = 0 end
             xOffset = xOffset / scale
             yOffset = yOffset / scale
             self:ClearAllPoints()
