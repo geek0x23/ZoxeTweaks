@@ -8,9 +8,9 @@ Zoxe's Tweaks to AtrocityUI
 - GladiusEx: Arena > Cast Bar > Cast Time Text Tab > check "Global font size"
 
 - BigWigs: Bars > Bars Tab > Font size > set to 16
-- BigWigs: Bars > Bars Tab > Width > set to 233
-- BigWigs: Bars > Bars Tab > X Position > set to 1708
-- BigWigs: Bars > Bars Tab > Y Position > set to 614
+- BigWigs: Bars > Bars Tab > Width > set to 236
+- BigWigs: Bars > Bars Tab > X Position > set to 1706
+- BigWigs: Bars > Bars Tab > Y Position > set to 613
 - BigWigs: Bars > Emphasized Bars Tab > Font size > set to 16
 - BigWigs: Move InfoBox to a reasonable spot
 - For the Atrocity UI Healer profile in BigWigs
@@ -73,16 +73,10 @@ Zoxe's Tweaks to AtrocityUI
     - ElvUI: Action Bars > Player Bars > ALL numbered tabs > Count Text > Font Size > set to 16
     - ElvUI: Action Bars > Player Bars > ALL numbered tabs > Keybind Text > Font Size > set to 16
     - ElvUI: Action Bars > Player Bars > ALL numbered tabs > Keybind Text > Y-Offset > set to -4
-    - ElvUI: Action Bars > Player Bars > 1 Tab > Button Size > set to 40
+    - ElvUI: Action Bars > Player Bars > 1 Tab > Button Size > set to 36
     - ElvUI: Action Bars > Player Bars > 4 Tab > Button Size > set to 34
     - ElvUI: Action Bars > Player Bars > 5 Tab > Button Size > set to 34
-    - ElvUI: Action Bars > Player Bars > 6 Tab > Button Size > set to 40
-- For the Atrocity UI Healer Profile in ElvUI
-    - ElvUI: Action Bars > Player Bars > ALL numbered tabs > Keybind Text > Y-Offset > set to -2
-    - ElvUI: Action Bars > Player Bars > 1 Tab > Button Size > set to 30
-    - ElvUI: Action Bars > Player Bars > 4 Tab > Button Size > set to 28
-    - ElvUI: Action Bars > Player Bars > 5 Tab > Button Size > set to 28
-    - ElvUI: Action Bars > Player Bars > 6 Tab > Button Size > set to 30
+    - ElvUI: Action Bars > Player Bars > 6 Tab > Button Size > set to 36
 - ElvUI: Action Bars > Player Bars > 3 Tab > Buttons > set to 12
 - ElvUI: Action Bars > Player Bars > 4 Tab > Bar Settings > Anchor Point > set to BOTTOMLEFT
 - ElvUI: Action Bars > Player Bars > 5 Tab > Buttons Per Row > set to 6
@@ -119,7 +113,7 @@ Zoxe's Tweaks to AtrocityUI
 - ElvUI: UnitFrames > Group Units Tab > Raid 3 Tab > Buffs > Stack Counter > Font Size > set to 14
 - ElvUI: UnitFrames > Group Units Tab > Raid 3 Tab > Debuffs > Stack Counter > Font Size > set to 14
 - ElvUI: Toggle Anchors > Move BNet Frame to -3, -290
-- ElvUI: Toggle Anchors > Move Clock to -3, -238
+- ElvUI: Toggle Anchors > Move Clock to -3, -240
 - ElvUI: Toggle Anchors > Move Pet Bar to -504, 3
 - ElvUI: Toggle Anchors > Move bar 3 to 504, 3
 - ElvUI: Toggle Anchors > Move Vehicle Leave Button to -473, 276
@@ -130,19 +124,19 @@ Zoxe's Tweaks to AtrocityUI
 - ElvUI: Toggle Anchors > Move Player Buffs frame to -269, -3
 - ElvUI: Toggle Anchors > Move Player Debuffs frame to -269, -211
 - For the Atrocity UI Profile in ElvUI
-    - ElvUI: Toggle Anchors > Move bar 4 to 360, 3
-    - ElvUI: Toggle Anchors > Move bar 5 to -360, 3
-    - ElvUI: Toggle Anchors > Move bar 6 to 0, 46
-    - ElvUI: Toggle Anchors > Move Alternative Power to 0, 292
+    - ElvUI: Toggle Anchors > Move bar 4 to 324, 3
+    - ElvUI: Toggle Anchors > Move bar 5 to -324, 3
+    - ElvUI: Toggle Anchors > Move bar 6 to 0, 42
+    - ElvUI: Toggle Anchors > Move Alternative Power to 0, 82
     - ElvUI: Toggle Anchors > Move Raid Frames 1 to 3, 300
     - ElvUI: Toggle Anchors > Move Raid Frames 2 to 3, 300
     - ElvUI: Toggle Anchors > Move Raid Frames 3 to 3, 300
     - ElvUI: Toggle Anchors > Move Party Frames to 893, 580
 - For the Atrocity UI Healer Profile in ElvUI
     - ElvUI: Toggle Anchors > Move Pet Frame to -418, 396
-    - ElvUI: Toggle Anchors > Move bar 4 to 278, 3
-    - ElvUI: Toggle Anchors > Move bar 5 to -278, 3
-    - ElvUI: Toggle Anchors > Move bar 6 to 0, 38
+    - ElvUI: Toggle Anchors > Move bar 4 to 261, 3
+    - ElvUI: Toggle Anchors > Move bar 5 to -261, 3
+    - ElvUI: Toggle Anchors > Move bar 6 to 0, 34
 
 - AddOnSkins: Embed Settings > Two Window Embed System > Window One Width > set to 250
 
@@ -153,18 +147,18 @@ Zoxe's Tweaks to AtrocityUI
 - Shadow & Light: Modules Tab > Armory Mode > check "Character Armory"
 - Shadow & Light: Modules Tab > Armory Mode > check "Inspect Armory"
 - Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Item Level > set Font to "Expressway"
-- Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Item Level > set Font Size to 14
+- Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Item Level > set Font Size to 13
 - Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Enchant String > set Font to "Expressway"
-- Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Enchant String > set Font Size to 14
+- Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Enchant String > set Font Size to 13
 - Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Enchant String > set Y-Offset to -2
 - Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Enchant String > uncheck "Display Quality"
 - Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Gem Sockets > set Y-Offset to -2
 - Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Transmog > uncheck "Enable Arrow"
 - Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Durability > Visibility > set to "Hide"
 - Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Item Level > set Font to "Expressway"
-- Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Item Level > set Font Size to 14
+- Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Item Level > set Font Size to 13
 - Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Enchant String > set Font to "Expressway"
-- Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Enchant String > set Font Size to 14
+- Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Enchant String > set Font Size to 13
 - Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Enchant String > set Y-Offset to -2
 - Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Enchant String > uncheck "Display Quality"
 - Shadow & Light: Modules Tab > Armory Mode > Inspect Armory Tab > Gem Sockets > set Y-Offset to -2
@@ -172,7 +166,8 @@ Zoxe's Tweaks to AtrocityUI
 - Shadow & Light: Modules Tab > Armory Mode > Attributes Tab > set Font to "Expressway" for all texts
 - Shadow & Light: Modules Tab > Armory Mode > Attributes Tab > set Font Outline to "Outline" for all texts
 - Shadow & Light: Modules Tab > Armory Mode > Attributes Tab > set Font Size to 22 for Item Level text
-- Shadow & Light: Modules Tab > Armory Mode > Attributes Tab > set Font Size to 14 for Attributes and Categories texts
+- Shadow & Light: Modules Tab > Armory Mode > Attributes Tab > set Font Size to 13 for Attributes
+- Shadow & Light: Modules Tab > Armory Mode > Attributes Tab > set Font Size to 14 for Categories
 - Shadow & Light: Modules Tab > Enhance Shadows > uncheck "Enable"
 - Shadow & Light: Modules Tab > PvP > PvP Auto Release > check "Enable"
 - Shadow & Light: Modules Tab > Raid Markers > uncheck "Enable"
