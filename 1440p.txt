@@ -74,9 +74,12 @@ Zoxe's Tweaks to AtrocityUI
     - ElvUI: Action Bars > Player Bars > ALL numbered tabs > Keybind Text > Font Size > set to 16
     - ElvUI: Action Bars > Player Bars > ALL numbered tabs > Keybind Text > Y-Offset > set to -4
     - ElvUI: Action Bars > Player Bars > 1 Tab > Button Size > set to 36
-    - ElvUI: Action Bars > Player Bars > 4 Tab > Button Size > set to 34
-    - ElvUI: Action Bars > Player Bars > 5 Tab > Button Size > set to 34
+    - ElvUI: Action Bars > Player Bars > 4 Tab > Button Size > set to 32
+    - ElvUI: Action Bars > Player Bars > 5 Tab > Button Size > set to 32
     - ElvUI: Action Bars > Player Bars > 6 Tab > Button Size > set to 36
+- For the Atrocity UI Healer Profile in ElvUI
+    - ElvUI: Action Bars > Player Bars > 5 Tab > Button Size > set to 26
+    - ElvUI: Action Bars > Player Bars > 6 Tab > Button Size > set to 28
 - ElvUI: Action Bars > Player Bars > 3 Tab > Buttons > set to 12
 - ElvUI: Action Bars > Player Bars > 4 Tab > Bar Settings > Anchor Point > set to BOTTOMLEFT
 - ElvUI: Action Bars > Player Bars > 5 Tab > Buttons Per Row > set to 6
@@ -87,6 +90,7 @@ Zoxe's Tweaks to AtrocityUI
 - ElvUI: Chat > General Tab > Voice Chat > check "Hide Voice Buttons"
 - ElvUI: Chat > Panels Tab > Panel Height > set to 272
 - ElvUI: Chat > Panels Tab > Panel Width > set to 500
+- ElvUI: DataBars > Experience Tab > check "Enable"
 - ElvUI: DataBars > Experience Tab > Height > set to 20
 - ElvUI: DataBars > Experience Tab > Fonts > set Font Size to 16
 - ElvUI: DataTexts > Panels Tab > Minimap Panels > check "Enable"
@@ -124,8 +128,8 @@ Zoxe's Tweaks to AtrocityUI
 - ElvUI: Toggle Anchors > Move Player Buffs frame to -269, -3
 - ElvUI: Toggle Anchors > Move Player Debuffs frame to -269, -211
 - For the Atrocity UI Profile in ElvUI
-    - ElvUI: Toggle Anchors > Move bar 4 to 324, 3
-    - ElvUI: Toggle Anchors > Move bar 5 to -324, 3
+    - ElvUI: Toggle Anchors > Move bar 4 to 327, 3
+    - ElvUI: Toggle Anchors > Move bar 5 to -327, 3
     - ElvUI: Toggle Anchors > Move bar 6 to 0, 42
     - ElvUI: Toggle Anchors > Move Alternative Power to 0, 82
     - ElvUI: Toggle Anchors > Move Raid Frames 1 to 3, 300
