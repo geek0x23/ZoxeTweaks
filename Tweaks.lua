@@ -24,7 +24,6 @@ zt.FixScaling = function(scale)
     local scaledScreenWidth = GetScreenWidth() * globalScale
 
     -- Blizzard Frames
-    ---@type Frame
     AddonList:SetScale(scale)
     ChannelFrame:SetScale(scale)
     CharacterFrame:SetScale(scale)
@@ -50,6 +49,9 @@ zt.FixScaling = function(scale)
     QuestFrame:SetScale(scale)
     QueueStatusFrame:SetScale(scale)
     ReadyCheckListenerFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
+    RaidUtilityPanel:SetScale(scale)
+    RaidUtility_ShowButton:HookScript("OnShow", function(self) self:SetScale(scale) end)
+    RaidUtility_CloseButton:HookScript("OnShow", function(self) self:SetScale(scale) end)
     SettingsPanel:HookScript("OnShow", function(self) self:SetScale(scale) end)
     SpellBookFrame:SetScale(scale)
     SuperTrackedFrame:SetScale(scale)
@@ -105,10 +107,6 @@ zt.FixScaling = function(scale)
             ProfessionsCustomerOrdersFrame.Form:HookScript("OnHide", function(self) self:GetParent():SetScale(scale) end)
             ProfessionsCustomerOrdersFrameOrdersTab:HookScript("OnClick", function(self) self:GetParent():SetScale(scale) end)
             ProfessionsCustomerOrdersFrameBrowseTab:HookScript("OnClick", function(self) self:GetParent():SetScale(scale) end)
-        elseif addonName == "Blizzard_RaidUI" then
-            RaidUtilityPanel:SetScale(scale)
-            RaidUtility_ShowButton:HookScript("OnShow", function(self) self:SetScale(scale) end)
-            RaidUtility_CloseButton:HookScript("OnShow", function(self) self:SetScale(scale) end)
         elseif addonName == "Blizzard_TrainerUI" then
             ClassTrainerFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
         end
