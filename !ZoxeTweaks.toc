@@ -5,4 +5,11 @@
 ## Version: 1.0.0
 ## OptionalDeps: AstralKeys, Auctionator, ElvUI, _DebugLog
 
-Tweaks.lua
+embeds.xml
+
+# Core.lua should be first always
+Core.lua
+
+DataBrokers.lua
+Scaling.lua
+Tooltip.lua

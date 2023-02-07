@@ -1,13 +1,5 @@
----@diagnostic disable: undefined-global
-
 local _, zt = ...
 
-zt.debug = function(...)
-    if not DLAPI then return end
-    DLAPI.DebugLog("ZoxeTweaks", ...)
-end
-
-zt.eventFrame = CreateFrame("Frame", "ZoxeTweaksLoaderFrame", UIParent)
 zt.eventFrame:RegisterEvent("ADDON_LOADED")
 zt.eventFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
 zt.eventFrame:SetScript("OnEvent", function(self, event)
@@ -177,9 +169,4 @@ zt.FixScaling = function(scale)
     if ElvUI then
         ElvLootFrame:SetScale(scale)
     end
-end
-
--- Hide vendor price from tooltip if Auctionator is installed.
-if Auctionator then
-    GameTooltip_OnTooltipAddMoney = function() end
 end
