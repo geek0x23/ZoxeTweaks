@@ -1,4 +1,5 @@
 {
+    "Lua.runtime.version": "Lua 5.1",
     "Lua.workspace.ignoreDir": [
         ".vscode",
         "Libs"
@@ -7,6 +8,13 @@
         "Libs"
     ],
     "Lua.diagnostics.globals": [
+        "floor",
+        "format",
+        "GetCurrentRegion",
+        "GetServerTime",
+        "CreateFrame",
+        "UIParent",
+        "hooksecurefunc",
         "AddonList",
         "ChannelFrame",
         "CharacterFrame",
@@ -39,6 +47,9 @@
         "TradeFrame",
         "WeeklyRewardsFrame",
         "ProfessionsFrame",
+        "EventRegistry",
+        "GetScreenWidth",
+        "GetScreenHeight",
         "AchievementFrame",
         "AuctionHouseFrame",
         "CalendarFrame",
@@ -59,23 +70,17 @@
         "ProfessionsCustomerOrdersFrameBrowseTab",
         "ClassTrainerFrame",
         "GetCursorPosition",
-        "securecallfunction",
-        "strmatch",
-        "CreateFrame",
-        "UIParent",
-        "hooksecurefunc",
-        "EventRegistry",
-        "GetScreenWidth",
-        "GetScreenHeight",
-        "DLAPI",
-        "LibStub",
-        "AstralKeys",
-        "AstralKeyFrame",
         "MinimapRightClickMenu",
         "ElvUI",
         "ElvLootFrame",
         "RaidUtilityPanel",
+        "RaidUtility_ShowButton",
         "RaidUtility_CloseButton",
-        "RaidUtility_ShowButton"
+        "AstralKeys",
+        "AstralKeyFrame",
+        "Auctionator",
+        "LibStub",
+        "DLAPI",
+        "ObjectiveTrackerBlocksFrame"
     ]
 }

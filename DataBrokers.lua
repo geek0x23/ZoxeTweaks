@@ -1,3 +1,0 @@
-local _, zt = ...
-
-local ldb = LibStub:GetLibrary("LibDataBroker-1.1")

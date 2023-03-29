@@ -2,14 +2,11 @@ local _, zt = ...
 
 zt.eventFrame:RegisterEvent("ADDON_LOADED")
 zt.eventFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
-zt.eventFrame:SetScript("OnEvent", function(self, event)
+zt.eventFrame:SetScript("OnEvent", function(_, event)
     if event == "PLAYER_ENTERING_WORLD" then zt.FixScaling(1.2) end
 end)
 
 zt.FixScaling = function(scale)
-    -- only scale on 1440p
-    if GetScreenHeight() < 1440 then return end
-
     zt.debug("zt.FixScaling called.")
 
     local globalScale = UIParent:GetEffectiveScale()
@@ -36,6 +33,7 @@ zt.FixScaling = function(scale)
     MirrorTimer2:SetScale(scale)
     MirrorTimer3:SetScale(scale)
     ObjectiveTrackerFrame:SetScale(scale)
+    ObjectiveTrackerBlocksFrame:SetScale(scale)
     OpenMailFrame:SetScale(scale)
     PVEFrame:SetScale(scale)
     QuestFrame:SetScale(scale)
