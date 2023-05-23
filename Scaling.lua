@@ -23,6 +23,7 @@ zt.FixScaling = function(scale)
     GameMenuFrame:SetScale(scale)
     GossipFrame:SetScale(scale)
     HelpFrame:SetScale(scale)
+    ItemTextFrame:SetScale(scale)
     LFGDungeonReadyPopup:SetScale(scale)
     LFGListApplicationDialog:SetScale(scale)
     LFGListInviteDialog:SetScale(scale)
@@ -47,12 +48,13 @@ zt.FixScaling = function(scale)
     SuperTrackedFrame:SetScale(scale)
     TimeManagerFrame:SetScale(scale)
     TradeFrame:SetScale(scale)
-    WeeklyRewardsFrame:SetScale(scale)
 
     ProfessionsFrame:SetScale(scale)
     ProfessionsFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
     ProfessionsFrame:HookScript("OnHide", function(self) self:SetScale(scale) end)
     EventRegistry:RegisterCallback("ProfessionsFrame.TabSet", function() ProfessionsFrame:SetScale(scale) end)
+    EventRegistry:RegisterCallback("Professions.ProfessionSelected", function() ProfessionsFrame:SetScale(scale) end)
+    EventRegistry:RegisterCallback("Professions.TransactionUpdated", function() ProfessionsFrame:SetScale(scale) end)
     ProfessionsFrame.CraftingPage.CraftingOutputLog:HookScript("OnShow", function(self)
         self:GetParent():GetParent():SetScale(scale)
     end)
@@ -78,6 +80,8 @@ zt.FixScaling = function(scale)
             EncounterJournal:SetScale(scale)
         elseif addonName == "Blizzard_GenericTraitUI" then
             GenericTraitFrame:SetScale(scale)
+        elseif addonName == "Blizzard_GuildBankUI" then
+            GuildBankFrame:SetScale(scale)
         elseif addonName == "Blizzard_InspectUI" then
             InspectFrame:SetScale(scale)
         elseif addonName == "Blizzard_ItemInteractionUI" then
@@ -99,6 +103,8 @@ zt.FixScaling = function(scale)
             ProfessionsCustomerOrdersFrameBrowseTab:HookScript("OnClick", function(self) self:GetParent():SetScale(scale) end)
         elseif addonName == "Blizzard_TrainerUI" then
             ClassTrainerFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
+        elseif addonName == "Blizzard_WeeklyRewards" then
+            WeeklyRewardsFrame:SetScale(scale)
         end
     end)
 

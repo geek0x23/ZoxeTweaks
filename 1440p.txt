@@ -71,7 +71,7 @@ Zoxe's Tweaks to AtrocityUI
 - ElvUI: Action Bars > Extra Buttons > Boss Button > Font Size > set to 16
 - For the Atrocity UI Profile in ElvUI
     - ElvUI: Action Bars > Player Bars > ALL numbered tabs > Count Text > Font Size > set to 16
-    - ElvUI: Action Bars > Player Bars > ALL numbered tabs > Keybind Text > Font Size > set to 16
+    - ElvUI: Action Bars > Player Bars > ALL numbered tabs > Keybind Text > Font Size > set to 15
     - ElvUI: Action Bars > Player Bars > ALL numbered tabs > Keybind Text > Y-Offset > set to -4
     - ElvUI: Action Bars > Player Bars > 1 Tab > Button Size > set to 36
     - ElvUI: Action Bars > Player Bars > 4 Tab > Button Size > set to 32
@@ -137,17 +137,20 @@ Zoxe's Tweaks to AtrocityUI
     - ElvUI: Toggle Anchors > Move Raid Frames 3 to 3, 300
     - ElvUI: Toggle Anchors > Move Party Frames to 893, 580
 - For the Atrocity UI Healer Profile in ElvUI
-    - ElvUI: Toggle Anchors > Move Pet Frame to -418, 396
+    - ElvUI: Toggle Anchors > Move Pet Frame to -417, 397
     - ElvUI: Toggle Anchors > Move bar 4 to 261, 3
     - ElvUI: Toggle Anchors > Move bar 5 to -261, 3
     - ElvUI: Toggle Anchors > Move bar 6 to 0, 34
 
 - AddOnSkins: Embed Settings > Two Window Embed System > Window One Width > set to 250
 
-- Shadow & Light: Media Tab > Zone Text Tab > Zone Text > set Font to "Expressway" for all texts
+- Shadow & Light: Media Tab > Zone Text Tab > set Font to "Expressway" for all texts
+- Shadow & Light: Media Tab > Zone Text Tab > set Font Outline to "Outline" for all texts
+- Shadow & Light: Media Tab > Objective Tracker Tab > set Font to "Expressway" for all texts
+- Shadow & Light: Media Tab > Objective Tracker Tab > set Font Outline to "Outline" for all texts
 - Shadow & Light: Media Tab > Misc Texts Tab > set Font to "Expressway" for all texts
+- Shadow & Light: Media Tab > Misc Texts Tab > set Font Outline to "Outline" for all texts
 - Shadow & Light: Media Tab > Misc Texts Tab > set Font Size to 14 for all texts except "Big Banner Text"
-- Shadow & Light: Skins Tab > BLizzard Tab > Talking Head Frame > check "Hide"
 - Shadow & Light: Modules Tab > Armory Mode > check "Character Armory"
 - Shadow & Light: Modules Tab > Armory Mode > check "Inspect Armory"
 - Shadow & Light: Modules Tab > Armory Mode > Character Armory Tab > Item Level > set Font to "Expressway"
