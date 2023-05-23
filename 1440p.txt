@@ -67,6 +67,7 @@ Zoxe's Tweaks to AtrocityUI
 - ElvUI: General > Alternative Power > Text > Font Size > set to 16
 - ElvUI: General > BlizzUI Improvements > Loot Roll Tab > Font Group > Font Size > set to 16
 - ElvUI: General > BlizzUI Improvements > Item Level Tab > Font Group > Font Size > set to 16
+- ElvUI: General > Queue Status > Set Scale to 0.45
 - ElvUI: Action Bars > Player Bars > ALL numbered tabs > Profession Quality > uncheck "Enable"
 - ElvUI: Action Bars > Extra Buttons > Boss Button > Font Size > set to 16
 - For the Atrocity UI Profile in ElvUI
@@ -127,6 +128,7 @@ Zoxe's Tweaks to AtrocityUI
 - ElvUI: Toggle Anchors > Move Focus Frame to -800, 550
 - ElvUI: Toggle Anchors > Move Player Buffs frame to -269, -3
 - ElvUI: Toggle Anchors > Move Player Debuffs frame to -269, -211
+- ElvUI: Toggle Anchors > Move Queue Status frame to -235, -22
 - For the Atrocity UI Profile in ElvUI
     - ElvUI: Toggle Anchors > Move bar 4 to 327, 3
     - ElvUI: Toggle Anchors > Move bar 5 to -327, 3
