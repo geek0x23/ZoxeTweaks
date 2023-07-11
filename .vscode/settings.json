@@ -3,8 +3,6 @@
     "Lua.diagnostics.globals": [
         "AchievementFrame",
         "AddonList",
-        "AstralKeyFrame",
-        "AstralKeys",
         "Auctionator",
         "AuctionHouseFrame",
         "CalendarFrame",
@@ -14,6 +12,7 @@
         "ClassTalentFrame",
         "ClassTrainerFrame",
         "CollectionsJournal",
+        "CovenantMissionFrame",
         "CommunitiesFrame",
         "DLAPI",
         "DressUpFrame",
@@ -27,6 +26,7 @@
         "GenericTraitFrame",
         "GetCursorPosition",
         "GossipFrame",
+        "GuildBankFrame",
         "HelpFrame",
         "InspectFrame",
         "ItemInteractionFrame",
@@ -41,9 +41,7 @@
         "MajorFactionRenownFrame",
         "MerchantFrame",
         "MinimapRightClickMenu",
-        "MirrorTimer1",
-        "MirrorTimer2",
-        "MirrorTimer3",
+        "MirrorTimerContainer",
         "ObjectiveTrackerBlocksFrame",
         "ObjectiveTrackerFrame",
         "OpenMailFrame",
@@ -63,8 +61,8 @@
         "SuperTrackedFrame",
         "TimeManagerFrame",
         "TradeFrame",
+        "UIWidgetTopCenterContainerFrame",
         "WardrobeFrame",
-        "WeeklyRewardsFrame",
-        "GuildBankFrame"
+        "WeeklyRewardsFrame"
     ]
 }

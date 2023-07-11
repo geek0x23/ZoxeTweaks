@@ -1,9 +1,9 @@
 ## Author: Zoxe
-## Interface: 100100
+## Interface: 100105
 ## Notes: Just some tweaks
 ## Title: ZoxeTweaks
 ## Version: 1.0.0
-## OptionalDeps: AstralKeys, Auctionator, ElvUI, _DebugLog
+## OptionalDeps: Auctionator, ElvUI, _DebugLog
 
 # Core.lua should be first always
 Core.lua

@@ -2,7 +2,7 @@ local _, zt = ...
 
 zt.debug = function(...)
     if not DLAPI then
-        --print(string.format(...))
+        print(string.format(...))
     else
         DLAPI.DebugLog("ZoxeTweaks", ...)
     end

@@ -3,7 +3,9 @@ local _, zt = ...
 zt.eventFrame:RegisterEvent("ADDON_LOADED")
 zt.eventFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
 zt.eventFrame:SetScript("OnEvent", function(_, event)
-    if event == "PLAYER_ENTERING_WORLD" then zt.FixScaling(1.2) end
+    local scaleFactor = 1.2
+
+    if event == "PLAYER_ENTERING_WORLD" then zt.FixScaling(scaleFactor) end
 end)
 
 zt.FixScaling = function(scale)
@@ -30,9 +32,7 @@ zt.FixScaling = function(scale)
     if MajorFactionRenownFrame then MajorFactionRenownFrame:SetScale(scale) end
     MailFrame:SetScale(scale)
     MerchantFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
-    MirrorTimer1:SetScale(scale)
-    MirrorTimer2:SetScale(scale)
-    MirrorTimer3:SetScale(scale)
+    MirrorTimerContainer:SetScale(scale)
     ObjectiveTrackerFrame:SetScale(scale)
     ObjectiveTrackerBlocksFrame:SetScale(scale)
     OpenMailFrame:SetScale(scale)
@@ -48,16 +48,7 @@ zt.FixScaling = function(scale)
     SuperTrackedFrame:SetScale(scale)
     TimeManagerFrame:SetScale(scale)
     TradeFrame:SetScale(scale)
-
-    ProfessionsFrame:SetScale(scale)
-    ProfessionsFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
-    ProfessionsFrame:HookScript("OnHide", function(self) self:SetScale(scale) end)
-    EventRegistry:RegisterCallback("ProfessionsFrame.TabSet", function() ProfessionsFrame:SetScale(scale) end)
-    EventRegistry:RegisterCallback("Professions.ProfessionSelected", function() ProfessionsFrame:SetScale(scale) end)
-    EventRegistry:RegisterCallback("Professions.TransactionUpdated", function() ProfessionsFrame:SetScale(scale) end)
-    ProfessionsFrame.CraftingPage.CraftingOutputLog:HookScript("OnShow", function(self)
-        self:GetParent():GetParent():SetScale(scale)
-    end)
+    UIWidgetTopCenterContainerFrame:SetScale(scale)
 
     zt.eventFrame:SetScript("OnEvent", function(_, event, addonName)
         if event ~= "ADDON_LOADED" then return end
@@ -78,6 +69,8 @@ zt.FixScaling = function(scale)
             CommunitiesFrame:SetScale(scale)
         elseif addonName == "Blizzard_EncounterJournal" then
             EncounterJournal:SetScale(scale)
+        elseif addonName == "Blizzard_GarrisonUI" then
+            CovenantMissionFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
         elseif addonName == "Blizzard_GenericTraitUI" then
             GenericTraitFrame:SetScale(scale)
         elseif addonName == "Blizzard_GuildBankUI" then
@@ -93,6 +86,16 @@ zt.FixScaling = function(scale)
             EquipmentFlyoutFrame:SetScale(scale)
         elseif addonName == "Blizzard_MacroUI" then
             MacroFrame:SetScale(scale)
+        elseif addonName == "Blizzard_Professions" then
+            ProfessionsFrame:SetScale(scale)
+            ProfessionsFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
+            ProfessionsFrame:HookScript("OnHide", function(self) self:SetScale(scale) end)
+            EventRegistry:RegisterCallback("ProfessionsFrame.TabSet", function() ProfessionsFrame:SetScale(scale) end)
+            EventRegistry:RegisterCallback("Professions.ProfessionSelected", function() ProfessionsFrame:SetScale(scale) end)
+            EventRegistry:RegisterCallback("Professions.TransactionUpdated", function() ProfessionsFrame:SetScale(scale) end)
+            ProfessionsFrame.CraftingPage.CraftingOutputLog:HookScript("OnShow", function(self)
+                self:GetParent():GetParent():SetScale(scale)
+            end)
         elseif addonName == "Blizzard_ProfessionsCustomerOrders" then
             ProfessionsCustomerOrdersFrame:SetScale(scale)
             ProfessionsCustomerOrdersFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
@@ -151,10 +154,6 @@ zt.FixScaling = function(scale)
     end)
 
     -- Addon Frames
-    if AstralKeys then
-        AstralKeyFrame:SetScale(scale)
-    end
-
     if MinimapRightClickMenu then
         MinimapRightClickMenu:SetScale(scale)
         MinimapRightClickMenu:SetScript("OnShow", function(self)

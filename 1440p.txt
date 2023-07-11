@@ -37,8 +37,12 @@ Zoxe's Tweaks to AtrocityUI
 - Details: Tooltips > Text Size > set to 16
 - Details: Tooltips > Anchor > Move Anchor Point > drag the anchor to right next to the right chat box.
 
-- Plater: Buff Settings > Enemy Npc Tab > set all Font Size boxes to 8
-- Plater: Buff Settings > Enemy Player Tab > set all Font Size boxes to 8
+- Plater: Enemy Npc Tab > set all Font Size boxes to 8
+- Plater: Enemy Player Tab > set all Font Size boxes to 8
+- Plater: Friendly Player Tab > set all Font Size boxes to 9
+- Plater: Auto Tab > Auto Toggle Friendly Nameplates > check "Enabled"
+- Plater: Auto Tab > Auto Toggle Friendly Nameplates > check "In Dungeons"
+- Plater: Auto Tab > Auto Toggle Friendly Nameplates > check "In Raid"
 
 - WeakAuras: Essentials > Player Castbar > Display Tab > set both Font Size fields to 16
 - WeakAuras: Essentials > Player Castbar (Caster) > Display Tab > set both Font Size fields to 16
@@ -48,16 +52,8 @@ Zoxe's Tweaks to AtrocityUI
 - WeakAuras: Essentials > Combat Time > Display Tab > Position Settings > Y Offset > set to -432
 - WeakAuras: Essentials > Combat Ress > Display Tab > Position Settings > X Offset > set to -1643
 - WeakAuras: Essentials > Combat Ress > Display Tab > Position Settings > Y Offset > set to -432
-- WeakAuras: Shaman > Elemental: Elemental Equilibrium > Load Tab > check "never"
-- WeakAuras: Shaman > Elemental: Primordial Surge > Load Tab > check "never"
-- WeakAuras: Shaman > Mana Spring Totem > Load Tab > check "never"
-- WeakAuras: Warrior > Fury: Execute > Load Tab > check "never"
-- WeakAuras: Warrior > Fury: Whirlwind Buff > Load Tab > check "never"
-- WeakAuras: Warrior > Warrior: Current Stance > Load Tab > check "never"
-- WeakAuras: Warrior > Protection: Outburst > nudge the WA up above Hekili
-- WeakAuras: Warrior > Protection: Execute > Load Tab > check "never"
-- WeakAuras: Warrior > Arms: Execute > Load Tab > check "never"
-- WeakAuras: Warrior > Arms: Rend > Load Tab > check "never"
+- WeakAuras: Dungeons > Utility > Automark > Group Tab > Position Settings > Y Offset > set to 90
+- WeakAuras: Dungeons > Utility > Automark > Display Tab > Text 1 > set Font Size to 16
 
 - ElvUI: General > Media Tab > Default Font > Font Size > set to 16 and click "Apply Font To All"
 - ElvUI: General > Media Tab > Default Font > Font Size > set back to 14 to fix scaling on Blizzard frames
@@ -106,6 +102,7 @@ Zoxe's Tweaks to AtrocityUI
 - ElvUI: Tooltip > General Tab > Spell/Item IDs > Modifier for IDs > change to "SHIFT"
 - ElvUI: Tooltip > General Tab > Spell/Item IDs > Item Count > change to "None"
 - ElvUI: UnitFrames > General Tab > Fonts > Font Size > set to 16
+- ElvUI: UnitFrames > Group Units > Party > Raid Role Indicator > X-Offset > set to -27
 - For the Atrocity UI Profile in ElvUI
     - ElvUI: UnitFrames > Group Units Tab > Raid 1 Tab > General > Size and Positions > Width > set to 99
     - ElvUI: UnitFrames > Group Units Tab > Raid 2 Tab > General > Size and Positions > Width > set to 99
