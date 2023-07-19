@@ -41,8 +41,8 @@ Zoxe's Tweaks to AtrocityUI
 - ElvUI: Tooltip > General Tab > Spell/Item IDs > Modifier for IDs > change to "SHIFT"
 - ElvUI: Tooltip > General Tab > Spell/Item IDs > Item Count > change to "None"
 - ElvUI: UnitFrames > General Tab > Fonts > Font Size > set to 16
-- ElvUI: UnitFrames > Group Units > Party > Raid Role Indicator > X-Offset > set to -27
 - For the Atrocity UI Profile in ElvUI
+    - ElvUI: UnitFrames > Group Units > Party > Raid Role Indicator > X-Offset > set to -27
     - ElvUI: UnitFrames > Group Units Tab > Raid 1 Tab > General > Size and Positions > Width > set to 99
     - ElvUI: UnitFrames > Group Units Tab > Raid 2 Tab > General > Size and Positions > Width > set to 99
     - ElvUI: UnitFrames > Group Units Tab > Raid 3 Tab > General > Size and Positions > Width > set to 99
@@ -56,7 +56,7 @@ Zoxe's Tweaks to AtrocityUI
 - ElvUI: Toggle Anchors > Move Clock to -3, -233
 - ElvUI: Toggle Anchors > Move Pet Bar to -504, 3
 - ElvUI: Toggle Anchors > Move bar 3 to 504, 3
-- ElvUI: Toggle Anchors > Move Vehicle Leave Button to -473, 276
+- ElvUI: Toggle Anchors > Move Vehicle Leave Button to -472, 277
 - ElvUI: Toggle Anchors > Move Tooltip to -3, 239
 - ElvUI: Toggle Anchors > Move Loss Control Icon to 0, -500
 - ElvUI: Toggle Anchors > Move Boss Frames to -700, -300
@@ -67,7 +67,6 @@ Zoxe's Tweaks to AtrocityUI
     - ElvUI: Toggle Anchors > Move bar 4 to 276, 3
     - ElvUI: Toggle Anchors > Move bar 5 to -276, 3
     - ElvUI: Toggle Anchors > Move bar 6 to 0, 36
-    - ElvUI: Toggle Anchors > Move Alternative Power to 0, 82
     - ElvUI: Toggle Anchors > Move Raid Frames 1 to 3, 300
     - ElvUI: Toggle Anchors > Move Raid Frames 2 to 3, 300
     - ElvUI: Toggle Anchors > Move Raid Frames 3 to 3, 300
@@ -120,7 +119,8 @@ Zoxe's Tweaks to AtrocityUI
 
 - Plater: Enemy Npc Tab > set all Font Size boxes to 8
 - Plater: Enemy Player Tab > set all Font Size boxes to 8
-- Plater: Friendly Player Tab > set all Font Size boxes to 9
+- Plater: Friendly Player Tab > set all Font Size boxes to 8
+- Plater: Friendly Npc Tab > set all Font Size boxes to 8
 - Plater: Auto Tab > Auto Toggle Friendly Nameplates > check "Enabled"
 - Plater: Auto Tab > Auto Toggle Friendly Nameplates > check "In Dungeons"
 - Plater: Auto Tab > Auto Toggle Friendly Nameplates > check "In Raid"
@@ -159,3 +159,5 @@ Zoxe's Tweaks to AtrocityUI
 - Shadow & Light: Modules Tab > Enhance Shadows > uncheck "Enable"
 - Shadow & Light: Modules Tab > PvP > PvP Auto Release > check "Enable"
 - Shadow & Light: Modules Tab > Raid Markers > uncheck "Enable"
+
+- WarpDeplete: General > set all Font Sizes to 16
