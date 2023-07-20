@@ -85,16 +85,19 @@ Zoxe's Tweaks to AtrocityUI
 - WeakAuras: Essentials > Focus Castbar > Display Tab > set both Font Size fields to 16
 - WeakAuras: Essentials > Combat Time > Display Tab > Position Settings > X Offset > set to -1668
 - WeakAuras: Essentials > Combat Time > Display Tab > Position Settings > Y Offset > set to -432
-- WeakAuras: Essentials > Combat Ress > Display Tab > Position Settings > X Offset > set to -1288
+- WeakAuras: Essentials > Combat Ress > Display Tab > Position Settings > X Offset > set to -1289
 - WeakAuras: Essentials > Combat Ress > Display Tab > Position Settings > Y Offset > set to -432
 - WeakAuras: Dungeons > Utility > Automark > Group Tab > Position Settings > Y Offset > set to 90
 - WeakAuras: Dungeons > Utility > Automark > Display Tab > Text 1 > set Font Size to 16
 
 - BigWigs: Bars > Bars Tab > Font size > set to 16
 - BigWigs: Bars > Emphasized Bars Tab > Font size > set to 16
-- BigWigs: Move InfoBox to a reasonable spot
-- For the Atrocity UI Healer profile in BigWigs
-    - Big Wigs: Bars > Emphasized Bars Tab > X Position > set to 634
+- BigWigs: Bars > Bars Tab > X Position > set to 1706
+- BigWigs: Bars > Bars Tab > Y Position > set to 162
+- Create a new profile for healer specs, and duplicate the AtrocityUI profile.
+- For the new healer profile
+    - Big Wigs: Bars > Emphasized Bars Tab > X Position > set to 1080
+    - Big Wigs: Bars > Emphasized Bars Tab > Y Position > set to 276
 
 - Mythic Raid Tools: Raid cooldowns > Appearance Tab > Font > Font Size > set to 16
 - Mythic Raid Tools: Raid cooldowns > Spells Tab > check "Rallying Cry"
