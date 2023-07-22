@@ -1,5 +1,8 @@
 ---@class AceAddon : AceEvent-3.0, AceHook-3.0, AceConsole-3.0
 local ZT = LibStub("AceAddon-3.0"):NewAddon("ZoxeTweaks", "AceConsole-3.0", "AceHook-3.0", "AceEvent-3.0")
+local AceConfig = LibStub("AceConfig-3.0")
+local AceConfigDialog = LibStub("AceConfigDialog-3.0")
+local AceConfigCmd = LibStub("AceConfigCmd-3.0")
 
 _G["ZoxeTweaks"] = ZT
 
@@ -44,17 +47,17 @@ function ZT:OnInitialize()
         }
     }
 
-    LibStub("AceConfig-3.0"):RegisterOptionsTable("ZoxeTweaks", options)
-    LibStub("AceConfigDialog-3.0"):AddToBlizOptions("ZoxeTweaks", "Zoxe Tweaks")
+    AceConfig:RegisterOptionsTable("ZoxeTweaks", options)
+    AceConfigDialog:AddToBlizOptions("ZoxeTweaks", "Zoxe Tweaks")
 
     self:RegisterChatCommand("zt", "ChatCommand")
 end
 
 function ZT:ChatCommand(input)
     if not input or input:trim() == "" then
-        LibStub("AceConfigDialog-3.0"):Open("ZoxeTweaks")
+        AceConfigDialog:Open("ZoxeTweaks")
     else
-        LibStub("AceConfigCmd-3.0").HandleCommand(ZT, "zt", "ZoxeTweaks", input)
+        AceConfigCmd.HandleCommand(ZT, "zt", "ZoxeTweaks", input)
     end
 end
 

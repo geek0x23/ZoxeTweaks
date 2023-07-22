@@ -67,6 +67,6 @@
     ],
     "Lua.workspace.ignoreDir": [
         ".vscode",
-        "Libs"
+        "ZoxeTweaks/Libs"
     ]
 }

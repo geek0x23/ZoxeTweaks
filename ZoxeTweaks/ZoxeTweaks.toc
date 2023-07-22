@@ -7,9 +7,6 @@
 ## SavedVariables: ZoxeTweaksDB
 
 embeds.xml
-
-# Core.lua should be first always
 Core.lua
-
 Scaling.lua
 Tooltip.lua
