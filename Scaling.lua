@@ -1,3 +1,4 @@
+---@class AceAddon : AceEvent-3.0, AceHook-3.0, AceConsole-3.0
 local ZT = LibStub("AceAddon-3.0"):GetAddon("ZoxeTweaks")
 
 function ZT:ApplyScaling()
@@ -75,12 +76,19 @@ function ZT:ApplyScaling()
         elseif addonName == "Blizzard_MacroUI" then
             MacroFrame:SetScale(scale)
         elseif addonName == "Blizzard_Professions" then
+            -- these frames constantly remove the scaling, thus we hook like crazy
             ProfessionsFrame:SetScale(scale)
             self:HookScript(ProfessionsFrame, "OnShow", function(self) self:SetScale(scale) end)
             self:HookScript(ProfessionsFrame, "OnHide", function(self) self:SetScale(scale) end)
             EventRegistry:RegisterCallback("ProfessionsFrame.TabSet", function() ProfessionsFrame:SetScale(scale) end)
             EventRegistry:RegisterCallback("Professions.ProfessionSelected", function() ProfessionsFrame:SetScale(scale) end)
             EventRegistry:RegisterCallback("Professions.TransactionUpdated", function() ProfessionsFrame:SetScale(scale) end)
+            self:HookScript(ProfessionsFrame.OrdersPage.OrderView.CompleteOrderButton, "OnShow", function(self)
+                self:GetParent():GetParent():GetParent():SetScale(scale)
+            end)
+            self:HookScript(ProfessionsFrame.OrdersPage.OrderView.CompleteOrderButton, "OnMouseUp", function(self)
+                self:GetParent():GetParent():GetParent():SetScale(scale)
+            end)
             self:HookScript(ProfessionsFrame.CraftingPage.CraftingOutputLog, "OnShow", function(self)
                 self:GetParent():GetParent():SetScale(scale)
             end)
@@ -90,8 +98,8 @@ function ZT:ApplyScaling()
             self:HookScript(ProfessionsCustomerOrdersFrame, "OnHide", function(self) self:SetScale(scale) end)
             self:HookScript(ProfessionsCustomerOrdersFrame.Form, "OnShow", function(self) self:GetParent():SetScale(scale) end)
             self:HookScript(ProfessionsCustomerOrdersFrame.Form, "OnHide", function(self) self:GetParent():SetScale(scale) end)
-            self:HookScript(ProfessionsCustomerOrdersFrameOrdersTab, "OnClick", function(self) self:GetParent():SetScale(scale) end)
-            self:HookScript(ProfessionsCustomerOrdersFrameBrowseTab, "OnClick", function(self) self:GetParent():SetScale(scale) end)
+            self:HookScript(ProfessionsCustomerOrdersFrameOrdersTab, "OnMouseUp", function(self) self:GetParent():SetScale(scale) end)
+            self:HookScript(ProfessionsCustomerOrdersFrameBrowseTab, "OnMouseUp", function(self) self:GetParent():SetScale(scale) end)
         elseif addonName == "Blizzard_TrainerUI" then
             self:HookScript(ClassTrainerFrame, "OnShow", function(self) self:SetScale(scale) end)
         elseif addonName == "Blizzard_WeeklyRewards" then

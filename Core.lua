@@ -1,6 +1,9 @@
+---@class AceAddon : AceEvent-3.0, AceHook-3.0, AceConsole-3.0
 local ZT = LibStub("AceAddon-3.0"):NewAddon("ZoxeTweaks", "AceConsole-3.0", "AceHook-3.0", "AceEvent-3.0")
+
 _G["ZoxeTweaks"] = ZT
 
+---@diagnostic disable-next-line: duplicate-set-field
 function ZT:OnInitialize()
     local defaults = {
         profile = {
@@ -55,11 +58,13 @@ function ZT:ChatCommand(input)
     end
 end
 
+---@diagnostic disable-next-line: duplicate-set-field
 function ZT:OnEnable()
     self:ApplyAuctionatorFix()
     self:RegisterEvent("PLAYER_ENTERING_WORLD", function() ZT:ApplyScaling() end)
 end
 
+---@diagnostic disable-next-line: duplicate-set-field
 function ZT:OnDisable()
     self:DisableAuctionatorFix()
     self:UnhookAll()
