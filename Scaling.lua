@@ -1,16 +1,7 @@
-local _, zt = ...
+local ZT = LibStub("AceAddon-3.0"):GetAddon("ZoxeTweaks")
 
-zt.eventFrame:RegisterEvent("ADDON_LOADED")
-zt.eventFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
-zt.eventFrame:SetScript("OnEvent", function(_, event)
-    local scaleFactor = 1.2
-
-    if event == "PLAYER_ENTERING_WORLD" then zt.FixScaling(scaleFactor) end
-end)
-
-zt.FixScaling = function(scale)
-    zt.debug("zt.FixScaling called.")
-
+function ZT:ApplyScaling()
+    local scale = self.db.profile.scaleFactor
     local globalScale = UIParent:GetEffectiveScale()
     local scaledScreenWidth = GetScreenWidth() * globalScale
 
@@ -31,7 +22,7 @@ zt.FixScaling = function(scale)
     LFGListInviteDialog:SetScale(scale)
     if MajorFactionRenownFrame then MajorFactionRenownFrame:SetScale(scale) end
     MailFrame:SetScale(scale)
-    MerchantFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
+    self:HookScript(MerchantFrame, "OnShow", function(self) self:SetScale(scale) end)
     MirrorTimerContainer:SetScale(scale)
     ObjectiveTrackerFrame:SetScale(scale)
     ObjectiveTrackerBlocksFrame:SetScale(scale)
@@ -39,21 +30,18 @@ zt.FixScaling = function(scale)
     PVEFrame:SetScale(scale)
     QuestFrame:SetScale(scale)
     QueueStatusFrame:SetScale(scale)
-    ReadyCheckListenerFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
+    self:HookScript(ReadyCheckListenerFrame, "OnShow", function(self) self:SetScale(scale) end)
     RaidUtilityPanel:SetScale(scale)
-    RaidUtility_ShowButton:HookScript("OnShow", function(self) self:SetScale(scale) end)
-    RaidUtility_CloseButton:HookScript("OnShow", function(self) self:SetScale(scale) end)
-    SettingsPanel:HookScript("OnShow", function(self) self:SetScale(scale) end)
+    self:HookScript(RaidUtility_ShowButton, "OnShow", function(self) self:SetScale(scale) end)
+    self:HookScript(RaidUtility_CloseButton, "OnShow", function(self) self:SetScale(scale) end)
+    self:HookScript(SettingsPanel, "OnShow", function(self) self:SetScale(scale) end)
     SpellBookFrame:SetScale(scale)
     SuperTrackedFrame:SetScale(scale)
     TimeManagerFrame:SetScale(scale)
     TradeFrame:SetScale(scale)
     UIWidgetTopCenterContainerFrame:SetScale(scale)
 
-    zt.eventFrame:SetScript("OnEvent", function(_, event, addonName)
-        if event ~= "ADDON_LOADED" then return end
-
-        zt.debug("Addon loaded: %s", addonName)
+    ZT:RegisterEvent("ADDON_LOADED", function(_, addonName)
         if addonName == "Blizzard_AchievementUI" then
             AchievementFrame:SetScale(scale)
         elseif addonName == "Blizzard_AuctionHouseUI" then
@@ -61,7 +49,7 @@ zt.FixScaling = function(scale)
         elseif addonName == "Blizzard_Calendar" then
             CalendarFrame:SetScale(scale)
         elseif addonName == "Blizzard_ClassTalentUI" then
-            ClassTalentFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
+            self:HookScript(ClassTalentFrame, "OnShow", function(self) self:SetScale(scale) end)
         elseif addonName == "Blizzard_Collections" then
             CollectionsJournal:SetScale(scale)
             WardrobeFrame:SetScale(scale)
@@ -70,7 +58,7 @@ zt.FixScaling = function(scale)
         elseif addonName == "Blizzard_EncounterJournal" then
             EncounterJournal:SetScale(scale)
         elseif addonName == "Blizzard_GarrisonUI" then
-            CovenantMissionFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
+            self:HookScript(CovenantMissionFrame, "OnShow", function(self) self:SetScale(scale) end)
         elseif addonName == "Blizzard_GenericTraitUI" then
             GenericTraitFrame:SetScale(scale)
         elseif addonName == "Blizzard_GuildBankUI" then
@@ -88,33 +76,33 @@ zt.FixScaling = function(scale)
             MacroFrame:SetScale(scale)
         elseif addonName == "Blizzard_Professions" then
             ProfessionsFrame:SetScale(scale)
-            ProfessionsFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
-            ProfessionsFrame:HookScript("OnHide", function(self) self:SetScale(scale) end)
+            self:HookScript(ProfessionsFrame, "OnShow", function(self) self:SetScale(scale) end)
+            self:HookScript(ProfessionsFrame, "OnHide", function(self) self:SetScale(scale) end)
             EventRegistry:RegisterCallback("ProfessionsFrame.TabSet", function() ProfessionsFrame:SetScale(scale) end)
             EventRegistry:RegisterCallback("Professions.ProfessionSelected", function() ProfessionsFrame:SetScale(scale) end)
             EventRegistry:RegisterCallback("Professions.TransactionUpdated", function() ProfessionsFrame:SetScale(scale) end)
-            ProfessionsFrame.CraftingPage.CraftingOutputLog:HookScript("OnShow", function(self)
+            self:HookScript(ProfessionsFrame.CraftingPage.CraftingOutputLog, "OnShow", function(self)
                 self:GetParent():GetParent():SetScale(scale)
             end)
         elseif addonName == "Blizzard_ProfessionsCustomerOrders" then
             ProfessionsCustomerOrdersFrame:SetScale(scale)
-            ProfessionsCustomerOrdersFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
-            ProfessionsCustomerOrdersFrame:HookScript("OnHide", function(self) self:SetScale(scale) end)
-            ProfessionsCustomerOrdersFrame.Form:HookScript("OnShow", function(self) self:GetParent():SetScale(scale) end)
-            ProfessionsCustomerOrdersFrame.Form:HookScript("OnHide", function(self) self:GetParent():SetScale(scale) end)
-            ProfessionsCustomerOrdersFrameOrdersTab:HookScript("OnClick", function(self) self:GetParent():SetScale(scale) end)
-            ProfessionsCustomerOrdersFrameBrowseTab:HookScript("OnClick", function(self) self:GetParent():SetScale(scale) end)
+            self:HookScript(ProfessionsCustomerOrdersFrame, "OnShow", function(self) self:SetScale(scale) end)
+            self:HookScript(ProfessionsCustomerOrdersFrame, "OnHide", function(self) self:SetScale(scale) end)
+            self:HookScript(ProfessionsCustomerOrdersFrame.Form, "OnShow", function(self) self:GetParent():SetScale(scale) end)
+            self:HookScript(ProfessionsCustomerOrdersFrame.Form, "OnHide", function(self) self:GetParent():SetScale(scale) end)
+            self:HookScript(ProfessionsCustomerOrdersFrameOrdersTab, "OnClick", function(self) self:GetParent():SetScale(scale) end)
+            self:HookScript(ProfessionsCustomerOrdersFrameBrowseTab, "OnClick", function(self) self:GetParent():SetScale(scale) end)
         elseif addonName == "Blizzard_TrainerUI" then
-            ClassTrainerFrame:HookScript("OnShow", function(self) self:SetScale(scale) end)
+            self:HookScript(ClassTrainerFrame, "OnShow", function(self) self:SetScale(scale) end)
         elseif addonName == "Blizzard_WeeklyRewards" then
             WeeklyRewardsFrame:SetScale(scale)
         end
     end)
 
-    hooksecurefunc("AlertFrame_ShowNewAlert", function(self) self:SetScale(scale) end)
-    hooksecurefunc("StaticPopup_OnShow", function(self) self:SetScale(scale) end)
+    self:SecureHook("AlertFrame_ShowNewAlert", function(self) self:SetScale(scale) end)
+    self:SecureHook("StaticPopup_OnShow", function(self) self:SetScale(scale) end)
 
-    hooksecurefunc("ToggleDropDownMenu", function(level, _, _, anchorName, xOffset, yOffset)
+    self:SecureHook("ToggleDropDownMenu", function(level, _, _, anchorName, xOffset, yOffset)
         if not level then level = 1 end
 
         local listFrame = _G["DropDownList"..level]
@@ -156,7 +144,7 @@ zt.FixScaling = function(scale)
     -- Addon Frames
     if MinimapRightClickMenu then
         MinimapRightClickMenu:SetScale(scale)
-        MinimapRightClickMenu:SetScript("OnShow", function(self)
+        self:HookScript(MinimapRightClickMenu, "OnShow", function(self)
             local point, relativeTo, relativePoint, xOffset, yOffset = self:GetPoint()
             if not point then return end
             if not relativePoint then return end
