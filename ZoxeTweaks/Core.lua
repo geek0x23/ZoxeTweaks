@@ -50,15 +50,13 @@ function ZT:OnInitialize()
     AceConfig:RegisterOptionsTable("ZoxeTweaks", options)
     AceConfigDialog:AddToBlizOptions("ZoxeTweaks", "Zoxe Tweaks")
 
-    self:RegisterChatCommand("zt", "ChatCommand")
-end
-
-function ZT:ChatCommand(input)
-    if not input or input:trim() == "" then
-        AceConfigDialog:Open("ZoxeTweaks")
-    else
-        AceConfigCmd.HandleCommand(ZT, "zt", "ZoxeTweaks", input)
-    end
+    self:RegisterChatCommand("zt", function(input) 
+        if not input or input:trim() == "" then
+            AceConfigDialog:Open("ZoxeTweaks")
+        else
+            AceConfigCmd.HandleCommand(ZT, "zt", "ZoxeTweaks", input)
+        end
+    end)
 end
 
 ---@diagnostic disable-next-line: duplicate-set-field
