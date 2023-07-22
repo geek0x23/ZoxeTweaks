@@ -14,3 +14,7 @@ I have not completely scaled every frame in the game.  I've just been scaling th
 
 - Make a new folder in your `Interface\AddOns` called `!ZoxeTweaks`
 - Download a zip from this GitHub repo and extract the contents into your new `!ZoxeTweaks` folder.
+
+## Usage
+
+Once installed, use the `/zt` command in-game to bring up the configuration options.  You'll also find it in the default Blizzard addon options.  If you chose to change the **scale factor**, please remember to reload your UI (or relog).
