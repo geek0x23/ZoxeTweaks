@@ -12,8 +12,7 @@ I have not completely scaled every frame in the game.  I've just been scaling th
 
 ## Installation
 
-- Make a new folder in your `Interface\AddOns` called `!ZoxeTweaks`
-- Download a zip from this GitHub repo and extract the contents into your new `!ZoxeTweaks` folder.
+- Download a zip from this GitHub repo and extract the `ZoxeTweaks` folder into your WoW `Interface\AddOns` folder.
 
 ## Usage
 

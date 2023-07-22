@@ -7,7 +7,7 @@ _G["ZoxeTweaks"] = ZT
 function ZT:OnInitialize()
     local defaults = {
         profile = {
-            scaleFactor = 120,
+            scaleFactor = 1.20,
             auctionator = true
         }
     }
