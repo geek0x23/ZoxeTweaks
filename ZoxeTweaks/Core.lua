@@ -1,5 +1,5 @@
 ---@class AceAddon : AceEvent-3.0, AceHook-3.0, AceConsole-3.0
-local ZT = LibStub("AceAddon-3.0"):NewAddon("ZoxeTweaks", "AceConsole-3.0", "AceHook-3.0", "AceEvent-3.0")
+local ZT = LibStub("AceAddon-3.0"):NewAddon("ZoxeTweaks", "AceConsole-3.0", "AceHook-3.0", "AceEvent-3.0", "AceSerializer-3.0")
 local AceConfig = LibStub("AceConfig-3.0")
 local AceConfigDialog = LibStub("AceConfigDialog-3.0")
 local AceConfigCmd = LibStub("AceConfigCmd-3.0")
@@ -11,7 +11,8 @@ function ZT:OnInitialize()
     local defaults = {
         profile = {
             scaleFactor = 1.20,
-            auctionator = true
+            auctionator = true,
+            debug = false
         }
     }
 
@@ -31,7 +32,7 @@ function ZT:OnInitialize()
                 step = 0.01,
                 isPercent = true,
                 set = function(_, val) self.db.profile.scaleFactor = val end,
-                get = function(_) return self.db.profile.scaleFactor end
+                get = function() return self.db.profile.scaleFactor end
             },
             auctionator = {
                 name = "Auctionator Tweaks",
@@ -41,7 +42,15 @@ function ZT:OnInitialize()
                     self.db.profile.auctionator = val
                     self:ApplyAuctionatorFix()
                 end,
-                get = function(_) return self.db.profile.auctionator end
+                get = function() return self.db.profile.auctionator end
+            },
+            debug = {
+                name = "Debug Mode",
+                desc = "Enable logging of debug data",
+                type = "toggle",
+                hidden = true,
+                set = function(_, val) self.db.profile.debug = val end,
+                get = function() return self.db.profile.debug end
             },
             profile = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
         }
@@ -71,4 +80,14 @@ function ZT:OnDisable()
     self:UnhookAll()
     self:UnregisterEvent("PLAYER_ENTERING_WORLD")
     self:UnregisterEvent("ADDON_LOADED")
+end
+
+function ZT:Debug(...)
+    if self.db.profile.debug then
+        if not DLAPI then
+            self:Printf(...)
+        else
+            DLAPI.DebugLog("ZoxeTweaks", ...)
+        end
+    end
 end

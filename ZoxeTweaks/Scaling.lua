@@ -43,6 +43,8 @@ function ZT:ApplyScaling()
     UIWidgetTopCenterContainerFrame:SetScale(scale)
 
     ZT:RegisterEvent("ADDON_LOADED", function(_, addonName)
+        ZT:Debug("Addon Loaded: %s", addonName)
+
         if addonName == "Blizzard_AchievementUI" then
             AchievementFrame:SetScale(scale)
         elseif addonName == "Blizzard_AuctionHouseUI" then
