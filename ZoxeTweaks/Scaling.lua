@@ -23,7 +23,7 @@ function ZT:ApplyScaling()
     LFGListInviteDialog:SetScale(scale)
     if MajorFactionRenownFrame then MajorFactionRenownFrame:SetScale(scale) end
     MailFrame:SetScale(scale)
-    self:HookScript(MerchantFrame, "OnShow", function(self) self:SetScale(scale) end)
+    self:SecureHookScript(MerchantFrame, "OnShow", function(self) self:SetScale(scale) end)
     MirrorTimerContainer:SetScale(scale)
     ObjectiveTrackerFrame:SetScale(scale)
     ObjectiveTrackerBlocksFrame:SetScale(scale)
@@ -31,11 +31,11 @@ function ZT:ApplyScaling()
     PVEFrame:SetScale(scale)
     QuestFrame:SetScale(scale)
     QueueStatusFrame:SetScale(scale)
-    self:HookScript(ReadyCheckListenerFrame, "OnShow", function(self) self:SetScale(scale) end)
+    self:SecureHookScript(ReadyCheckListenerFrame, "OnShow", function(self) self:SetScale(scale) end)
     RaidUtilityPanel:SetScale(scale)
-    self:HookScript(RaidUtility_ShowButton, "OnShow", function(self) self:SetScale(scale) end)
-    self:HookScript(RaidUtility_CloseButton, "OnShow", function(self) self:SetScale(scale) end)
-    self:HookScript(SettingsPanel, "OnShow", function(self) self:SetScale(scale) end)
+    self:SecureHookScript(RaidUtility_ShowButton, "OnShow", function(self) self:SetScale(scale) end)
+    self:SecureHookScript(RaidUtility_CloseButton, "OnShow", function(self) self:SetScale(scale) end)
+    self:SecureHookScript(SettingsPanel, "OnShow", function(self) self:SetScale(scale) end)
     SpellBookFrame:SetScale(scale)
     SuperTrackedFrame:SetScale(scale)
     TimeManagerFrame:SetScale(scale)
@@ -52,7 +52,7 @@ function ZT:ApplyScaling()
         elseif addonName == "Blizzard_Calendar" then
             CalendarFrame:SetScale(scale)
         elseif addonName == "Blizzard_ClassTalentUI" then
-            self:HookScript(ClassTalentFrame, "OnShow", function(self) self:SetScale(scale) end)
+            self:SecureHookScript(ClassTalentFrame, "OnShow", function(self) self:SetScale(scale) end)
         elseif addonName == "Blizzard_Collections" then
             CollectionsJournal:SetScale(scale)
             WardrobeFrame:SetScale(scale)
@@ -61,7 +61,7 @@ function ZT:ApplyScaling()
         elseif addonName == "Blizzard_EncounterJournal" then
             EncounterJournal:SetScale(scale)
         elseif addonName == "Blizzard_GarrisonUI" then
-            self:HookScript(CovenantMissionFrame, "OnShow", function(self) self:SetScale(scale) end)
+            self:SecureHookScript(CovenantMissionFrame, "OnShow", function(self) self:SetScale(scale) end)
         elseif addonName == "Blizzard_GenericTraitUI" then
             GenericTraitFrame:SetScale(scale)
         elseif addonName == "Blizzard_GuildBankUI" then
@@ -78,32 +78,19 @@ function ZT:ApplyScaling()
         elseif addonName == "Blizzard_MacroUI" then
             MacroFrame:SetScale(scale)
         elseif addonName == "Blizzard_Professions" then
-            -- these frames constantly remove the scaling, thus we hook like crazy
+            -- these frames constantly remove the scaling, so we have to trap a lot of events
             ProfessionsFrame:SetScale(scale)
-            self:HookScript(ProfessionsFrame, "OnShow", function(self) self:SetScale(scale) end)
-            self:HookScript(ProfessionsFrame, "OnHide", function(self) self:SetScale(scale) end)
             EventRegistry:RegisterCallback("ProfessionsFrame.TabSet", function() ProfessionsFrame:SetScale(scale) end)
             EventRegistry:RegisterCallback("Professions.ProfessionSelected", function() ProfessionsFrame:SetScale(scale) end)
             EventRegistry:RegisterCallback("Professions.TransactionUpdated", function() ProfessionsFrame:SetScale(scale) end)
-            self:HookScript(ProfessionsFrame.OrdersPage.OrderView.CompleteOrderButton, "OnShow", function(self)
-                self:GetParent():GetParent():GetParent():SetScale(scale)
-            end)
-            self:HookScript(ProfessionsFrame.OrdersPage.OrderView.CompleteOrderButton, "OnMouseUp", function(self)
-                self:GetParent():GetParent():GetParent():SetScale(scale)
-            end)
-            self:HookScript(ProfessionsFrame.CraftingPage.CraftingOutputLog, "OnShow", function(self)
-                self:GetParent():GetParent():SetScale(scale)
-            end)
         elseif addonName == "Blizzard_ProfessionsCustomerOrders" then
             ProfessionsCustomerOrdersFrame:SetScale(scale)
-            self:HookScript(ProfessionsCustomerOrdersFrame, "OnShow", function(self) self:SetScale(scale) end)
-            self:HookScript(ProfessionsCustomerOrdersFrame, "OnHide", function(self) self:SetScale(scale) end)
-            self:HookScript(ProfessionsCustomerOrdersFrame.Form, "OnShow", function(self) self:GetParent():SetScale(scale) end)
-            self:HookScript(ProfessionsCustomerOrdersFrame.Form, "OnHide", function(self) self:GetParent():SetScale(scale) end)
-            self:HookScript(ProfessionsCustomerOrdersFrameOrdersTab, "OnMouseUp", function(self) self:GetParent():SetScale(scale) end)
-            self:HookScript(ProfessionsCustomerOrdersFrameBrowseTab, "OnMouseUp", function(self) self:GetParent():SetScale(scale) end)
+            self:SecureHookScript(ProfessionsCustomerOrdersFrame, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+            self:SecureHookScript(ProfessionsCustomerOrdersFrame.Form, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+            self:SecureHookScript(ProfessionsCustomerOrdersFrameOrdersTab, "OnMouseUp", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+            self:SecureHookScript(ProfessionsCustomerOrdersFrameBrowseTab, "OnMouseUp", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
         elseif addonName == "Blizzard_TrainerUI" then
-            self:HookScript(ClassTrainerFrame, "OnShow", function(self) self:SetScale(scale) end)
+            self:SecureHookScript(ClassTrainerFrame, "OnShow", function(self) self:SetScale(scale) end)
         elseif addonName == "Blizzard_WeeklyRewards" then
             WeeklyRewardsFrame:SetScale(scale)
         end
@@ -154,7 +141,7 @@ function ZT:ApplyScaling()
     -- Addon Frames
     if MinimapRightClickMenu then
         MinimapRightClickMenu:SetScale(scale)
-        self:HookScript(MinimapRightClickMenu, "OnShow", function(self)
+        self:SecureHookScript(MinimapRightClickMenu, "OnShow", function(self)
             local point, relativeTo, relativePoint, xOffset, yOffset = self:GetPoint()
             if not point then return end
             if not relativePoint then return end

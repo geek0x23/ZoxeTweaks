@@ -59,7 +59,7 @@ function ZT:OnInitialize()
     AceConfig:RegisterOptionsTable("ZoxeTweaks", options)
     AceConfigDialog:AddToBlizOptions("ZoxeTweaks", "Zoxe Tweaks")
 
-    self:RegisterChatCommand("zt", function(input) 
+    self:RegisterChatCommand("zt", function(input)
         if not input or input:trim() == "" then
             AceConfigDialog:Open("ZoxeTweaks")
         else
@@ -80,6 +80,9 @@ function ZT:OnDisable()
     self:UnhookAll()
     self:UnregisterEvent("PLAYER_ENTERING_WORLD")
     self:UnregisterEvent("ADDON_LOADED")
+    EventRegistry:UnregisterCallback("ProfessionsFrame.TabSet")
+    EventRegistry:UnregisterCallback("Professions.ProfessionSelected")
+    EventRegistry:UnregisterCallback("Professions.TransactionUpdated")
 end
 
 function ZT:Debug(...)

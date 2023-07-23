@@ -79,6 +79,7 @@ Zoxe's Tweaks to AtrocityUI
 - AddOnSkins: Embed Settings > uncheck "Embed System Message"
 - AddOnSkins: Embed Settings > Two Window Embed System > Window One Width > set to 250
 
+- WeakAuras: Essentials > Dragonriding > Speed > Display Tab > set both Font Size fields to 16
 - WeakAuras: Essentials > Player Castbar > Display Tab > set both Font Size fields to 16
 - WeakAuras: Essentials > Player Castbar (Caster) > Display Tab > set all Font Size fields to 16
 - WeakAuras: Essentials > Player Castbar (Healer) > Display Tab > set all Font Size fields to 16
