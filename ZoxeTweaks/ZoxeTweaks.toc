@@ -3,7 +3,7 @@
 ## Notes: Just some tweaks
 ## Title: ZoxeTweaks
 ## Version: 1.0.0
-## OptionalDeps: Auctionator, Ace3, ElvUI
+## OptionalDeps: Auctionator, Ace3, ElvUI, _DebugLog
 ## SavedVariables: ZoxeTweaksDB
 
 embeds.xml
