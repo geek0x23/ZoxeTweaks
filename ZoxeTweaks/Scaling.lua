@@ -1,6 +1,16 @@
 ---@class AceAddon : AceEvent-3.0, AceHook-3.0, AceConsole-3.0
 local ZT = LibStub("AceAddon-3.0"):GetAddon("ZoxeTweaks")
 
+function ZT:PostHook(func, handler)
+    if (self:IsHooked(func)) then return end
+    self:SecureHook(func, handler)
+end
+
+function ZT:PostHookScript(frame, event, handler)
+    if (self:IsHooked(frame, event)) then return end
+    self:SecureHookScript(frame, event, handler)
+end
+
 function ZT:ApplyScaling()
     local scale = self.db.profile.scaleFactor
     local globalScale = UIParent:GetEffectiveScale()
@@ -23,7 +33,7 @@ function ZT:ApplyScaling()
     LFGListInviteDialog:SetScale(scale)
     if MajorFactionRenownFrame then MajorFactionRenownFrame:SetScale(scale) end
     MailFrame:SetScale(scale)
-    self:SecureHookScript(MerchantFrame, "OnShow", function(self) self:SetScale(scale) end)
+    self:PostHookScript(MerchantFrame, "OnShow", function(self) self:SetScale(scale) end)
     MirrorTimerContainer:SetScale(scale)
     ObjectiveTrackerFrame:SetScale(scale)
     ObjectiveTrackerBlocksFrame:SetScale(scale)
@@ -31,11 +41,11 @@ function ZT:ApplyScaling()
     PVEFrame:SetScale(scale)
     QuestFrame:SetScale(scale)
     QueueStatusFrame:SetScale(scale)
-    self:SecureHookScript(ReadyCheckListenerFrame, "OnShow", function(self) self:SetScale(scale) end)
+    self:PostHookScript(ReadyCheckListenerFrame, "OnShow", function(self) self:SetScale(scale) end)
     RaidUtilityPanel:SetScale(scale)
-    self:SecureHookScript(RaidUtility_ShowButton, "OnShow", function(self) self:SetScale(scale) end)
-    self:SecureHookScript(RaidUtility_CloseButton, "OnShow", function(self) self:SetScale(scale) end)
-    self:SecureHookScript(SettingsPanel, "OnShow", function(self) self:SetScale(scale) end)
+    self:PostHookScript(RaidUtility_ShowButton, "OnShow", function(self) self:SetScale(scale) end)
+    self:PostHookScript(RaidUtility_CloseButton, "OnShow", function(self) self:SetScale(scale) end)
+    self:PostHookScript(SettingsPanel, "OnShow", function(self) self:SetScale(scale) end)
     SpellBookFrame:SetScale(scale)
     SuperTrackedFrame:SetScale(scale)
     TimeManagerFrame:SetScale(scale)
@@ -52,7 +62,7 @@ function ZT:ApplyScaling()
         elseif addonName == "Blizzard_Calendar" then
             CalendarFrame:SetScale(scale)
         elseif addonName == "Blizzard_ClassTalentUI" then
-            self:SecureHookScript(ClassTalentFrame, "OnShow", function(self) self:SetScale(scale) end)
+            self:PostHookScript(ClassTalentFrame, "OnShow", function(self) self:SetScale(scale) end)
         elseif addonName == "Blizzard_Collections" then
             CollectionsJournal:SetScale(scale)
             WardrobeFrame:SetScale(scale)
@@ -61,7 +71,7 @@ function ZT:ApplyScaling()
         elseif addonName == "Blizzard_EncounterJournal" then
             EncounterJournal:SetScale(scale)
         elseif addonName == "Blizzard_GarrisonUI" then
-            self:SecureHookScript(CovenantMissionFrame, "OnShow", function(self) self:SetScale(scale) end)
+            self:PostHookScript(CovenantMissionFrame, "OnShow", function(self) self:SetScale(scale) end)
         elseif addonName == "Blizzard_GenericTraitUI" then
             GenericTraitFrame:SetScale(scale)
         elseif addonName == "Blizzard_GuildBankUI" then
@@ -85,21 +95,21 @@ function ZT:ApplyScaling()
             EventRegistry:RegisterCallback("Professions.TransactionUpdated", function() ProfessionsFrame:SetScale(scale) end)
         elseif addonName == "Blizzard_ProfessionsCustomerOrders" then
             ProfessionsCustomerOrdersFrame:SetScale(scale)
-            self:SecureHookScript(ProfessionsCustomerOrdersFrame, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
-            self:SecureHookScript(ProfessionsCustomerOrdersFrame.Form, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
-            self:SecureHookScript(ProfessionsCustomerOrdersFrameOrdersTab, "OnMouseUp", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
-            self:SecureHookScript(ProfessionsCustomerOrdersFrameBrowseTab, "OnMouseUp", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+            self:PostHookScript(ProfessionsCustomerOrdersFrame, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+            self:PostHookScript(ProfessionsCustomerOrdersFrame.Form, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+            self:PostHookScript(ProfessionsCustomerOrdersFrameOrdersTab, "OnMouseUp", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+            self:PostHookScript(ProfessionsCustomerOrdersFrameBrowseTab, "OnMouseUp", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
         elseif addonName == "Blizzard_TrainerUI" then
-            self:SecureHookScript(ClassTrainerFrame, "OnShow", function(self) self:SetScale(scale) end)
+            self:PostHookScript(ClassTrainerFrame, "OnShow", function(self) self:SetScale(scale) end)
         elseif addonName == "Blizzard_WeeklyRewards" then
             WeeklyRewardsFrame:SetScale(scale)
         end
     end)
 
-    self:SecureHook("AlertFrame_ShowNewAlert", function(self) self:SetScale(scale) end)
-    self:SecureHook("StaticPopup_OnShow", function(self) self:SetScale(scale) end)
+    self:PostHook("AlertFrame_ShowNewAlert", function(self) self:SetScale(scale) end)
+    self:PostHook("StaticPopup_OnShow", function(self) self:SetScale(scale) end)
 
-    self:SecureHook("ToggleDropDownMenu", function(level, _, _, anchorName, xOffset, yOffset)
+    self:PostHook("ToggleDropDownMenu", function(level, _, _, anchorName, xOffset, yOffset)
         if not level then level = 1 end
 
         local listFrame = _G["DropDownList"..level]
@@ -141,7 +151,7 @@ function ZT:ApplyScaling()
     -- Addon Frames
     if MinimapRightClickMenu then
         MinimapRightClickMenu:SetScale(scale)
-        self:SecureHookScript(MinimapRightClickMenu, "OnShow", function(self)
+        self:PostHookScript(MinimapRightClickMenu, "OnShow", function(self)
             local point, relativeTo, relativePoint, xOffset, yOffset = self:GetPoint()
             if not point then return end
             if not relativePoint then return end
