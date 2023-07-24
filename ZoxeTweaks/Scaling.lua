@@ -33,7 +33,7 @@ function ZT:ApplyScaling()
     LFGListInviteDialog:SetScale(scale)
     if MajorFactionRenownFrame then MajorFactionRenownFrame:SetScale(scale) end
     MailFrame:SetScale(scale)
-    self:PostHookScript(MerchantFrame, "OnShow", function(self) self:SetScale(scale) end)
+    self:PostHookScript(MerchantFrame, "OnShow", function(frame) frame:SetScale(scale) end)
     MirrorTimerContainer:SetScale(scale)
     ObjectiveTrackerFrame:SetScale(scale)
     ObjectiveTrackerBlocksFrame:SetScale(scale)
@@ -41,11 +41,11 @@ function ZT:ApplyScaling()
     PVEFrame:SetScale(scale)
     QuestFrame:SetScale(scale)
     QueueStatusFrame:SetScale(scale)
-    self:PostHookScript(ReadyCheckListenerFrame, "OnShow", function(self) self:SetScale(scale) end)
+    self:PostHookScript(ReadyCheckListenerFrame, "OnShow", function(frame) frame:SetScale(scale) end)
     RaidUtilityPanel:SetScale(scale)
-    self:PostHookScript(RaidUtility_ShowButton, "OnShow", function(self) self:SetScale(scale) end)
-    self:PostHookScript(RaidUtility_CloseButton, "OnShow", function(self) self:SetScale(scale) end)
-    self:PostHookScript(SettingsPanel, "OnShow", function(self) self:SetScale(scale) end)
+    self:PostHookScript(RaidUtility_ShowButton, "OnShow", function(frame) frame:SetScale(scale) end)
+    self:PostHookScript(RaidUtility_CloseButton, "OnShow", function(frame) frame:SetScale(scale) end)
+    self:PostHookScript(SettingsPanel, "OnShow", function(frame) frame:SetScale(scale) end)
     SpellBookFrame:SetScale(scale)
     SuperTrackedFrame:SetScale(scale)
     TimeManagerFrame:SetScale(scale)
@@ -62,7 +62,7 @@ function ZT:ApplyScaling()
         elseif addonName == "Blizzard_Calendar" then
             CalendarFrame:SetScale(scale)
         elseif addonName == "Blizzard_ClassTalentUI" then
-            self:PostHookScript(ClassTalentFrame, "OnShow", function(self) self:SetScale(scale) end)
+            self:PostHookScript(ClassTalentFrame, "OnShow", function(frame) frame:SetScale(scale) end)
         elseif addonName == "Blizzard_Collections" then
             CollectionsJournal:SetScale(scale)
             WardrobeFrame:SetScale(scale)
@@ -71,7 +71,7 @@ function ZT:ApplyScaling()
         elseif addonName == "Blizzard_EncounterJournal" then
             EncounterJournal:SetScale(scale)
         elseif addonName == "Blizzard_GarrisonUI" then
-            self:PostHookScript(CovenantMissionFrame, "OnShow", function(self) self:SetScale(scale) end)
+            self:PostHookScript(CovenantMissionFrame, "OnShow", function(frame) frame:SetScale(scale) end)
         elseif addonName == "Blizzard_GenericTraitUI" then
             GenericTraitFrame:SetScale(scale)
         elseif addonName == "Blizzard_GuildBankUI" then
@@ -100,14 +100,14 @@ function ZT:ApplyScaling()
             self:PostHookScript(ProfessionsCustomerOrdersFrameOrdersTab, "OnMouseUp", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
             self:PostHookScript(ProfessionsCustomerOrdersFrameBrowseTab, "OnMouseUp", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
         elseif addonName == "Blizzard_TrainerUI" then
-            self:PostHookScript(ClassTrainerFrame, "OnShow", function(self) self:SetScale(scale) end)
+            self:PostHookScript(ClassTrainerFrame, "OnShow", function(frame) frame:SetScale(scale) end)
         elseif addonName == "Blizzard_WeeklyRewards" then
             WeeklyRewardsFrame:SetScale(scale)
         end
     end)
 
-    self:PostHook("AlertFrame_ShowNewAlert", function(self) self:SetScale(scale) end)
-    self:PostHook("StaticPopup_OnShow", function(self) self:SetScale(scale) end)
+    self:PostHook("AlertFrame_ShowNewAlert", function(frame) frame:SetScale(scale) end)
+    self:PostHook("StaticPopup_OnShow", function(frame) frame:SetScale(scale) end)
 
     self:PostHook("ToggleDropDownMenu", function(level, _, _, anchorName, xOffset, yOffset)
         if not level then level = 1 end
@@ -151,16 +151,16 @@ function ZT:ApplyScaling()
     -- Addon Frames
     if MinimapRightClickMenu then
         MinimapRightClickMenu:SetScale(scale)
-        self:PostHookScript(MinimapRightClickMenu, "OnShow", function(self)
-            local point, relativeTo, relativePoint, xOffset, yOffset = self:GetPoint()
+        self:PostHookScript(MinimapRightClickMenu, "OnShow", function(frame)
+            local point, relativeTo, relativePoint, xOffset, yOffset = frame:GetPoint()
             if not point then return end
             if not relativePoint then return end
             if not xOffset then xOffset = 0 end
             if not yOffset then yOffset = 0 end
             xOffset = xOffset / scale
             yOffset = yOffset / scale
-            self:ClearAllPoints()
-            self:SetPoint(point, relativeTo, relativePoint, xOffset, yOffset)
+            frame:ClearAllPoints()
+            frame:SetPoint(point, relativeTo, relativePoint, xOffset, yOffset)
         end)
     end
 
