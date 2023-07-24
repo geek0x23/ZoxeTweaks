@@ -71,18 +71,20 @@ end
 ---@diagnostic disable-next-line: duplicate-set-field
 function ZT:OnEnable()
     self:ApplyAuctionatorFix()
-    self:RegisterEvent("PLAYER_ENTERING_WORLD", function() ZT:ApplyScaling() end)
+    self:ApplyScaling()
 end
 
 ---@diagnostic disable-next-line: duplicate-set-field
 function ZT:OnDisable()
     self:DisableAuctionatorFix()
     self:UnhookAll()
-    self:UnregisterEvent("PLAYER_ENTERING_WORLD")
     self:UnregisterEvent("ADDON_LOADED")
+    self:UnregisterEvent("CRAFTINGORDERS_FULFILL_ORDER_RESPONSE")
+    self:UnregisterEvent("TRADE_SKILL_ITEM_CRAFTED_RESULT")
     EventRegistry:UnregisterCallback("ProfessionsFrame.TabSet")
     EventRegistry:UnregisterCallback("Professions.ProfessionSelected")
     EventRegistry:UnregisterCallback("Professions.TransactionUpdated")
+    EventRegistry:UnregisterCallback("Professions.AllocationUpdated")
 end
 
 function ZT:Debug(...)
