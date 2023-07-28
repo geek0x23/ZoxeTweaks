@@ -43,7 +43,7 @@ function ZT:ApplyScaling()
     TradeFrame:SetScale(scale)
     UIWidgetTopCenterContainerFrame:SetScale(scale)
 
-    ZT:RegisterEvent("ADDON_LOADED", function(_, addonName)
+    self:RegisterEvent("ADDON_LOADED", function(_, addonName)
         self:Debug("Addon Loaded: %s", addonName)
 
         if addonName == "Blizzard_AchievementUI" then
@@ -63,6 +63,8 @@ function ZT:ApplyScaling()
             EncounterJournal:SetScale(scale)
         elseif addonName == "Blizzard_GarrisonUI" then
             self:SecureHookScript(CovenantMissionFrame, "OnShow", function(frame) frame:SetScale(scale) end)
+            GarrisonCapacitiveDisplayFrame:SetScale(scale)
+            self:SecureHookScript(OrderHallMissionFrame, "OnShow", function(frame) frame:SetScale(scale) end)
         elseif addonName == "Blizzard_GenericTraitUI" then
             GenericTraitFrame:SetScale(scale)
         elseif addonName == "Blizzard_GuildBankUI" then
@@ -93,8 +95,13 @@ function ZT:ApplyScaling()
             EventRegistry:RegisterCallback("Professions.TransactionUpdated", function() ProfessionsFrame:SetScale(scale) end)
             EventRegistry:RegisterCallback("Professions.AllocationUpdated", function() ProfessionsFrame:SetScale(scale) end)
         elseif addonName == "Blizzard_ProfessionsCustomerOrders" then
+            -- same as profession frame.  this one removes scaling constantly.
             self:SecureHookScript(ProfessionsCustomerOrdersFrame, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+            self:SecureHookScript(ProfessionsCustomerOrdersFrame, "OnHide", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
             self:SecureHookScript(ProfessionsCustomerOrdersFrame.Form, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+            self:SecureHookScript(ProfessionsCustomerOrdersFrame.Form.BackButton, "OnClick", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+            self:SecureHookScript(ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+            self:SecureHookScript(ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
             self:SecureHookScript(ProfessionsCustomerOrdersFrameOrdersTab, "OnClick", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
             self:SecureHookScript(ProfessionsCustomerOrdersFrameBrowseTab, "OnClick", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
         elseif addonName == "Blizzard_TrainerUI" then
