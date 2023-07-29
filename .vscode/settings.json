@@ -8,6 +8,7 @@
         "CalendarFrame",
         "ChannelFrame",
         "CharacterFrame",
+        "ChatConfigFrame",
         "CinematicFrameCloseDialog",
         "ClassTalentFrame",
         "ClassTrainerFrame",
