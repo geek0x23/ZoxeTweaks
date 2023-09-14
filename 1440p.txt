@@ -93,7 +93,7 @@ Zoxe's Tweaks to AtrocityUI
 
 - BigWigs: Bars > Bars Tab > Font size > set to 16
 - BigWigs: Bars > Emphasized Bars Tab > Font size > set to 16
-- BigWigs: Bars > Bars Tab > X Position > set to 1706
+- BigWigs: Bars > Bars Tab > X Position > set to 1728
 - BigWigs: Bars > Bars Tab > Y Position > set to 162
 - Create a new profile for healer specs, and duplicate the AtrocityUI profile.
 - For the new healer profile

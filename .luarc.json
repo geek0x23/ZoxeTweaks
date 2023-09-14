@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
     "runtime.version": "Lua 5.1",
     "diagnostics.globals": [
         "AchievementFrame",
@@ -72,6 +73,8 @@
         "Libs"
     ],
     "workspace.library": [
-        "~/.local/share/nvim/lazy/vscode-wow-api/EmmyLua"
+        "Libs",
+        "~/.local/share/nvim/lazy/vscode-wow-api/EmmyLua",
+        "~/Local/nvim-data/lazy/vscode-wow-api/EmmyLua"
     ]
 }
