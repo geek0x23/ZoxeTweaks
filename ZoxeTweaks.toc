@@ -3,7 +3,8 @@
 ## Notes: Just some tweaks
 ## Title: ZoxeTweaks
 ## Version: 1.0.0
-## OptionalDeps: Auctionator, Ace3, ElvUI, _DebugLog
+## Dependencies: Blizzard_Professions, Blizzard_ProfessionsCustomerOrders
+## OptionalDeps: Auctionator, ElvUI, _DebugLog, PublicOrdersReagentsColumn
 ## SavedVariables: ZoxeTweaksDB
 
 embeds.xml
