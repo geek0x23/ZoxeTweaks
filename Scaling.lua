@@ -1,4 +1,4 @@
----@class AceAddon : AceEvent-3.0, AceHook-3.0, AceConsole-3.0
+---@class ZoxeTweaks
 local ZT = LibStub("AceAddon-3.0"):GetAddon("ZoxeTweaks")
 
 function ZT:ApplyScaling()
@@ -31,6 +31,7 @@ function ZT:ApplyScaling()
     ObjectiveTrackerBlocksFrame:SetScale(scale)
     OpenMailFrame:SetScale(scale)
     PVEFrame:SetScale(scale)
+
     -- these frames constantly remove the scaling, so we have to trap a lot of events
     self:SecureHookScript(ProfessionsFrame, "OnShow", function() ProfessionsFrame:SetScale(scale) end)
     self:SecureHookScript(ProfessionsFrame.MaximizeMinimize.MinimizeButton, "OnClick", function() ProfessionsFrame:SetScale(scale) end)
@@ -44,6 +45,7 @@ function ZT:ApplyScaling()
     EventRegistry:RegisterCallback("Professions.ProfessionSelected", function() ProfessionsFrame:SetScale(scale) end)
     EventRegistry:RegisterCallback("Professions.TransactionUpdated", function() ProfessionsFrame:SetScale(scale) end)
     EventRegistry:RegisterCallback("Professions.AllocationUpdated", function() ProfessionsFrame:SetScale(scale) end)
+
     -- same as profession frame.  this one removes scaling constantly.
     self:SecureHookScript(ProfessionsCustomerOrdersFrame, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
     self:SecureHookScript(ProfessionsCustomerOrdersFrame, "OnHide", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
@@ -53,6 +55,7 @@ function ZT:ApplyScaling()
     self:SecureHookScript(ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
     self:SecureHookScript(ProfessionsCustomerOrdersFrameOrdersTab, "OnClick", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
     self:SecureHookScript(ProfessionsCustomerOrdersFrameBrowseTab, "OnClick", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+
     QuestFrame:SetScale(scale)
     QueueStatusFrame:SetScale(scale)
     self:SecureHookScript(ReadyCheckListenerFrame, "OnShow", function(frame) frame:SetScale(scale) end)

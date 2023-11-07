@@ -72,9 +72,11 @@
     "workspace.ignoreDir": [
         "Libs"
     ],
+    "workspace.userThirdParty": [
+        "Libs"
+    ],
     "workspace.library": [
-        "Libs",
-        "~/.local/share/nvim/lazy/vscode-wow-api/EmmyLua",
-        "~/Local/nvim-data/lazy/vscode-wow-api/EmmyLua"
+        "~/.vscode/extensions/ketho.wow-api-0.10.10/EmmyLua/API",
+        "~/.vscode/extensions/ketho.wow-api-0.10.10/EmmyLua/Optional"
     ]
 }

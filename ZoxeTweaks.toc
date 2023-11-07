@@ -1,5 +1,5 @@
 ## Author: Zoxe
-## Interface: 100105
+## Interface: 100200
 ## Notes: Just some tweaks
 ## Title: ZoxeTweaks
 ## Version: 1.0.0
