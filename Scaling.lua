@@ -34,7 +34,9 @@ function ZT:ApplyScaling()
 
     -- these frames constantly remove the scaling, so we have to trap a lot of events
     self:SecureHookScript(ProfessionsFrame, "OnShow", function() ProfessionsFrame:SetScale(scale) end)
+    ---@diagnostic disable-next-line: param-type-mismatch
     self:SecureHookScript(ProfessionsFrame.MaximizeMinimize.MinimizeButton, "OnClick", function() ProfessionsFrame:SetScale(scale) end)
+    ---@diagnostic disable-next-line: param-type-mismatch
     self:SecureHookScript(ProfessionsFrame.MaximizeMinimize.MaximizeButton, "OnClick", function() ProfessionsFrame:SetScale(scale) end)
     self:SecureHookScript(ProfessionsFrame.CraftingPage.CraftingOutputLog, "OnShow", function() ProfessionsFrame:SetScale(scale) end)
     self:SecureHookScript(ProfessionsFrame.OrdersPage.OrderView.CraftingOutputLog, "OnShow", function () ProfessionsFrame:SetScale(scale) end)
@@ -50,10 +52,13 @@ function ZT:ApplyScaling()
     self:SecureHookScript(ProfessionsCustomerOrdersFrame, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
     self:SecureHookScript(ProfessionsCustomerOrdersFrame, "OnHide", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
     self:SecureHookScript(ProfessionsCustomerOrdersFrame.Form, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+    ---@diagnostic disable-next-line: param-type-mismatch
     self:SecureHookScript(ProfessionsCustomerOrdersFrame.Form.BackButton, "OnClick", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
     self:SecureHookScript(ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
     self:SecureHookScript(ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+    ---@diagnostic disable-next-line: param-type-mismatch
     self:SecureHookScript(ProfessionsCustomerOrdersFrameOrdersTab, "OnClick", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+    ---@diagnostic disable-next-line: param-type-mismatch
     self:SecureHookScript(ProfessionsCustomerOrdersFrameBrowseTab, "OnClick", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
 
     QuestFrame:SetScale(scale)
