@@ -4,7 +4,7 @@
 ## Title: ZoxeTweaks
 ## Version: 1.0.0
 ## Dependencies: Blizzard_Professions, Blizzard_ProfessionsCustomerOrders
-## OptionalDeps: Auctionator, ElvUI, _DebugLog, PublicOrdersReagentsColumn
+## OptionalDeps: _DebugLog, AddOnSkins, Auctionator, ElvUI, ElvUI_SLE, MRT, OmniCD, PublicOrdersReagentsColumn, WeakAuras
 ## SavedVariables: ZoxeTweaksDB
 
 embeds.xml
