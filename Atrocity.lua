@@ -1,41 +1,41 @@
 ---@class ZoxeTweaks
 local ZT = LibStub("AceAddon-3.0"):GetAddon("ZoxeTweaks")
 
-function ZT:ApplyTweaks()
-    ZT:ApplyElvUITweaks()
-    ZT:ApplySLETweaks()
-    ZT:ApplyWeakAurasTweaks()
-    ZT:ApplyBigWigsTweaks()
-    ZT:ApplyMRTTweaks()
-    ZT:ApplyOmniCDTweaks()
-    ZT:ApplyDetailsTweaks()
-    ZT:ApplyPlaterTweaks()
-    ZT:ApplyWarpDepleteTweaks()
+local function ApplyElvUITweaks()
 end
 
-function ZT:ApplyElvUITweaks()
+local function ApplySLETweaks()
 end
 
-function ZT:ApplySLETweaks()
+local function ApplyWeakAurasTweaks()
 end
 
-function ZT:ApplyWeakAurasTweaks()
+local function ApplyBigWigsTweaks()
 end
 
-function ZT:ApplyBigWigsTweaks()
+local function ApplyMRTTweaks()
 end
 
-function ZT:ApplyMRTTweaks()
+local function ApplyOmniCDTweaks()
 end
 
-function ZT:ApplyOmniCDTweaks()
+local function ApplyDetailsTweaks()
 end
 
-function ZT:ApplyDetailsTweaks()
+local function ApplyPlaterTweaks()
 end
 
-function ZT:ApplyPlaterTweaks()
+local function ApplyWarpDepleteTweaks()
 end
 
-function ZT:ApplyWarpDepleteTweaks()
+function ZT:ApplyAtrocityTweaks()
+    ApplyElvUITweaks()
+    ApplySLETweaks()
+    ApplyWeakAurasTweaks()
+    ApplyBigWigsTweaks()
+    ApplyMRTTweaks()
+    ApplyOmniCDTweaks()
+    ApplyDetailsTweaks()
+    ApplyPlaterTweaks()
+    ApplyWarpDepleteTweaks()
 end

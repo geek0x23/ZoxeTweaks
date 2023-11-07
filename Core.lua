@@ -62,8 +62,8 @@ function ZT:OnInitialize()
         if not input or input:trim() == "" then
             AceConfigDialog:Open("ZoxeTweaks")
         else
-            if input:trim() == "apply" then
-                ZT:ApplyTweaks()
+            if input:trim() == "atrocity" then
+                ZT:ApplyAtrocityTweaks()
             else
                 AceConfigCmd.HandleCommand(ZT, "zt", "ZoxeTweaks", input)
             end
