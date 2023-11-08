@@ -18,7 +18,9 @@
         "CommunitiesFrame",
         "DLAPI",
         "DressUpFrame",
+        "ElvDB",
         "ElvLootFrame",
+        "ElvPrivateDB",
         "ElvUI",
         "EncounterJournal",
         "EquipmentFlyoutFrame",
@@ -60,6 +62,7 @@
         "RaidUtility_ShowButton",
         "RaidUtilityPanel",
         "ReadyCheckListenerFrame",
+        "ReloadUI",
         "SettingsPanel",
         "SpellBookFrame",
         "SuperTrackedFrame",
@@ -76,7 +79,6 @@
         "Libs"
     ],
     "workspace.library": [
-        "~/.vscode/extensions/ketho.wow-api-0.10.10/EmmyLua/API",
-        "~/.vscode/extensions/ketho.wow-api-0.10.10/EmmyLua/Optional"
+        "~/.vscode/extensions/ketho.wow-api-0.10.10/EmmyLua"
     ]
 }
