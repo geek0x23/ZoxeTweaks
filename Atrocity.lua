@@ -603,12 +603,51 @@ local function ApplyWeakAurasTweaks()
 end
 
 local function ApplyBigWigsTweaks()
+    ZT:Debug("Applying BigWigs Tweaks")
+
+    local profile = BigWigs3DB["namespaces"]["BigWigs_Plugins_Bars"]["profiles"][profiles.atrocityUI]
+
+    profile["fontSize"] = 16
+    profile["fontSizeEmph"] = 16
+    profile["BigWigsAnchor_x"] = 1728
+    profile["BigWigsAnchor_y"] = 162
+    profile["BigWigsEmphasizeAnchor_x"] = 1080
+    profile["BigWigsEmphasizeAnchor_y"] = 276
 end
 
 local function ApplyMRTTweaks()
+    ZT:Debug("Applying MRT Tweaks")
+
+    VMRT.Note.FontSize = 16
 end
 
 local function ApplyOmniCDTweaks()
+    ZT:Debug("Applying OmniCD Tweaks")
+
+     local profile = OmniCDDB["profiles"][profiles.atrocityUI]
+
+     profile["General"]["fonts"]["statusBar"]["size"] = 24
+     profile["General"]["fonts"]["anchor"]["size"] = 16
+     profile["General"]["fonts"]["icon"]["size"] = 16
+
+     profile["Party"]["party"]["icons"]["scale"] = 1.05
+     profile["Party"]["party"]["position"]["offsetX"] = 2
+     profile["Party"]["party"]["position"]["offsetY"] = 3
+
+     profile["Party"]["party"]["extraBars"]["raidBar0"]["manualPos"]["raidBar0"]["x"] = 476.8001343409123
+     profile["Party"]["party"]["extraBars"]["raidBar0"]["manualPos"]["raidBar0"]["y"] = 442.1335348447028
+
+     profile["Party"]["party"]["extraBars"]["raidBar1"]["manualPos"]["raidBar1"]["x"] = 476.8001343409123
+     profile["Party"]["party"]["extraBars"]["raidBar1"]["manualPos"]["raidBar1"]["y"] = 332.5332158565579
+
+     local healerProfile = OmniCDDB["profiles"][profiles.atrocityUIHealer]
+
+     healerProfile["General"]["fonts"]["statusBar"]["size"] = 24
+     healerProfile["General"]["fonts"]["anchor"]["size"] = 16
+     healerProfile["General"]["fonts"]["icon"]["size"] = 16
+
+     healerProfile["Party"]["party"]["extraBars"]["raidBar0"]["manualPos"]["raidBar0"]["x"] = 620.5329708258505
+     healerProfile["Party"]["party"]["extraBars"]["raidBar0"]["manualPos"]["raidBar0"]["y"] = 197.6001509825292
 end
 
 local function ApplyDetailsTweaks()

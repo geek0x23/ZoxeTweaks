@@ -91,28 +91,24 @@ x WeakAuras: Essentials > Combat Ress > Display Tab > Position Settings > Y Offs
 x WeakAuras: Dungeons > Utility > Automark > Group Tab > Position Settings > Y Offset > set to 90
 x WeakAuras: Dungeons > Utility > Automark > Display Tab > Text 1 > set Font Size to 16
 
-- BigWigs: Bars > Bars Tab > Font size > set to 16
-- BigWigs: Bars > Emphasized Bars Tab > Font size > set to 16
-- BigWigs: Bars > Bars Tab > X Position > set to 1728
-- BigWigs: Bars > Bars Tab > Y Position > set to 162
-- Create a new profile for healer specs, and duplicate the AtrocityUI profile.
-- For the new healer profile
-    - Big Wigs: Bars > Emphasized Bars Tab > X Position > set to 1080
-    - Big Wigs: Bars > Emphasized Bars Tab > Y Position > set to 276
+x BigWigs: Bars > Bars Tab > Font size > set to 16
+x BigWigs: Bars > Emphasized Bars Tab > Font size > set to 16
+x BigWigs: Bars > Bars Tab > X Position > set to 1728
+x BigWigs: Bars > Bars Tab > Y Position > set to 162
+x BigWigs: Bars > Emphasized Bars Tab > X Position > set to 1080
+x BigWigs: Bars > Emphasized Bars Tab > Y Position > set to 276
 
-- Mythic Raid Tools: Raid cooldowns > Appearance Tab > Font > Font Size > set to 16
-- Mythic Raid Tools: Raid cooldowns > Spells Tab > check "Rallying Cry"
-- Mythic Raid Tools: Invite tools > delete all names from autopromote section
+x Mythic Raid Tools: Raid cooldowns > Appearance Tab > Font > Font Size > set to 16
 
-- OmniCD: General > Fonts Tab > Anchor > Font Size > set to 16
-- OmniCD: General > Fonts Tab > Icon > Font Size > set to 16
-- OmniCD: General > Fonts Tab > Status Bar > Font Size > set to 24
+x OmniCD: General > Fonts Tab > Anchor > Font Size > set to 16
+x OmniCD: General > Fonts Tab > Icon > Font Size > set to 16
+x OmniCD: General > Fonts Tab > Status Bar > Font Size > set to 24
 - For the Atrocity UI profile in OmniCD:
-    - OmniCD: Dungeons > Icons Tab > Icon Size > set to 105%
-    - OmniCD: Dungeons > Position Tab > Offset X > set to 2
-    - OmniCD: Dungeons > Position Tab > Offset Y > set to 3
-    - OmniCD: Dungeons > Extra Bars Tab > 1 Tab > unlock frame and move it manually beneath party frame
-    - OmniCD: Dungeons > Extra Bars Tab > Interrupt Bar Tab > unlock frame and move it manually above party frame
+    x OmniCD: Dungeons > Icons Tab > Icon Size > set to 105%
+    x OmniCD: Dungeons > Position Tab > Offset X > set to 2
+    x OmniCD: Dungeons > Position Tab > Offset Y > set to 3
+    x OmniCD: Dungeons > Extra Bars Tab > 1 Tab > unlock frame and move it manually beneath party frame
+    x OmniCD: Dungeons > Extra Bars Tab > Interrupt Bar Tab > unlock frame and move it manually above party frame
 - For the Atrocity UI Healer profile in OmniCD:
     - OmniCD: Dungeons > Extra Bars Tab > Interrupt Bar Tab > unlock frame and move it manually above the player frame
 

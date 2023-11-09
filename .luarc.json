@@ -7,6 +7,7 @@
         "AddOnSkinsDB",
         "Auctionator",
         "AuctionHouseFrame",
+        "BigWigs3DB",
         "CalendarFrame",
         "ChannelFrame",
         "CharacterFrame",
@@ -50,6 +51,7 @@
         "MirrorTimerContainer",
         "ObjectiveTrackerBlocksFrame",
         "ObjectiveTrackerFrame",
+        "OmniCDDB",
         "OpenMailFrame",
         "OrderHallMissionFrame",
         "ProfessionsCustomerOrdersFrame",
@@ -70,6 +72,7 @@
         "TimeManagerFrame",
         "TradeFrame",
         "UIWidgetTopCenterContainerFrame",
+        "VMRT",
         "WardrobeFrame",
         "WeakAurasSaved",
         "WeeklyRewardsFrame"
