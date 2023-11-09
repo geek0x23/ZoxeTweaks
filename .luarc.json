@@ -71,6 +71,7 @@
         "TradeFrame",
         "UIWidgetTopCenterContainerFrame",
         "WardrobeFrame",
+        "WeakAurasSaved",
         "WeeklyRewardsFrame"
     ],
     "workspace.ignoreDir": [
