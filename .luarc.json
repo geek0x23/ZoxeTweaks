@@ -4,6 +4,7 @@
     "diagnostics.globals": [
         "AchievementFrame",
         "AddonList",
+        "AddOnSkinsDB",
         "Auctionator",
         "AuctionHouseFrame",
         "CalendarFrame",
