@@ -160,4 +160,4 @@ x Shadow & Light: Modules Tab > Enhance Shadows > uncheck "Enable"
 x Shadow & Light: Modules Tab > PvP > PvP Auto Release > check "Enable"
 x Shadow & Light: Modules Tab > Raid Markers > uncheck "Enable"
 
-- WarpDeplete: General > set all Font Sizes to 16
+x WarpDeplete: General > set all Font Sizes to 16
