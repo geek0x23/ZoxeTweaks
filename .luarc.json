@@ -18,6 +18,7 @@
         "CollectionsJournal",
         "CovenantMissionFrame",
         "CommunitiesFrame",
+        "Details",
         "DLAPI",
         "DressUpFrame",
         "ElvDB",
@@ -54,6 +55,7 @@
         "OmniCDDB",
         "OpenMailFrame",
         "OrderHallMissionFrame",
+        "Plater",
         "ProfessionsCustomerOrdersFrame",
         "ProfessionsCustomerOrdersFrameBrowseTab",
         "ProfessionsCustomerOrdersFrameOrdersTab",
@@ -74,6 +76,7 @@
         "UIWidgetTopCenterContainerFrame",
         "VMRT",
         "WardrobeFrame",
+        "WarpDepleteDB",
         "WeakAurasSaved",
         "WeeklyRewardsFrame"
     ],

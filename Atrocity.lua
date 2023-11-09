@@ -624,39 +624,117 @@ end
 local function ApplyOmniCDTweaks()
     ZT:Debug("Applying OmniCD Tweaks")
 
-     local profile = OmniCDDB["profiles"][profiles.atrocityUI]
+    local profile = OmniCDDB["profiles"][profiles.atrocityUI]
 
-     profile["General"]["fonts"]["statusBar"]["size"] = 24
-     profile["General"]["fonts"]["anchor"]["size"] = 16
-     profile["General"]["fonts"]["icon"]["size"] = 16
+    profile["General"]["fonts"]["statusBar"]["size"] = 24
+    profile["General"]["fonts"]["anchor"]["size"] = 16
+    profile["General"]["fonts"]["icon"]["size"] = 16
 
-     profile["Party"]["party"]["icons"]["scale"] = 1.05
-     profile["Party"]["party"]["position"]["offsetX"] = 2
-     profile["Party"]["party"]["position"]["offsetY"] = 3
+    profile["Party"]["party"]["icons"]["scale"] = 1.05
+    profile["Party"]["party"]["position"]["offsetX"] = 2
+    profile["Party"]["party"]["position"]["offsetY"] = 3
 
-     profile["Party"]["party"]["extraBars"]["raidBar0"]["manualPos"]["raidBar0"]["x"] = 476.8001343409123
-     profile["Party"]["party"]["extraBars"]["raidBar0"]["manualPos"]["raidBar0"]["y"] = 442.1335348447028
+    profile["Party"]["party"]["extraBars"]["raidBar0"]["manualPos"]["raidBar0"]["x"] = 476.8001343409123
+    profile["Party"]["party"]["extraBars"]["raidBar0"]["manualPos"]["raidBar0"]["y"] = 442.1335348447028
 
-     profile["Party"]["party"]["extraBars"]["raidBar1"]["manualPos"]["raidBar1"]["x"] = 476.8001343409123
-     profile["Party"]["party"]["extraBars"]["raidBar1"]["manualPos"]["raidBar1"]["y"] = 332.5332158565579
+    profile["Party"]["party"]["extraBars"]["raidBar1"]["manualPos"]["raidBar1"]["x"] = 476.8001343409123
+    profile["Party"]["party"]["extraBars"]["raidBar1"]["manualPos"]["raidBar1"]["y"] = 332.5332158565579
 
-     local healerProfile = OmniCDDB["profiles"][profiles.atrocityUIHealer]
+    local healerProfile = OmniCDDB["profiles"][profiles.atrocityUIHealer]
 
-     healerProfile["General"]["fonts"]["statusBar"]["size"] = 24
-     healerProfile["General"]["fonts"]["anchor"]["size"] = 16
-     healerProfile["General"]["fonts"]["icon"]["size"] = 16
+    healerProfile["General"]["fonts"]["statusBar"]["size"] = 24
+    healerProfile["General"]["fonts"]["anchor"]["size"] = 16
+    healerProfile["General"]["fonts"]["icon"]["size"] = 16
 
-     healerProfile["Party"]["party"]["extraBars"]["raidBar0"]["manualPos"]["raidBar0"]["x"] = 620.5329708258505
-     healerProfile["Party"]["party"]["extraBars"]["raidBar0"]["manualPos"]["raidBar0"]["y"] = 197.6001509825292
+    healerProfile["Party"]["party"]["extraBars"]["raidBar0"]["manualPos"]["raidBar0"]["x"] = 620.5329708258505
+    healerProfile["Party"]["party"]["extraBars"]["raidBar0"]["manualPos"]["raidBar0"]["y"] = 197.6001509825292
 end
 
 local function ApplyDetailsTweaks()
+    ZT:Debug("Applying Details Tweaks")
+
+    Details.tooltip.fontsize = 16
+    Details.tooltip.fontsize_title = 16
+    Details.tooltip.anchored_to = 1
+
+    local count = 1
+    for id, instance in Details:ListInstances() do
+        count = count + 1
+        instance:SetBarTextSettings(16)
+        instance:AttributeMenu(nil, nil, nil, nil, 16)
+    end
+
+    -- Atrocity likes more than 2 windows.  I do not.
+    if count >= 3 then
+        for i = 3, count do
+            Details:DeleteInstance(i)
+        end
+    end
 end
 
 local function ApplyPlaterTweaks()
+    ZT:Debug("Applying Plater Tweaks")
+
+    Plater.db.profile.plate_config.enemynpc.actorname_text_size = 8
+    Plater.db.profile.plate_config.enemynpc.big_actorname_text_size = 8
+    Plater.db.profile.plate_config.enemynpc.big_actortitle_text_size = 8
+    Plater.db.profile.plate_config.enemynpc.level_text_size = 8
+    Plater.db.profile.plate_config.enemynpc.percent_text_size = 8
+    Plater.db.profile.plate_config.enemynpc.spellname_text_size = 8
+    Plater.db.profile.plate_config.enemynpc.spellpercent_text_size = 8
+
+    Plater.db.profile.plate_config.enemyplayer.actorname_text_size = 8
+    Plater.db.profile.plate_config.enemyplayer.big_actorname_text_size = 8
+    Plater.db.profile.plate_config.enemyplayer.big_actortitle_text_size = 8
+    Plater.db.profile.plate_config.enemyplayer.level_text_size = 8
+    Plater.db.profile.plate_config.enemyplayer.percent_text_size = 8
+    Plater.db.profile.plate_config.enemyplayer.spellname_text_size = 8
+    Plater.db.profile.plate_config.enemyplayer.spellpercent_text_size = 8
+
+    Plater.db.profile.plate_config.friendlynpc.actorname_text_size = 8
+    Plater.db.profile.plate_config.friendlynpc.big_actorname_text_size = 8
+    Plater.db.profile.plate_config.friendlynpc.big_actortitle_text_size = 8
+    Plater.db.profile.plate_config.friendlynpc.level_text_size = 8
+    Plater.db.profile.plate_config.friendlynpc.percent_text_size = 8
+    Plater.db.profile.plate_config.friendlynpc.spellname_text_size = 8
+    Plater.db.profile.plate_config.friendlynpc.spellpercent_text_size = 8
+
+    Plater.db.profile.plate_config.friendlyplayer.actorname_text_size = 8
+    Plater.db.profile.plate_config.friendlyplayer.big_actorname_text_size = 8
+    Plater.db.profile.plate_config.friendlyplayer.big_actortitle_text_size = 8
+    Plater.db.profile.plate_config.friendlyplayer.level_text_size = 8
+    Plater.db.profile.plate_config.friendlyplayer.percent_text_size = 8
+    Plater.db.profile.plate_config.friendlyplayer.spellname_text_size = 8
+    Plater.db.profile.plate_config.friendlyplayer.spellpercent_text_size = 8
+
+    Plater.db.profile.auto_toggle_friendly_enabled = true
+    Plater.db.profile.auto_toggle_friendly = {
+        party = true,
+        arena = false,
+        raid = true,
+        cities = false,
+        world = false
+    }
+
+    Plater.RefreshDBUpvalues()
+    Plater.UpdateAllPlates()
+    Plater.RefreshAutoToggle()
 end
 
 local function ApplyWarpDepleteTweaks()
+    ZT:Debug("Applying WarpDeplete Tweaks")
+
+    local profile = WarpDepleteDB["profiles"][profiles.atrocityUI]
+
+    profile["objectivesFontSize"] = 16
+    profile["keyFontSize"] = 16
+    profile["bar1FontSize"] = 16
+    profile["bar2FontSize"] = 16
+    profile["bar3FontSize"] = 16
+    profile["timerFontSize"] = 24
+    profile["keyDetailsFontSize"] = 16
+    profile["deathsFontSize"] = 16
+    profile["forcesFontSize"] = 16
 end
 
 function ZT:ApplyAtrocityTweaks()

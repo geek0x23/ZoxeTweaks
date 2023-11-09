@@ -109,21 +109,21 @@ x OmniCD: General > Fonts Tab > Status Bar > Font Size > set to 24
     x OmniCD: Dungeons > Position Tab > Offset Y > set to 3
     x OmniCD: Dungeons > Extra Bars Tab > 1 Tab > unlock frame and move it manually beneath party frame
     x OmniCD: Dungeons > Extra Bars Tab > Interrupt Bar Tab > unlock frame and move it manually above party frame
-- For the Atrocity UI Healer profile in OmniCD:
-    - OmniCD: Dungeons > Extra Bars Tab > Interrupt Bar Tab > unlock frame and move it manually above the player frame
+x For the Atrocity UI Healer profile in OmniCD:
+    x OmniCD: Dungeons > Extra Bars Tab > Interrupt Bar Tab > unlock frame and move it manually above the player frame
 
-- Details: Bars (Texts) > Text Size > set to 16
-- Details: Title Bar > Text Size > set to 16
-- Details: Tooltips > Text Size > set to 16
-- Details: Tooltips > Anchor > Move Anchor Point > drag the anchor to right next to the right chat box.
+x Details: Bars (Texts) > Text Size > set to 16
+x Details: Title Bar > Text Size > set to 16
+x Details: Tooltips > Text Size > set to 16
+x Details: Tooltips > Anchor > Move Anchor Point > drag the anchor to right next to the right chat box.
 
-- Plater: Enemy Npc Tab > set all Font Size boxes to 8
-- Plater: Enemy Player Tab > set all Font Size boxes to 8
-- Plater: Friendly Player Tab > set all Font Size boxes to 8
-- Plater: Friendly Npc Tab > set all Font Size boxes to 8
-- Plater: Auto Tab > Auto Toggle Friendly Nameplates > check "Enabled"
-- Plater: Auto Tab > Auto Toggle Friendly Nameplates > check "In Dungeons"
-- Plater: Auto Tab > Auto Toggle Friendly Nameplates > check "In Raid"
+x Plater: Enemy Npc Tab > set all Font Size boxes to 8
+x Plater: Enemy Player Tab > set all Font Size boxes to 8
+x Plater: Friendly Player Tab > set all Font Size boxes to 8
+x Plater: Friendly Npc Tab > set all Font Size boxes to 8
+x Plater: Auto Tab > Auto Toggle Friendly Nameplates > check "Enabled"
+x Plater: Auto Tab > Auto Toggle Friendly Nameplates > check "In Dungeons"
+x Plater: Auto Tab > Auto Toggle Friendly Nameplates > check "In Raid"
 
 x Shadow & Light: Media Tab > Zone Text Tab > set Font to "Expressway" for all texts
 x Shadow & Light: Media Tab > Zone Text Tab > set Font Outline to "Outline" for all texts
