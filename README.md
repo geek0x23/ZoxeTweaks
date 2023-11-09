@@ -3,10 +3,10 @@
 This project exists to help me accomplish 3 goals:
 
   1. **Make AtrocityUI more visible to me.**  Fonts, chat panels, and a few other things here and there are just too small for me to see.  My eyes aren't what they used to be.
-  2. **Fix WoW's absolutely busted scaling at 1440p.**  To get pixel-perfect WeakAuras, Atrocity's UI sets the global UI scale to a very small number.  As a side effect, all of the default Blizzard frames become very small.  This repo contains a small addon that manually scales individual frames without scaling `UIParent`.  This is intentional so I don't break the pixel-perfect scaling for WeakAuras.  There's probably a more elegant way to do this, so if you have ideas please share!
-  3. **Support ultrawide gaming at 3440 x 1440.**  Details for this process can be found in the `1440p.txt` file.
+  2. **Fix WoW's absolutely busted scaling at 1440p.**  To get pixel-perfect WeakAuras, Atrocity's UI sets the global UI scale to a very small number.  As a side effect, all of the default Blizzard frames become very small.  This repo contains a small addon that manually scales individual frames **without** scaling `UIParent`.  This is intentional so I don't break the pixel-perfect scaling for WeakAuras.  There's probably a more elegant way to do this, so if you have ideas please share!
+  3. **Support ultrawide gaming at 3440 x 1440.**  I have a bunch of settings that I like to tweak for all the various addons included with AtrocityUI (plus Shadow & Light).  I got tired of doing it manually, so I wrote a script.
 
-This is a personal configuration + addon for my scenario.  I'm not placing this on any addon sites (CurseForge, etc).  This is just me sharing my setup with folks that asked me nicely on Atrocity's discord server.  YMMV, use at your own risk, and all that stuff.
+This is a personal setup for me.  I'm not placing this on any addon sites (CurseForge, etc).  This is just me sharing my code with folks that asked me nicely on Atrocity's discord server.  YMMV, use at your own risk, and all that stuff.
 
 I have not completely scaled every frame in the game.  I've just been scaling them as I encounter them.  I will update this code as I encounter more.
 
@@ -18,4 +18,4 @@ I have not completely scaled every frame in the game.  I've just been scaling th
 
 Once installed, use the `/zt` command in-game to bring up the configuration options.  You'll also find it in the default Blizzard addon options.  If you chose to change the **scale factor**, please remember to reload your UI (or relog).
 
-You may also use `/zt atrocity` to perform the various tweaks in `1440p.txt` automatically.  This should be done **AFTER** AtrocityUI has been properly installed or upgraded.  This feature is considered **EXPERIMENTAL** until I've gone through a few upgrades myself to confirm it all works the way it should.
+You may also use `/zt atrocity` to add my custom ultrawide tweaks.  This step is not necessary if all you want is the scaling fixes.  If you chose to use this feature, it should be done **AFTER** AtrocityUI has been properly installed or upgraded.  This is considered **VERY EXPERIMENTAL** until I've gone through a few upgrades myself to confirm it all works the way it should.
