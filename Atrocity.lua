@@ -23,7 +23,7 @@ local function ApplyElvUITweaks()
     local elvPrivHealerColor = ElvPrivateDB["profiles"][profiles.atrocityUIHealerColor]
 
 
-    -- Media
+    -- Fonts
     elvPriv["general"]["nameplateFontSize"] = 16
     elvPriv["general"]["nameplateLargeFontSize"] = 16
     elvPrivColor["general"]["nameplateFontSize"] = 16
@@ -32,6 +32,40 @@ local function ApplyElvUITweaks()
     elvPrivHealer["general"]["nameplateLargeFontSize"] = 16
     elvPrivHealerColor["general"]["nameplateFontSize"] = 16
     elvPrivHealerColor["general"]["nameplateLargeFontSize"] = 16
+
+    elv["general"]["fonts"] = elv["general"]["fonts"] or {}
+
+    local smallFont = {
+        enable = true,
+        outline = "OUTLINE",
+        size = 12
+    }
+
+    local normalFont = {
+        enable = true,
+        outline = "OUTLINE",
+        size = 16
+    }
+
+    elv["general"]["fonts"]["objective"] = smallFont
+    elv["general"]["fonts"]["questsmall"] = normalFont
+    elv["general"]["fonts"]["questtext"] = normalFont
+    elv["general"]["fonts"]["questtitle"] = normalFont
+
+    elvColor["general"]["fonts"]["objective"] = smallFont
+    elvColor["general"]["fonts"]["questsmall"] = normalFont
+    elvColor["general"]["fonts"]["questtext"] = normalFont
+    elvColor["general"]["fonts"]["questtitle"] = normalFont
+
+    elvHealer["general"]["fonts"]["objective"] = smallFont
+    elvHealer["general"]["fonts"]["questsmall"] = normalFont
+    elvHealer["general"]["fonts"]["questtext"] = normalFont
+    elvHealer["general"]["fonts"]["questtitle"] = normalFont
+
+    elvHealerColor["general"]["fonts"]["objective"] = smallFont
+    elvHealerColor["general"]["fonts"]["questsmall"] = normalFont
+    elvHealerColor["general"]["fonts"]["questtext"] = normalFont
+    elvHealerColor["general"]["fonts"]["questtitle"] = normalFont
 
 
     -- Data Bars
