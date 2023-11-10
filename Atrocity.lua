@@ -34,6 +34,9 @@ local function ApplyElvUITweaks()
     elvPrivHealerColor["general"]["nameplateLargeFontSize"] = 16
 
     elv["general"]["fonts"] = elv["general"]["fonts"] or {}
+    elvColor["general"]["fonts"] = elvColor["general"]["fonts"] or {}
+    elvHealer["general"]["fonts"] = elvHealer["general"]["fonts"] or {}
+    elvHealerColor["general"]["fonts"] = elvHealerColor["general"]["fonts"] or {}
 
     local smallFont = {
         enable = true,
