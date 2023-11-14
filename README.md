@@ -17,5 +17,3 @@ I have not completely scaled every frame in the game.  I've just been scaling th
 ## Usage
 
 Once installed, use the `/zt` command in-game to bring up the configuration options.  You'll also find it in the default Blizzard addon options.  If you chose to change the **scale factor**, please remember to reload your UI (or relog).
-
-You may also use `/zt atrocity` to add my custom ultrawide tweaks.  This step is not necessary if all you want is the scaling fixes.  If you chose to use this feature, it should be done **AFTER** AtrocityUI has been properly installed or upgraded.  This is considered **VERY EXPERIMENTAL** until I've gone through a few upgrades myself to confirm it all works the way it should.
