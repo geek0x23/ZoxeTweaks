@@ -87,14 +87,14 @@ function ZT:OnInitialize()
                     heading = {
                         order = 1,
                         type = "group",
-                        name = "Reminder",
+                        name = "How it Works",
                         inline = true,
                         args = {
                             description = {
                                 type = "description",
-                                name = "Most of these tweaks are designed for 1440p ultrawide.  These settings are only "..
-                                    "applied when you click the `Apply` button below.  You'll need to re-apply these "..
-                                    "settings every time you update or install AtrocityUI."
+                                name = "Most of these tweaks are designed for 1440p ultra-wide.  These settings are "..
+                                    "only applied when you click the `Apply` button below.  You'll need to re-apply "..
+                                    "these settings every time you update or install AtrocityUI."
                             }
                         }
                     },
@@ -111,7 +111,7 @@ function ZT:OnInitialize()
                                 set = function(_, val) self.db.profile.atrocityUI.fonts.resize = val end,
                                 get = function() return self.db.profile.atrocityUI.fonts.resize end
                             },
-                            fontSize = {
+                            size = {
                                 name = "Desired font size",
                                 desc = "If 'Change font size' is enabled, what size should we use?",
                                 type = "range",
@@ -166,14 +166,14 @@ function ZT:OnInitialize()
                             },
                             minimap = {
                                 name = "Bigger minimap?",
-                                desc = "Should we enable make the minimap larger?",
+                                desc = "Should we make the minimap bigger?",
                                 type = "toggle",
                                 set = function(_, val) self.db.profile.atrocityUI.elvUI.minimap = val end,
                                 get = function() return self.db.profile.atrocityUI.elvUI.minimap end
                             },
                             tooltip = {
                                 name = "Tooltip tweaks?",
-                                desc = "Should we disable item count, and set the modifier to SHIFT?",
+                                desc = "Should we disable item count and set the modifier key to SHIFT?",
                                 type = "toggle",
                                 set = function(_, val) self.db.profile.atrocityUI.elvUI.tooltip = val end,
                                 get = function() return self.db.profile.atrocityUI.elvUI.tooltip end
