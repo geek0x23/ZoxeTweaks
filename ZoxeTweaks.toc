@@ -1,6 +1,6 @@
 ## Author: Zoxe
 ## Interface: 100200
-## Notes: My own tweaks to fix WoW's busted scaling at 1440p, and various other addon tweaks (mostly centered around AtrocityUI)
+## Notes: An addon to fix 1440p scaling, and make AtrocityUI more visible with proper ultra-wide support.
 ## Title: ZoxeTweaks
 ## Version: 2.0.0
 ## Dependencies: Blizzard_Professions, Blizzard_ProfessionsCustomerOrders
