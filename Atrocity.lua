@@ -643,7 +643,6 @@ local function ApplyWeakAurasTweaks(ztp)
             "Player Castbar (Caster)",
             "Player Castbar (Healer)",
             "Focus Castbar",
-            "Automark"
         }
 
         for _, auraName in ipairs(auras) do
@@ -660,13 +659,12 @@ local function ApplyWeakAurasTweaks(ztp)
         end
     end
 
-    -- Automark
-    WeakAurasSaved["displays"]["Automark"]["yOffset"] = 90
-
     if ztp.elvUI.panels then
         -- Combat Info
         WeakAurasSaved["displays"]["Combat Ress"]["xOffset"] = -1289
         WeakAurasSaved["displays"]["Combat Ress"]["yOffset"] = -432
+        WeakAurasSaved["displays"]["Combat Ress"]["justify"] = "RIGHT"
+
         WeakAurasSaved["displays"]["Combat Time"]["xOffset"] = -1668
         WeakAurasSaved["displays"]["Combat Time"]["yOffset"] = -432
     end
