@@ -679,6 +679,7 @@ local function ApplyBigWigsTweaks(ztp)
     end
 
     if ztp.bigWigs then
+        profile["growup"] = true
         profile["BigWigsAnchor_x"] = 1728
         profile["BigWigsAnchor_y"] = 162
         profile["BigWigsEmphasizeAnchor_x"] = 1080
