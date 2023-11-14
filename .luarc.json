@@ -37,6 +37,7 @@
         "GuildBankFrame",
         "HelpFrame",
         "InspectFrame",
+        "InterfaceOptionsFrame_OpenToCategory",
         "ItemInteractionFrame",
         "ItemSocketingFrame",
         "ItemTextFrame",
