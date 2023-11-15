@@ -14,7 +14,7 @@ function ZT:ApplyScaling()
     ChatConfigFrame:SetScale(scale)
     CinematicFrameCloseDialog:SetScale(scale)
     DressUpFrame:SetScale(scale)
-    ExpansionLandingPage:SetScale(scale)
+    if ExpansionLandingPage then ExpansionLandingPage:SetScale(scale) end
     FriendsFrame:SetScale(scale)
     GameMenuFrame:SetScale(scale)
     GossipFrame:SetScale(scale)
@@ -26,42 +26,52 @@ function ZT:ApplyScaling()
     if MajorFactionRenownFrame then MajorFactionRenownFrame:SetScale(scale) end
     MailFrame:SetScale(scale)
     self:SecureHookScript(MerchantFrame, "OnShow", function(frame) frame:SetScale(scale) end)
-    MirrorTimerContainer:SetScale(scale)
-    ObjectiveTrackerFrame:SetScale(scale)
-    ObjectiveTrackerBlocksFrame:SetScale(scale)
+    if MirrorTimerContainer then MirrorTimerContainer:SetScale(scale) end
+    if MirrorTimer1 then
+        MirrorTimer1:SetScale(scale)
+        MirrorTimer2:SetScale(scale)
+        MirrorTimer3:SetScale(scale)
+    end
+    if ObjectiveTrackerFrame then ObjectiveTrackerFrame:SetScale(scale) end
+    if ObjectiveTrackerBlocksFrame then ObjectiveTrackerBlocksFrame:SetScale(scale) end
     OpenMailFrame:SetScale(scale)
     PVEFrame:SetScale(scale)
 
-    -- these frames constantly remove the scaling, so we have to trap a lot of events
-    self:SecureHookScript(ProfessionsFrame, "OnShow", function() ProfessionsFrame:SetScale(scale) end)
-    ---@diagnostic disable-next-line: param-type-mismatch
-    self:SecureHookScript(ProfessionsFrame.MaximizeMinimize.MinimizeButton, "OnClick", function() ProfessionsFrame:SetScale(scale) end)
-    ---@diagnostic disable-next-line: param-type-mismatch
-    self:SecureHookScript(ProfessionsFrame.MaximizeMinimize.MaximizeButton, "OnClick", function() ProfessionsFrame:SetScale(scale) end)
-    self:SecureHookScript(ProfessionsFrame.CraftingPage.CraftingOutputLog, "OnShow", function() ProfessionsFrame:SetScale(scale) end)
-    self:SecureHookScript(ProfessionsFrame.OrdersPage.OrderView.CraftingOutputLog, "OnShow", function () ProfessionsFrame:SetScale(scale) end)
-    self:SecureHookScript(ProfessionsFrame.OrdersPage.OrderView.CraftingOutputLog, "OnHide", function () ProfessionsFrame:SetScale(scale) end)
-    self:RegisterEvent("CRAFTINGORDERS_FULFILL_ORDER_RESPONSE", function() ProfessionsFrame:SetScale(scale) end)
-    self:RegisterEvent("TRADE_SKILL_ITEM_CRAFTED_RESULT", function() ProfessionsFrame:SetScale(scale) end)
-    EventRegistry:RegisterCallback("ProfessionsFrame.TabSet", function() ProfessionsFrame:SetScale(scale) end)
-    EventRegistry:RegisterCallback("Professions.ProfessionSelected", function() ProfessionsFrame:SetScale(scale) end)
-    EventRegistry:RegisterCallback("Professions.TransactionUpdated", function() ProfessionsFrame:SetScale(scale) end)
-    EventRegistry:RegisterCallback("Professions.AllocationUpdated", function() ProfessionsFrame:SetScale(scale) end)
+    if ProfessionsFrame then
+        -- these frames constantly remove the scaling, so we have to trap a lot of events
+        self:SecureHookScript(ProfessionsFrame, "OnShow", function() ProfessionsFrame:SetScale(scale) end)
+        ---@diagnostic disable-next-line: param-type-mismatch
+        self:SecureHookScript(ProfessionsFrame.MaximizeMinimize.MinimizeButton, "OnClick", function() ProfessionsFrame:SetScale(scale) end)
+        ---@diagnostic disable-next-line: param-type-mismatch
+        self:SecureHookScript(ProfessionsFrame.MaximizeMinimize.MaximizeButton, "OnClick", function() ProfessionsFrame:SetScale(scale) end)
+        self:SecureHookScript(ProfessionsFrame.CraftingPage.CraftingOutputLog, "OnShow", function() ProfessionsFrame:SetScale(scale) end)
+        self:SecureHookScript(ProfessionsFrame.OrdersPage.OrderView.CraftingOutputLog, "OnShow", function () ProfessionsFrame:SetScale(scale) end)
+        self:SecureHookScript(ProfessionsFrame.OrdersPage.OrderView.CraftingOutputLog, "OnHide", function () ProfessionsFrame:SetScale(scale) end)
+        self:RegisterEvent("CRAFTINGORDERS_FULFILL_ORDER_RESPONSE", function() ProfessionsFrame:SetScale(scale) end)
+        self:RegisterEvent("TRADE_SKILL_ITEM_CRAFTED_RESULT", function() ProfessionsFrame:SetScale(scale) end)
+        EventRegistry:RegisterCallback("ProfessionsFrame.TabSet", function() ProfessionsFrame:SetScale(scale) end)
+        EventRegistry:RegisterCallback("Professions.ProfessionSelected", function() ProfessionsFrame:SetScale(scale) end)
+        EventRegistry:RegisterCallback("Professions.TransactionUpdated", function() ProfessionsFrame:SetScale(scale) end)
+        EventRegistry:RegisterCallback("Professions.AllocationUpdated", function() ProfessionsFrame:SetScale(scale) end)
+    end
 
+    if ProfessionsCustomerOrdersFrame then
     -- same as profession frame.  this one removes scaling constantly.
-    self:SecureHookScript(ProfessionsCustomerOrdersFrame, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
-    self:SecureHookScript(ProfessionsCustomerOrdersFrame, "OnHide", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
-    self:SecureHookScript(ProfessionsCustomerOrdersFrame.Form, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
-    ---@diagnostic disable-next-line: param-type-mismatch
-    self:SecureHookScript(ProfessionsCustomerOrdersFrame.Form.BackButton, "OnClick", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
-    self:SecureHookScript(ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
-    self:SecureHookScript(ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
-    ---@diagnostic disable-next-line: param-type-mismatch
-    self:SecureHookScript(ProfessionsCustomerOrdersFrameOrdersTab, "OnClick", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
-    ---@diagnostic disable-next-line: param-type-mismatch
-    self:SecureHookScript(ProfessionsCustomerOrdersFrameBrowseTab, "OnClick", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+        self:SecureHookScript(ProfessionsCustomerOrdersFrame, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+        self:SecureHookScript(ProfessionsCustomerOrdersFrame, "OnHide", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+        self:SecureHookScript(ProfessionsCustomerOrdersFrame.Form, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+        ---@diagnostic disable-next-line: param-type-mismatch
+        self:SecureHookScript(ProfessionsCustomerOrdersFrame.Form.BackButton, "OnClick", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+        self:SecureHookScript(ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+        self:SecureHookScript(ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+        ---@diagnostic disable-next-line: param-type-mismatch
+        self:SecureHookScript(ProfessionsCustomerOrdersFrameOrdersTab, "OnClick", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+        ---@diagnostic disable-next-line: param-type-mismatch
+        self:SecureHookScript(ProfessionsCustomerOrdersFrameBrowseTab, "OnClick", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
+    end
 
     QuestFrame:SetScale(scale)
+    if QuestLogFrame then QuestLogFrame:SetScale(scale) end
     QueueStatusFrame:SetScale(scale)
     self:SecureHookScript(ReadyCheckListenerFrame, "OnShow", function(frame) frame:SetScale(scale) end)
     RaidUtilityPanel:SetScale(scale)
@@ -69,10 +79,11 @@ function ZT:ApplyScaling()
     self:SecureHookScript(RaidUtility_CloseButton, "OnShow", function(frame) frame:SetScale(scale) end)
     self:SecureHookScript(SettingsPanel, "OnShow", function(frame) frame:SetScale(scale) end)
     SpellBookFrame:SetScale(scale)
-    SuperTrackedFrame:SetScale(scale)
+    if SuperTrackedFrame then SuperTrackedFrame:SetScale(scale) end
     TimeManagerFrame:SetScale(scale)
     TradeFrame:SetScale(scale)
     UIWidgetTopCenterContainerFrame:SetScale(scale)
+    if WatchFrame then WatchFrame:SetScale(scale) end
 
     self:RegisterEvent("ADDON_LOADED", function(_, addonName)
         self:Debug("Addon Loaded: %s", addonName)
