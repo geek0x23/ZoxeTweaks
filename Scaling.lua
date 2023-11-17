@@ -18,6 +18,9 @@ function ZT:ApplyScaling()
     FriendsFrame:SetScale(scale)
     GameMenuFrame:SetScale(scale)
     GossipFrame:SetScale(scale)
+    if GroupLootHistoryFrame then
+        self:SecureHookScript(GroupLootHistoryFrame, "OnShow", function() GroupLootHistoryFrame:SetScale(scale) end)
+    end
     HelpFrame:SetScale(scale)
     ItemTextFrame:SetScale(scale)
     LFGDungeonReadyPopup:SetScale(scale)
