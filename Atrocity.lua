@@ -697,14 +697,10 @@ local function ApplyMRTTweaks(ztp)
 
         -- Generic Column in Raid Cooldowns
         local genericSettings = VMRT.ExCD2.colSet[11]
-        genericSettings.fontCenterSize = ztp.fonts.size
-        genericSettings.fontIconSize = ztp.fonts.size
-        genericSettings.fontIconCDSize = ztp.fonts.size
         genericSettings.fontLeftSize = ztp.fonts.size
-        genericSettings.fontRightSize = ztp.fonts.size
-        genericSettings.fontSize = ztp.fonts.size
-        genericSettings.iconMasque = true
-
+        genericSettings.fontLeftShadow = true
+        genericSettings.fontLeftOutline = true
+        genericSettings.iconMasque = false
     end
 
     if ztp.elvUI.panels then
