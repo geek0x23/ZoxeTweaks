@@ -46,28 +46,32 @@ local function ApplyElvUITweaks(ztp)
         local normalFont = {
             enable = true,
             outline = "OUTLINE",
-            size = ztp.fonts.size
+            size = ztp.fonts.size - 2
         }
 
         elv["general"]["fonts"]["objective"] = smallFont
         elv["general"]["fonts"]["questsmall"] = normalFont
         elv["general"]["fonts"]["questtext"] = normalFont
         elv["general"]["fonts"]["questtitle"] = normalFont
+        elv["general"]["fonts"]["mailbody"] = normalFont
 
         elvColor["general"]["fonts"]["objective"] = smallFont
         elvColor["general"]["fonts"]["questsmall"] = normalFont
         elvColor["general"]["fonts"]["questtext"] = normalFont
         elvColor["general"]["fonts"]["questtitle"] = normalFont
+        elvColor["general"]["fonts"]["mailbody"] = normalFont
 
         elvHealer["general"]["fonts"]["objective"] = smallFont
         elvHealer["general"]["fonts"]["questsmall"] = normalFont
         elvHealer["general"]["fonts"]["questtext"] = normalFont
         elvHealer["general"]["fonts"]["questtitle"] = normalFont
+        elvHealer["general"]["fonts"]["mailbody"] = normalFont
 
         elvHealerColor["general"]["fonts"]["objective"] = smallFont
         elvHealerColor["general"]["fonts"]["questsmall"] = normalFont
         elvHealerColor["general"]["fonts"]["questtext"] = normalFont
         elvHealerColor["general"]["fonts"]["questtitle"] = normalFont
+        elvHealerColor["general"]["fonts"]["mailbody"] = normalFont
     end
 
 
@@ -690,10 +694,77 @@ end
 local function ApplyMRTTweaks(ztp)
     if ztp.fonts.resize then
         VMRT.Note.FontSize = ztp.fonts.size
+
+        -- Generic Column in Raid Cooldowns
+        local genericSettings = VMRT.ExCD2.colSet[11]
+        genericSettings.fontCenterSize = ztp.fonts.size
+        genericSettings.fontIconSize = ztp.fonts.size
+        genericSettings.fontIconCDSize = ztp.fonts.size
+        genericSettings.fontLeftSize = ztp.fonts.size
+        genericSettings.fontRightSize = ztp.fonts.size
+        genericSettings.fontSize = ztp.fonts.size
+        genericSettings.iconMasque = true
+
+    end
+
+    if ztp.elvUI.unitFrames then
+        -- Raid CD's
+        local raidCDs = VMRT.ExCD2.colSet[1]
+        raidCDs.posX = 507.7777099609375
+        raidCDs.poxY = 536.13232421875
+
+        -- Healer CD's
+        local healerCDs = VMRT.ExCD2.colSet[2]
+        healerCDs.posX = 507.7777099609375
+        healerCDs.poxY = 275.3607788085938
+    end
+
+    if ZT.db.profile.scaleFactor then
+        VMRT.Addon.Scale = ZT.db.profile.scaleFactor
+    end
+
+    if ztp.mrtRaidNotes then
+        VMRT.Note.AutoLoad = {
+			2820, -- [1]
+			2709, -- [2]
+			2737, -- [3]
+			2728, -- [4]
+			2708, -- [5]
+			2731, -- [6]
+			2824, -- [7]
+			2786, -- [8]
+			2677, -- [9]
+		}
+
+        VMRT.Note.BlackLastUpdateName = {
+			"Zoxormu-Stormrage", -- [1]
+			"Zoxormu-Stormrage", -- [2]
+			"Zoxormu-Stormrage", -- [3]
+			"Zoxormu-Stormrage", -- [4]
+			"Zoxormu-Stormrage", -- [5]
+			"Zoxormu-Stormrage", -- [6]
+			"Zoxormu-Stormrage", -- [7]
+			"Zoxormu-Stormrage", -- [8]
+			"Zoxormu-Stormrage", -- [9]
+		}
+
+		VMRT.Note.Black = {
+			"AOE - LUST ON PULL\nPHASE 1\n- Avoid random frontal from {spell:422039}Shadowflame Cleave.\n- Tainted Lashers spawn and burrow underground.\n- {spell:421971}Controlled Burn is a big circle on a player.\n  - Drop near edges, but try to hit lots of Lashers.\n\nPHASE 2\n- Starts when Gnarlroot hits 100 energy.\n- Any remaining Tainted Lashers will activate.  Kill them ASAP.\n- He will cast {spell:421013}Doom Cultivation and spawn {spell:425648}Doom Roots.\n  - Soak small circles to gain {spell:421038}Ember-Charred debuff.\n  - When {spell:421038}Ember-Charred, stand by roots to burn them.\n{T}\nTANKS\n- Taunt swap after every {spell:424352}Dreadfire Barrage\n- Tainted Lashers have a stacking bleed.  Use defensives.\n- Stun Tainted Lashers that go near the boss.\n{/T}{H}\nHEALERS\n- {spell:422026}Tortured Scream increases the damage the raid takes.\n- Be ready after intermission.  Lots of raid damage going out.\n- {spell:425709}Rising Mania ramps damage 10% every time phase 2 ends.\n{/H}{D}\nDPS\n- Stun Tainted Lashers that go near the boss.\n- Double damage for 20 seconds after phase 2 ends.\n{/D}", -- [1]
+			"SINGLE TARGET - LUST ON PULL\n{spell:414425}Blistering Spears is cast to tether random players.\n- Affected players cluster near the boss.  Damage is low.\n- DPS should destroy the spears to break players free.\n\n{spell:416998}Twisting Blade will fly towards a random player.  Dodge.\n\nAt 100 energy, {spell:422776}Marked for Torment will spawn zones.\n\n- The raid will soak Slicing Torment (middle) first.\n  - Uses {spell:418533}Smashing Viscera to leap at someone.  Dodge.\n\n- The raid will soak Hacking Torment (left) second.\n  - A tank will be hit with {spell:416056}Umbral Destruction\n  - Half the raid soaks and receives a {spell:429277}Brutalized debuff.\n\n- The raid will soak Flaying Torment (right) third.\n  - {spell:415624}Heart Stopper is a healing absorb.\n  - Affected players spread to avoid hitting others.\n{T}\nTANKS\n - Always be near each other because of {spell:423108}Viscious Swing.\n - Swap at ~6 stacks of {spell:414340}Drenched Blades.\n{/T}{H}\nHEALERS\n - Watch for {spell:414425}Blistering Spears (burst damage + DoT).\n - Save big AoE heals for {spell:415624}Heart Stopper.\n{/H}", -- [2]
+			"SINGLE TARGET - LUST ON PULL\n{spell:420421}Scorchtail Crash drops a big shadow.  Dodge.\n\nBarfs {spell:421616}Volcanic Disgorge.  Dodge small circles.\n\n{spell:421672}Serpent's Fury does burst raid damage for 5 seconds.\n- Afterward, he casts {spell:421284}Coiling Flames on random players.\n  - {spell:421284}Coiling Flames cleaves, so run away from others.\n  - {spell:421284}Coiling Flames jumps to another player when it ends.\n\nAt 100 energy, {spell:420934}Flood of the Firelands spawns two soaks.\n- Raid splits in half to handle big soaks, and stays split.\n- Soaks cause a knockback, so position carefully.\n{T}\nTANKS\n- Always stay in melee to prevent {spell:421703}Serpent's Wrath.\n- He applies a stacking debuff called {spell:419054}Molten Venom.\n  - Each stack increases damage of {spell:423117}Cataclysm Jaws.\n  - Swap *before* every cast of {spell:423117}Cataclysm Jaws.\n{/T}{H}\nHEALERS\n- {spell:421284}Coiling Flames hurts more the longer it's on a target.\n- {spell:421672}Serpent's Fury causes big raid damage for 5 seconds.\n{/H}", -- [3]
+			"CLEAVE BOSS - LUST ON PULL\nURCTOS\n- Casts {spell:420946}Barreling Charge at tank doign splash damage.\n  - About a third of the raid needs to soak this (melee).\n  - Aim at Aerwynn during {spell:421292}Constricting Thicket.\n- At 100 energy he channels {spell:420525}Blind Rage.\n  - Interrupt by dispelling a {spell:418720}Polymorph Bomb on top of him.\n\nAERWYNN\n- Throws {spell:420856}Poisonous Javelins at players. Dispel this.\n- Spawns {spell:420671}Noxious Blossoms that pulse aoe damage\n  - Destroy blossoms by running over them while {spell:418720} polymorphed.\n- At 100 energy she channels {spell:421292}Constricting Thicket.\n  - Aim a {spell:420946}Barreling Charge at Aerwynn to interrupt her.\n\nPIP\n- {spell:421024}Emerald Winds pushes players back for 3 seconds.\n- Casts {spell:418720}Polymorph Bomb to turn players into ducks.\n  - Eat {spell:420671}Noxious Blossoms to get {spell:422372}Preen (which cleanses it).\n  - Use {spell:422372}Preen on top of Urctos to stop his {spell:420525}Blind Rage.\n  - {spell:422372}Preen will stun players within 7 yards, so be careful.\n- At 100 energy he channels {spell:421029}Song of the Dragon.\n  - Players will get a shield called {spell:426390}Corrosive Pollen.\n  - Stand on {spell:420671}Noxious Blossoms until the shield is removed.\n{T}\nTANKS\n- Urctos is the only boss you can move.  Stack him on another boss.\n- {spell:421020}Agonizing Claws is a cleaving tank buster.  Swap every cast.\n- Point {spell:420946}Barreling Charge at Aerwynn she is channeling thickets.\n{/T}{H}\nHEALERS\n- Be sure to dispel {spell:420856}Poisonous Javelin (poison debuff)\n- Expect spiky damage during charge, winds, and thicket\n{/H}", -- [4]
+			"SINGLE TARGET - LUST ON PULL\nPHASE 1\n- {spell:418423}Verdant Matrix creates lines on the floor that damage you.\n- She casts {spell:420836}Continuum to move the lines from time to time.\n- {spell:429785}Impending Loom are beams that slowly travel outward.  Dodge.\n- Small pools of {spell:425357}Surging Growth must be soaked by one player.\n- {spell:420907}Viridian Rain causes widespread raid damage.\n- At 100 energy, she casts {spell:426855}Full Bloom to start phase 2.\n  - Move within 16 yards for {spell:429127}Inflorescence to walk through lines.\n\nPHASE 2\n- The raid must split to opposite sides to deal with Cycle Wardens\n- Wardens cast {spell:425370}Radial Flourish.  Dodge the swirlies.\n- {spell:429108}Lumbering Slam is a frontal cone.  Dodge (tank can too).\n- When both Cycle Wardens are killed, she goes back to phase 1.\n{T}\nTANKS\n- {spell:427722}Weaver's Burden is a bomb.  Taunt swap and move out of raid.\n- {spell:426154}Threaded Blast is a tank buster.  Use defensives.\n- Big tree adds shouldn't cross any lines to avoid {spell:423842}Verdant Rend.\n{/T}{H}\nHEALERS\n- During {spell:420836}Continuum the raid will take heavy damage.\n- In phase 2 she will cast {spell:421368}Unravel, causing heavy raid damage.\n{/H}", -- [5]
+			"SINGLE TARGET - LUST ON PULL\nPHASE 1\n- The Seed of Life can be used activate {spell:425249}Dream Blossom.\n  - {spell:425249}Dream Blossom clears {spell:417610}Burning Ground and {spell:417660}Scorching Roots\n  - To charge the seed, kill Fiery Treants, then heal Charred Treants.\n\n- At 100 energy, he will cast {spell:417634}Raging Inferno for 6 seconds.\n  - To survive this, we must stand in a Renewed Bramble Barrier.\n  - To spawn a barrier, kill Scorching Roots, then heal Charred Brambles.\n\nINTERMISSION\n- {spell:421316}Consuming Flame radiates damage and pulls players in.\n  - Stay at least 3 yards away from him to reduce the damage.\n\nPHASE 2 (BURN)\n- {spell:427252}Falling Embers is a mini-soak, 1 player per pool.\n- {spell:427343}Fire Whirl are spiraling tornadoes.  Dodge.\n{T}\nTANKS\n- Always position boss near the edge of {spell:417610}Burning Ground.\n- Run ~20 yards away from {spell:418637}Furious Charge.\n- Taunt swap after every {spell:418637}Furious Charge.\n{/T}{H}\nHEALERS\n- Make sure to heal Charred Treants to full and keep them healthy.\n- Heal Scorching Brambles to full to spawn Renewed Bramble Barrier.\n- Heal players with {spell:421326}Flash Fire to prevent {spell:427306}Encased in Ash.\n{/H}{D}\nDPS\n- Kill Fiery Treants as fast and interrupt their {spell:426524}Fiery Flourish\n- Kill Ashen Treants along the edges of the room to save space.\n{/D}", -- [6]
+			"SINGLE TARGET - LUST ON PULL\nPHASE 1\n- {spell:422691}Lava Geysers target random players and create fire pools.\n  - We want to bait these so they stay near the edges.\n- {spell:421455}Overheated debuff causes damage around a player.\n- {spell:421343}Brand of Damnation must be soaked by at least 4 players.\n  - It leaves a debuff and heal absorb called {spell:421656}Cauterizing Wound\n  - When heal absorb is cleared, a pool is spawned.  Drop near edges.\n- At 100 energy, he casts {spell:422277}Devour Essence and starts phase 2\n  - Players with {spell:421656}Cauterizing Wound will be knocked back.\n\nPHASE 2 (BURN)\n- {spell:423904}Living Flames will spawn from players that are knocked back.\n  - The flames give a damage buff.  Don't let them hit the boss.\n- {spell:422172}World in Flames causes donut-style aoe patterns.  Dodge.\n- {spell:422067}Blazing Soul increases his heavy AoE raid damage.\n- At 100 energy, he will return to phase 1.\n{T}\nTANKS\n- Taunt swap after every {spell:421343}Brand of Damnation soak.\n{/T}{H}\nHEALERS\n- {spell:422067}Blazing Soul is heavy raid damage.\n- Watch for players with heal absorb from {spell:421656}Cauterizing Wound.\n{/H}", -- [7]
+			"SINGLE TARGET - LUST ON PULL\nALWAYS\n- {spell:424495}Mass Entanglement roots players and spawns thorns.\n  - Loosely cluster up for AoE DPS to break players free.\n- {spell:420236}Falling Star spawns blue swirlies.  Dodge them.\n- {spell:424581}Fiery Growth spawns pools.  Go out for dispells.\n- Tanks must alternate soaking {spell:423260}Blazing Mushrooms\n\nMOONKIN\n- {spell:421398}Fire Beams are big orange circles.  Dodge.\n\nOWL\n- {spell:421636}Typoon knocks you back and spawns feathers.\n- Collect {spell:422509}Empowered Feathers to gain Dragon Riding!\n- Fly to the next platform, dodging {spell:421939}Scorching Plumes\n  - Fly through {spell:424258}Dream Essence for big buffs!\n  - Fly through {spell:421884}Emerald Gales for vigor and speed!\n- When you land, DPS the shield to interrupt {spell:424140}Supernova\n\nTREANT\n- {spell:424579}Suppressive Ember gives players a healing absorb\n- {spell:423265}Flaming Germination creates seeds.  Stomp them!\n{T}\nTANKS\n- Taunt swap every 6? stacks of {spell:421992}Searing Wrath\n- Alternate soaking {spell:423260}Blazing Mushrooms\n{/T}{H}\nHEALERS\n- Don't dispel {spell:424581}Fiery Growth until the target is in position.\n{/H}", -- [8]
+			"SINGLE TARGET - LUST ON PULL\nPHASE 1\n- {spell:425346}Roots off Amirdrassil must be protected from fire.\n- {spell:419506}Firestorms create {spell:419066}Raging Flames. Don't burn the Roots!\n- A {spell:417455}Dream Rend portal spawns and sucks players in.\n- {spell:417807}Aflame is a ramping debuff.  Healers can dispell it.\n\nINTERMISSION (70%)\n- Burn his shield as quickly as possible (Lust?)\n- Soak {spell:421942}Shadowflame Orbs.  They cannot reach Fyrakk.\n\nPHASE 2\n- Heart is exposed.  We heal spirits.  Spirits heal the heart.\n- Two Burning Collosus spawn.  Kill them before they kill us!\n- {spell:422524}Shadowflame Devastation sweeps the arena.  Dodge.\n- Screaming Souls will spawn in the fire.  Kill them ASAP.\n\nPHASE 3\n- Dodge {spell:425530}Swirling Firestorm\n- Dont be in front of him.  He will {spell:410223}Shadowflame Breath.\n- {spell:422837}Apocalypse Roar does massive damage.\n  - We can mitigate it by grabbing a {spell:423601}Seed of Amirdrassil\n  - We must protect the seed holder while it charges.\n  - Once charged, the seed can be used to make a shield.\n{T}\nTANKS\n- Point him toward edges to mitigate {spell:428960}Fyr'alath's Flame\n- {spell:417431}Fyr'alath's Bite causes {spell:417443}Fyr'alath's Mark.  Swap every time?\n- He will jump and melee you if you get too far away.\n- In phase 3, swap after every {spell:425492}Infernal Maw\n{/T}", -- [9]
+		}
     end
 end
 
 local function ApplyOmniCDTweaks(ztp)
+    OmniCDDB.global.optionPanelScale = ZT.db.profile.scaleFactor
+
     local profile = OmniCDDB["profiles"][profiles.atrocityUI]
 
     if ztp.fonts.resize then
@@ -734,21 +805,28 @@ local function ApplyDetailsTweaks(ztp)
         Details.tooltip.fontsize_title = ztp.fonts.size
     end
 
+    local count = 1
+    local idsToDelete = {};
+
+    for id, instance in Details:ListInstances() do
+        if count >= 3 then
+            table.insert(idsToDelete, id)
+        else
+            if ztp.fonts.resize then
+                instance:SetBarTextSettings(ztp.fonts.size)
+                instance:AttributeMenu(nil, nil, nil, nil, ztp.fonts.size)
+            end
+        end
+
+        count = count + 1
+    end
+
     if ztp.details then
         Details.tooltip.anchored_to = 1
 
-        local count = 1
-        for id, instance in Details:ListInstances() do
-            count = count + 1
-            instance:SetBarTextSettings(16)
-            instance:AttributeMenu(nil, nil, nil, nil, 16)
-        end
-
         -- Atrocity likes more than 2 windows.  I do not.
-        if count >= 3 then
-            for i = 3, count do
-                Details:DeleteInstance(i)
-            end
+        for _, id in ipairs(idsToDelete) do
+            Details:DeleteInstance(id)
         end
     end
 end

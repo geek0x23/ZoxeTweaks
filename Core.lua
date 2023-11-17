@@ -38,7 +38,8 @@ function ZT:OnInitialize()
             bigWigs = true,
             omniCD = true,
             details = true,
-            plater = true
+            plater = true,
+            mrtRaidNotes = false
         }
     end
 
@@ -238,6 +239,13 @@ function ZT:OnInitialize()
                             type = "toggle",
                             set = function(_, val) self.db.profile.atrocityUI.plater = val end,
                             get = function() return self.db.profile.atrocityUI.plater end
+                        },
+                        mrtRaidNotes = {
+                            name = "MRT Raid Notes?",
+                            desc = "I lead raids for my guild, and I wrote some notes for Amirdrassil.  This will replace any existing notes.  Do you want them?",
+                            type = "toggle",
+                            set = function(_, val) self.db.profile.atrocityUI.mrtRaidNotes = val end,
+                            get = function() return self.db.profile.atrocityUI.mrtRaidNotes end
                         }
                     }
                 },
