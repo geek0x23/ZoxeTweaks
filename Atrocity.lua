@@ -711,12 +711,10 @@ local function ApplyMRTTweaks(ztp)
         -- Raid CD's
         local raidCDs = VMRT.ExCD2.colSet[1]
         raidCDs.posX = 507.7777099609375
-        raidCDs.poxY = 536.13232421875
 
         -- Healer CD's
         local healerCDs = VMRT.ExCD2.colSet[2]
         healerCDs.posX = 507.7777099609375
-        healerCDs.poxY = 275.3607788085938
     end
 
     if ZT.db.profile.scaleFactor then
