@@ -707,7 +707,7 @@ local function ApplyMRTTweaks(ztp)
 
     end
 
-    if ztp.elvUI.unitFrames then
+    if ztp.elvUI.panels then
         -- Raid CD's
         local raidCDs = VMRT.ExCD2.colSet[1]
         raidCDs.posX = 507.7777099609375
