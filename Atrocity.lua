@@ -665,12 +665,13 @@ local function ApplyWeakAurasTweaks(ztp)
 
     if ztp.elvUI.panels then
         -- Combat Info
-        WeakAurasSaved["displays"]["Combat Ress"]["xOffset"] = -1289
+        WeakAurasSaved["displays"]["Combat Ress"]["xOffset"] = -1274
         WeakAurasSaved["displays"]["Combat Ress"]["yOffset"] = -432
         WeakAurasSaved["displays"]["Combat Ress"]["justify"] = "RIGHT"
 
         WeakAurasSaved["displays"]["Combat Time"]["xOffset"] = -1668
         WeakAurasSaved["displays"]["Combat Time"]["yOffset"] = -432
+        WeakAurasSaved["displays"]["Combat Time"]["justify"] = "LEFT"
     end
 end
 
