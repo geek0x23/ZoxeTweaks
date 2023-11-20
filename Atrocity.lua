@@ -684,9 +684,12 @@ local function ApplyBigWigsTweaks(ztp)
     end
 
     if ztp.bigWigs then
-        profile["growup"] = true
-        profile["BigWigsAnchor_x"] = 1728
-        profile["BigWigsAnchor_y"] = 162
+        if ztp.elvUI.minimap then
+            profile["BigWigsAnchor_x"] = 1706
+            profile["BigWigsAnchor_y"] = 612
+            profile["BigWigsAnchor_width"] = 236
+        end
+
         profile["BigWigsEmphasizeAnchor_x"] = 1080
         profile["BigWigsEmphasizeAnchor_y"] = 276
     end
@@ -814,7 +817,14 @@ local function ApplyDetailsTweaks(ztp)
     end
 
     if ztp.details then
-        Details.tooltip.anchored_to = 1
+        if ztp.elvUI.panels then
+            Details.tooltip.anchor_screen_pos = { 1144, -710 }
+        end
+
+        Details.tooltip.anchored_to = 2
+        Details.tooltip.anchor_point = "bottomright"
+        Details.tooltip.anchor_relative = "bottomright"
+        Details.tooltip.anchor_offset = { 0, -6 }
 
         -- Atrocity likes more than 2 windows.  I do not.
         for _, id in ipairs(idsToDelete) do
