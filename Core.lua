@@ -104,9 +104,8 @@ function ZT:OnInitialize()
                     args = {
                         description = {
                             type = "description",
-                            name = "Most of these tweaks are designed for 1440p ultra-wide.  These settings are "..
-                                "only applied when you click the `Apply` button below.  You'll need to re-apply "..
-                                "these settings every time you update or install AtrocityUI."
+                            name = "These settings are only applied when you click the `Apply` button below.  You'll "..
+                                "need to re-apply these settings every time you update or install AtrocityUI."
                         }
                     }
                 },
@@ -192,7 +191,7 @@ function ZT:OnInitialize()
                         },
                         unitFrames = {
                             name = "Unit frame positions?",
-                            desc = "On ultra-wide, the unit frames are off.  Should we fix them?",
+                            desc = "On ultra-wide resolutions the unit frames are positioned incorrectly.  Should we fix them?",
                             type = "toggle",
                             set = function(_, val) self.db.profile.atrocityUI.elvUI.unitFrames = val end,
                             get = function() return self.db.profile.atrocityUI.elvUI.unitFrames end
