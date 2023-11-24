@@ -2,7 +2,7 @@
 ## Interface: 30403
 ## Notes: An addon to fix 1440p scaling, and make AtrocityUI more visible with proper ultra-wide support.
 ## Title: ZoxeTweaks
-## Version: 2.2.4
+## Version: 2.2.5
 ## OptionalDeps: _DebugLog, AddOnSkins, Auctionator, BigWigs, Details, ElvUI, ElvUI_SLE, MRT, OmniCD, Plater, PublicOrdersReagentsColumn, WarpDeplete, WeakAuras
 ## SavedVariables: ZoxeTweaksDB
 
