@@ -13,6 +13,13 @@ I have not completely scaled every frame in the game.  I've just been scaling th
 - Download a zip from this GitHub repo and extract into a `ZoxeTweaks` folder into your WoW `Interface\AddOns` folder.
 - Or you can install via CurseForge.  Just search for `ZoxeTweaks`.
 
+Once installed, for every new AtrocityUI release, do these steps:
+
+- Install the new AtrocityUI addons.  Check his Discord server for the latest version!
+- Update all of your addons.  I recommend [WowUp](https://wowup.io/) for this.
+- Run the Atrocity UI installer: `/aui install` (highly recommended).
+- Run ZoxeTweaks (`/zt`).  Choose which AtrocityUI Tweaks you'd like and click `Apply`.
+
 ## Usage
 
 Once installed, use the `/zt` command in-game to bring up the configuration options.  You'll also find it in the default Blizzard addon options.  If you chose to change the **scale factor**, please remember to reload your UI (or relog).
