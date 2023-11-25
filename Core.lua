@@ -63,26 +63,55 @@ function ZT:OnInitialize()
                 name = "General Tweaks",
                 type = "group",
                 args = {
-                    scaleFactor = {
-                        name = "Scale Factor",
-                        desc = "A percentage multiplier used to determine how much to scale.  You need to reload UI after changing this.",
-                        type = "range",
-                        min = 1.00,
-                        max = 2.00,
-                        step = 0.01,
-                        isPercent = true,
-                        set = function(_, val) self.db.profile.scaleFactor = val end,
-                        get = function() return self.db.profile.scaleFactor end
+                    settings = {
+                        order = 10,
+                        type = "group",
+                        name = "Scaling",
+                        inline = true,
+                        args = {
+                            scaleFactor = {
+                                order = 1,
+                                name = "Scale Factor",
+                                desc = "A percentage multiplier used to determine how much to scale.",
+                                type = "range",
+                                min = 1.00,
+                                max = 2.00,
+                                step = 0.01,
+                                isPercent = true,
+                                set = function(_, val) self.db.profile.scaleFactor = val end,
+                                get = function() return self.db.profile.scaleFactor end
+                            },
+                            reminder = {
+                                order = 10,
+                                type = "description",
+                                fontSize = "medium",
+                                name = "You need to click the 'Apply' button or reload your UI after changing this.\n"
+                            }
+                        }
                     },
-                    auctionator = {
-                        name = "Auctionator Tweaks",
-                        desc = "Hides vendor price on tooltips when Auctionator is installed.",
-                        type = "toggle",
-                        set = function(_, val)
-                            self.db.profile.auctionator = val
-                            self:ApplyAuctionatorFix()
-                        end,
-                        get = function() return self.db.profile.auctionator end
+                    addons = {
+                        order = 20,
+                        type = "group",
+                        name = "Other Addons",
+                        inline = true,
+                        args = {
+                            auctionator = {
+                                name = "Auctionator Tweaks",
+                                desc = "Should we hide WoW's default vendor pricing on the item tooltip (only when Auctionator is installed)?",
+                                type = "toggle",
+                                set = function(_, val)
+                                    self.db.profile.auctionator = val
+                                    self:ApplyAuctionatorFix()
+                                end,
+                                get = function() return self.db.profile.auctionator end
+                            }
+                        }
+                    },
+                    apply = {
+                        order = 1000,
+                        name = "Apply",
+                        type = "execute",
+                        func = function () return ReloadUI() end
                     }
                 }
             },
@@ -104,6 +133,7 @@ function ZT:OnInitialize()
                     args = {
                         description = {
                             type = "description",
+                            fontSize = "medium",
                             name = "These settings are only applied when you click the `Apply` button below.  You'll "..
                                 "need to re-apply these settings every time you update or install AtrocityUI."
                         }
