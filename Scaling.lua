@@ -1,6 +1,17 @@
 ---@class ZoxeTweaks
 local ZT = LibStub("AceAddon-3.0"):GetAddon("ZoxeTweaks")
 
+-- this function is helpful for frames that tend to reset scale on their own.
+local function ScaleGuard(frame, scale)
+    local guard
+    ZT:SecureHook(frame, "SetScale", function()
+        if guard then return end
+        guard = true
+        frame:SetScale(scale)
+        guard = false
+    end)
+end
+
 function ZT:ApplyScaling()
     self:Debug("ApplyScaling() called")
     local scale = self.db.profile.scaleFactor
@@ -39,40 +50,8 @@ function ZT:ApplyScaling()
     if ObjectiveTrackerBlocksFrame then ObjectiveTrackerBlocksFrame:SetScale(scale) end
     OpenMailFrame:SetScale(scale)
     PVEFrame:SetScale(scale)
-
-    if ProfessionsFrame then
-        -- these frames constantly remove the scaling, so we have to trap a lot of events
-        self:SecureHookScript(ProfessionsFrame, "OnShow", function() ProfessionsFrame:SetScale(scale) end)
-        ---@diagnostic disable-next-line: param-type-mismatch
-        self:SecureHookScript(ProfessionsFrame.MaximizeMinimize.MinimizeButton, "OnClick", function() ProfessionsFrame:SetScale(scale) end)
-        ---@diagnostic disable-next-line: param-type-mismatch
-        self:SecureHookScript(ProfessionsFrame.MaximizeMinimize.MaximizeButton, "OnClick", function() ProfessionsFrame:SetScale(scale) end)
-        self:SecureHookScript(ProfessionsFrame.CraftingPage.CraftingOutputLog, "OnShow", function() ProfessionsFrame:SetScale(scale) end)
-        self:SecureHookScript(ProfessionsFrame.OrdersPage.OrderView.CraftingOutputLog, "OnShow", function () ProfessionsFrame:SetScale(scale) end)
-        self:SecureHookScript(ProfessionsFrame.OrdersPage.OrderView.CraftingOutputLog, "OnHide", function () ProfessionsFrame:SetScale(scale) end)
-        self:RegisterEvent("CRAFTINGORDERS_FULFILL_ORDER_RESPONSE", function() ProfessionsFrame:SetScale(scale) end)
-        self:RegisterEvent("TRADE_SKILL_ITEM_CRAFTED_RESULT", function() ProfessionsFrame:SetScale(scale) end)
-        EventRegistry:RegisterCallback("ProfessionsFrame.TabSet", function() ProfessionsFrame:SetScale(scale) end)
-        EventRegistry:RegisterCallback("Professions.ProfessionSelected", function() ProfessionsFrame:SetScale(scale) end)
-        EventRegistry:RegisterCallback("Professions.TransactionUpdated", function() ProfessionsFrame:SetScale(scale) end)
-        EventRegistry:RegisterCallback("Professions.AllocationUpdated", function() ProfessionsFrame:SetScale(scale) end)
-    end
-
-    if ProfessionsCustomerOrdersFrame then
-    -- same as profession frame.  this one removes scaling constantly.
-        self:SecureHookScript(ProfessionsCustomerOrdersFrame, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
-        self:SecureHookScript(ProfessionsCustomerOrdersFrame, "OnHide", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
-        self:SecureHookScript(ProfessionsCustomerOrdersFrame.Form, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
-        ---@diagnostic disable-next-line: param-type-mismatch
-        self:SecureHookScript(ProfessionsCustomerOrdersFrame.Form.BackButton, "OnClick", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
-        self:SecureHookScript(ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
-        self:SecureHookScript(ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList, "OnShow", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
-        ---@diagnostic disable-next-line: param-type-mismatch
-        self:SecureHookScript(ProfessionsCustomerOrdersFrameOrdersTab, "OnClick", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
-        ---@diagnostic disable-next-line: param-type-mismatch
-        self:SecureHookScript(ProfessionsCustomerOrdersFrameBrowseTab, "OnClick", function() ProfessionsCustomerOrdersFrame:SetScale(scale) end)
-    end
-
+    if ProfessionsFrame then ScaleGuard(ProfessionsFrame, scale) end
+    if ProfessionsCustomerOrdersFrame then ScaleGuard(ProfessionsCustomerOrdersFrame, scale) end
     QuestFrame:SetScale(scale)
     if QuestLogFrame then QuestLogFrame:SetScale(scale) end
     QueueStatusFrame:SetScale(scale)
