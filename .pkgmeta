@@ -3,3 +3,6 @@ package-as: ZoxeTweaks
 ignore:
   - .gitignore
   - .luarc.json
+  - .github
+  - LICENSE
+  - README.md
