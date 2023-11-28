@@ -13,7 +13,6 @@ local function ScaleGuard(frame, scale)
 end
 
 function ZT:ApplyScaling()
-    self:Debug("ApplyScaling() called")
     local scale = self.db.profile.scaleFactor
     local globalScale = UIParent:GetEffectiveScale()
     local scaledScreenWidth = GetScreenWidth() * globalScale
@@ -50,8 +49,6 @@ function ZT:ApplyScaling()
     if ObjectiveTrackerBlocksFrame then ObjectiveTrackerBlocksFrame:SetScale(scale) end
     OpenMailFrame:SetScale(scale)
     PVEFrame:SetScale(scale)
-    if ProfessionsFrame then ScaleGuard(ProfessionsFrame, scale) end
-    if ProfessionsCustomerOrdersFrame then ScaleGuard(ProfessionsCustomerOrdersFrame, scale) end
     QuestFrame:SetScale(scale)
     if QuestLogFrame then QuestLogFrame:SetScale(scale) end
     QueueStatusFrame:SetScale(scale)
@@ -67,49 +64,41 @@ function ZT:ApplyScaling()
     UIWidgetTopCenterContainerFrame:SetScale(scale)
     if WatchFrame then WatchFrame:SetScale(scale) end
 
-    self:RegisterEvent("ADDON_LOADED", function(_, addonName)
-        self:Debug("Addon Loaded: %s", addonName)
-
-        if addonName == "Blizzard_AchievementUI" then
-            AchievementFrame:SetScale(scale)
-        elseif addonName == "Blizzard_AuctionHouseUI" then
-            AuctionHouseFrame:SetScale(scale)
-        elseif addonName == "Blizzard_Calendar" then
-            CalendarFrame:SetScale(scale)
-        elseif addonName == "Blizzard_ClassTalentUI" then
-            self:SecureHookScript(ClassTalentFrame, "OnShow", function(frame) frame:SetScale(scale) end)
-        elseif addonName == "Blizzard_Collections" then
-            CollectionsJournal:SetScale(scale)
-            WardrobeFrame:SetScale(scale)
-        elseif addonName == "Blizzard_Communities" then
-            CommunitiesFrame:SetScale(scale)
-        elseif addonName == "Blizzard_EncounterJournal" then
-            EncounterJournal:SetScale(scale)
-        elseif addonName == "Blizzard_GarrisonUI" then
-            self:SecureHookScript(CovenantMissionFrame, "OnShow", function(frame) frame:SetScale(scale) end)
-            GarrisonCapacitiveDisplayFrame:SetScale(scale)
-            self:SecureHookScript(OrderHallMissionFrame, "OnShow", function(frame) frame:SetScale(scale) end)
-        elseif addonName == "Blizzard_GenericTraitUI" then
-            GenericTraitFrame:SetScale(scale)
-        elseif addonName == "Blizzard_GuildBankUI" then
-            GuildBankFrame:SetScale(scale)
-        elseif addonName == "Blizzard_InspectUI" then
-            InspectFrame:SetScale(scale)
-        elseif addonName == "Blizzard_ItemInteractionUI" then
-            ItemInteractionFrame:SetScale(scale)
-        elseif addonName == "Blizzard_ItemSocketingUI" then
-            ItemSocketingFrame:SetScale(scale)
-        elseif addonName == "Blizzard_ItemUpgradeUI" then
-            ItemUpgradeFrame:SetScale(scale)
-            EquipmentFlyoutFrame:SetScale(scale)
-        elseif addonName == "Blizzard_MacroUI" then
-            MacroFrame:SetScale(scale)
-        elseif addonName == "Blizzard_TrainerUI" then
-            self:SecureHookScript(ClassTrainerFrame, "OnShow", function(frame) frame:SetScale(scale) end)
-        elseif addonName == "Blizzard_WeeklyRewards" then
-            WeeklyRewardsFrame:SetScale(scale)
-        end
+    EventUtil.ContinueOnAddOnLoaded("Blizzard_AchievementUI", function() AchievementFrame:SetScale(scale) end)
+    EventUtil.ContinueOnAddOnLoaded("Blizzard_AuctionHouseUI", function() AuctionHouseFrame:SetScale(scale) end)
+    EventUtil.ContinueOnAddOnLoaded("Blizzard_Calendar", function() CalendarFrame:SetScale(scale) end)
+    EventUtil.ContinueOnAddOnLoaded("Blizzard_ClassTalentUI", function()
+        self:SecureHookScript(ClassTalentFrame, "OnShow", function(frame) frame:SetScale(scale) end)
     end)
+    EventUtil.ContinueOnAddOnLoaded("Blizzard_Collections", function()
+        CollectionsJournal:SetScale(scale)
+        WardrobeFrame:SetScale(scale)
+    end)
+    EventUtil.ContinueOnAddOnLoaded("Blizzard_Communities", function() CommunitiesFrame:SetScale(scale) end)
+    EventUtil.ContinueOnAddOnLoaded("Blizzard_EncounterJournal", function() EncounterJournal:SetScale(scale) end)
+    EventUtil.ContinueOnAddOnLoaded("Blizzard_GarrisonUI", function()
+        self:SecureHookScript(CovenantMissionFrame, "OnShow", function(frame) frame:SetScale(scale) end)
+        GarrisonCapacitiveDisplayFrame:SetScale(scale)
+        self:SecureHookScript(OrderHallMissionFrame, "OnShow", function(frame) frame:SetScale(scale) end)
+    end)
+    EventUtil.ContinueOnAddOnLoaded("Blizzard_GenericTraitUI", function() GenericTraitFrame:SetScale(scale) end)
+    EventUtil.ContinueOnAddOnLoaded("Blizzard_GuildBankUI", function() GuildBankFrame:SetScale(scale) end)
+    EventUtil.ContinueOnAddOnLoaded("Blizzard_InspectUI", function() InspectFrame:SetScale(scale) end)
+    EventUtil.ContinueOnAddOnLoaded("Blizzard_ItemInteractionUI", function() ItemInteractionFrame:SetScale(scale) end)
+    EventUtil.ContinueOnAddOnLoaded("Blizzard_ItemSocketingUI", function() ItemSocketingFrame:SetScale(scale) end)
+    EventUtil.ContinueOnAddOnLoaded("Blizzard_ItemUpgradeUI", function()
+        ItemUpgradeFrame:SetScale(scale)
+        EquipmentFlyoutFrame:SetScale(scale)
+    end)
+    EventUtil.ContinueOnAddOnLoaded("Blizzard_MacroUI", function() MacroFrame:SetScale(scale) end)
+    EventUtil.ContinueOnAddOnLoaded("Blizzard_Professions", function() ScaleGuard(ProfessionsFrame, scale) end)
+    EventUtil.ContinueOnAddOnLoaded("Blizzard_ProfessionsCustomerOrders", function()
+        ScaleGuard(ProfessionsCustomerOrdersFrame, scale)
+    end)
+    EventUtil.ContinueOnAddOnLoaded("Blizzard_TrainerUI", function()
+        self:SecureHookScript(ClassTrainerFrame, "OnShow", function(frame) frame:SetScale(scale) end)
+    end)
+    EventUtil.ContinueOnAddOnLoaded("Blizzard_WeeklyRewards", function() WeeklyRewardsFrame:SetScale(scale) end)
 
     self:SecureHook("AlertFrame_ShowNewAlert", function(frame) frame:SetScale(scale) end)
     self:SecureHook("StaticPopup_OnShow", function(frame) frame:SetScale(scale) end)

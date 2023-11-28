@@ -13,8 +13,7 @@ function ZT:OnInitialize()
     local defaults = {
         profile = {
             scaleFactor = 1.20,
-            auctionator = false,
-            debug = false
+            auctionator = false
         }
     }
 
@@ -50,14 +49,6 @@ function ZT:OnInitialize()
         handler = ZT,
         type = "group",
         args = {
-            debug = {
-                name = "Debug Mode",
-                desc = "Enable logging of debug data",
-                type = "toggle",
-                hidden = true,
-                set = function(_, val) self.db.profile.debug = val end,
-                get = function() return self.db.profile.debug end
-            },
             general = {
                 order = 1,
                 name = "General Tweaks",
@@ -308,15 +299,4 @@ end
 function ZT:OnDisable()
     self:DisableAuctionatorFix()
     self:UnhookAll()
-    self:UnregisterEvent("ADDON_LOADED")
-end
-
-function ZT:Debug(...)
-    if self.db.profile.debug then
-        if not DLAPI then
-            self:Printf(...)
-        else
-            DLAPI.DebugLog("ZoxeTweaks", ...)
-        end
-    end
 end

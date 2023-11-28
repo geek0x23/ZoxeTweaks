@@ -3,7 +3,7 @@
 ## Notes: An addon to fix 1440p scaling, and make AtrocityUI more visible with proper ultra-wide support.
 ## Title: ZoxeTweaks
 ## Version: 2.2.6
-## OptionalDeps: Blizzard_Professions, Blizzard_ProfessionsCustomerOrders, _DebugLog, AddOnSkins, Auctionator, BigWigs, Details, ElvUI, ElvUI_SLE, MRT, OmniCD, Plater, PublicOrdersReagentsColumn, WarpDeplete, WeakAuras
+## OptionalDeps: AddOnSkins, Auctionator, BigWigs, Details, ElvUI, ElvUI_SLE, MRT, OmniCD, Plater, WarpDeplete, WeakAuras
 ## SavedVariables: ZoxeTweaksDB
 
 embeds.xml
