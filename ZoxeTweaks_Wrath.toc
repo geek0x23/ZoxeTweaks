@@ -3,7 +3,7 @@
 ## Notes: An addon to fix 1440p scaling, and make AtrocityUI more visible with proper ultra-wide support.
 ## Title: ZoxeTweaks
 ## Version: 2.2.6
-## OptionalDeps: _DebugLog, Auctionator, ElvUI
+## OptionalDeps: Auctionator, ElvUI
 ## SavedVariables: ZoxeTweaksDB
 
 embeds.xml
