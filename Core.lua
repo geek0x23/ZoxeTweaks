@@ -11,14 +11,14 @@ function ZT:OnInitialize()
     self.isClassic = self.tocVersion < 100000
 
     local defaults = {
-        profile = {
+        global = {
             scaleFactor = 1.20,
             auctionator = false
         }
     }
 
     if not self.isClassic then
-        defaults.profile.atrocityUI = {
+        defaults.global.atrocityUI = {
             fonts = {
                 resize = true,
                 size = 16,
@@ -42,7 +42,7 @@ function ZT:OnInitialize()
         }
     end
 
-    self.db = LibStub("AceDB-3.0"):New("ZoxeTweaksDB", defaults, true)
+    self.db = LibStub("AceDB-3.0"):New("ZoxeTweaksDB", defaults)
 
     local options = {
         name = "ZoxeTweaks",
@@ -69,8 +69,8 @@ function ZT:OnInitialize()
                                 max = 2.00,
                                 step = 0.01,
                                 isPercent = true,
-                                set = function(_, val) self.db.profile.scaleFactor = val end,
-                                get = function() return self.db.profile.scaleFactor end
+                                set = function(_, val) self.db.global.scaleFactor = val end,
+                                get = function() return self.db.global.scaleFactor end
                             },
                             reminder = {
                                 order = 10,
@@ -91,10 +91,10 @@ function ZT:OnInitialize()
                                 desc = "Should we hide WoW's default vendor pricing on the item tooltip (only when Auctionator is installed)?",
                                 type = "toggle",
                                 set = function(_, val)
-                                    self.db.profile.auctionator = val
+                                    self.db.global.auctionator = val
                                     self:ApplyAuctionatorFix()
                                 end,
-                                get = function() return self.db.profile.auctionator end
+                                get = function() return self.db.global.auctionator end
                             }
                         }
                     },
@@ -105,8 +105,7 @@ function ZT:OnInitialize()
                         func = function () return ReloadUI() end
                     }
                 }
-            },
-            profile = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
+            }
         }
     }
 
@@ -140,8 +139,8 @@ function ZT:OnInitialize()
                             name = "Change font size?",
                             desc = "Should we change the general UI font size?",
                             type = "toggle",
-                            set = function(_, val) self.db.profile.atrocityUI.fonts.resize = val end,
-                            get = function() return self.db.profile.atrocityUI.fonts.resize end
+                            set = function(_, val) self.db.global.atrocityUI.fonts.resize = val end,
+                            get = function() return self.db.global.atrocityUI.fonts.resize end
                         },
                         size = {
                             name = "Desired font size",
@@ -150,8 +149,8 @@ function ZT:OnInitialize()
                             min = 8,
                             max = 30,
                             step = 1,
-                            set = function(_, val) self.db.profile.atrocityUI.fonts.size = val end,
-                            get = function() return self.db.profile.atrocityUI.fonts.size end
+                            set = function(_, val) self.db.global.atrocityUI.fonts.size = val end,
+                            get = function() return self.db.global.atrocityUI.fonts.size end
                         }
                     }
                 },
@@ -165,57 +164,57 @@ function ZT:OnInitialize()
                             name = "Data bars?",
                             desc = "Should we increase the size of the experience bar when shown?",
                             type = "toggle",
-                            set = function(_, val) self.db.profile.atrocityUI.elvUI.databars = val end,
-                            get = function() return self.db.profile.atrocityUI.elvUI.databars end
+                            set = function(_, val) self.db.global.atrocityUI.elvUI.databars = val end,
+                            get = function() return self.db.global.atrocityUI.elvUI.databars end
                         },
                         disableBags = {
                             name = "Disable bags?",
                             desc = "Should ElvUI bags be disabled?  I use AdiBags instead.",
                             type = "toggle",
-                            set = function(_, val) self.db.profile.atrocityUI.elvUI.disableBags = val end,
-                            get = function() return self.db.profile.atrocityUI.elvUI.disableBags end
+                            set = function(_, val) self.db.global.atrocityUI.elvUI.disableBags = val end,
+                            get = function() return self.db.global.atrocityUI.elvUI.disableBags end
                         },
                         actionBars = {
                             name = "Swap action bars?",
                             desc = "Should we re-organize bars 4, 5, and 6?  You probably don't want this.",
                             type = "toggle",
-                            set = function(_, val) self.db.profile.atrocityUI.elvUI.actionBars = val end,
-                            get = function() return self.db.profile.atrocityUI.elvUI.actionBars end
+                            set = function(_, val) self.db.global.atrocityUI.elvUI.actionBars = val end,
+                            get = function() return self.db.global.atrocityUI.elvUI.actionBars end
                         },
                         panels = {
                             name = "Bigger chat panels?",
                             desc = "Should we increase the size of the chat and damage meter panels?",
                             type = "toggle",
-                            set = function(_, val) self.db.profile.atrocityUI.elvUI.panels = val end,
-                            get = function() return self.db.profile.atrocityUI.elvUI.panels end
+                            set = function(_, val) self.db.global.atrocityUI.elvUI.panels = val end,
+                            get = function() return self.db.global.atrocityUI.elvUI.panels end
                         },
                         minimapDataTexts = {
                             name = "Minimap data texts?",
                             desc = "Should we enable the data texts under the minimap?",
                             type = "toggle",
-                            set = function(_, val) self.db.profile.atrocityUI.elvUI.minimapDataTexts = val end,
-                            get = function() return self.db.profile.atrocityUI.elvUI.minimapDataTexts end
+                            set = function(_, val) self.db.global.atrocityUI.elvUI.minimapDataTexts = val end,
+                            get = function() return self.db.global.atrocityUI.elvUI.minimapDataTexts end
                         },
                         minimap = {
                             name = "Bigger minimap?",
                             desc = "Should we make the minimap bigger?",
                             type = "toggle",
-                            set = function(_, val) self.db.profile.atrocityUI.elvUI.minimap = val end,
-                            get = function() return self.db.profile.atrocityUI.elvUI.minimap end
+                            set = function(_, val) self.db.global.atrocityUI.elvUI.minimap = val end,
+                            get = function() return self.db.global.atrocityUI.elvUI.minimap end
                         },
                         tooltip = {
                             name = "Tooltip tweaks?",
                             desc = "Should we disable item count and set the modifier key to SHIFT?",
                             type = "toggle",
-                            set = function(_, val) self.db.profile.atrocityUI.elvUI.tooltip = val end,
-                            get = function() return self.db.profile.atrocityUI.elvUI.tooltip end
+                            set = function(_, val) self.db.global.atrocityUI.elvUI.tooltip = val end,
+                            get = function() return self.db.global.atrocityUI.elvUI.tooltip end
                         },
                         unitFrames = {
                             name = "Unit frame positions?",
                             desc = "On ultra-wide resolutions the unit frames are positioned incorrectly.  Should we fix them?",
                             type = "toggle",
-                            set = function(_, val) self.db.profile.atrocityUI.elvUI.unitFrames = val end,
-                            get = function() return self.db.profile.atrocityUI.elvUI.unitFrames end
+                            set = function(_, val) self.db.global.atrocityUI.elvUI.unitFrames = val end,
+                            get = function() return self.db.global.atrocityUI.elvUI.unitFrames end
                         }
                     }
                 },
@@ -229,43 +228,43 @@ function ZT:OnInitialize()
                             name = "Shadow & Light?",
                             desc = "A bunch of font and armory tweaks for Shadow & Light",
                             type = "toggle",
-                            set = function(_, val) self.db.profile.atrocityUI.sle = val end,
-                            get = function() return self.db.profile.atrocityUI.sle end
+                            set = function(_, val) self.db.global.atrocityUI.sle = val end,
+                            get = function() return self.db.global.atrocityUI.sle end
                         },
                         bigWigs = {
                             name = "BigWigs Bars?",
                             desc = "Re-position BigWigs bars for ultra-wide",
                             type = "toggle",
-                            set = function(_, val) self.db.profile.atrocityUI.bigWigs = val end,
-                            get = function() return self.db.profile.atrocityUI.bigWigs end
+                            set = function(_, val) self.db.global.atrocityUI.bigWigs = val end,
+                            get = function() return self.db.global.atrocityUI.bigWigs end
                         },
                         omniCD = {
                             name = "OmniCD Bars?",
                             desc = "Re-position OmniCD bars for ultra-wide",
                             type = "toggle",
-                            set = function(_, val) self.db.profile.atrocityUI.omniCD = val end,
-                            get = function() return self.db.profile.atrocityUI.omniCD end
+                            set = function(_, val) self.db.global.atrocityUI.omniCD = val end,
+                            get = function() return self.db.global.atrocityUI.omniCD end
                         },
                         details = {
                             name = "Details Tweaks?",
                             desc = "Removes the extra windows from Details and fixes tooltip anchor for ultra-wide",
                             type = "toggle",
-                            set = function(_, val) self.db.profile.atrocityUI.details = val end,
-                            get = function() return self.db.profile.atrocityUI.details end
+                            set = function(_, val) self.db.global.atrocityUI.details = val end,
+                            get = function() return self.db.global.atrocityUI.details end
                         },
                         plater = {
                             name = "Plater Tweaks?",
                             desc = "Slightly increases font size, and auto-toggles friendly nameplates for dungeons and raids",
                             type = "toggle",
-                            set = function(_, val) self.db.profile.atrocityUI.plater = val end,
-                            get = function() return self.db.profile.atrocityUI.plater end
+                            set = function(_, val) self.db.global.atrocityUI.plater = val end,
+                            get = function() return self.db.global.atrocityUI.plater end
                         },
                         mrtRaidNotes = {
                             name = "MRT Raid Notes?",
                             desc = "I lead raids for my guild, and I wrote some notes for Amirdrassil.  This will replace any existing notes.  Do you want them?",
                             type = "toggle",
-                            set = function(_, val) self.db.profile.atrocityUI.mrtRaidNotes = val end,
-                            get = function() return self.db.profile.atrocityUI.mrtRaidNotes end
+                            set = function(_, val) self.db.global.atrocityUI.mrtRaidNotes = val end,
+                            get = function() return self.db.global.atrocityUI.mrtRaidNotes end
                         }
                     }
                 },

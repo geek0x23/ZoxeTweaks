@@ -13,7 +13,7 @@ local function ScaleGuard(frame, scale)
 end
 
 function ZT:ApplyScaling()
-    local scale = self.db.profile.scaleFactor
+    local scale = self.db.global.scaleFactor
     local globalScale = UIParent:GetEffectiveScale()
     local scaledScreenWidth = GetScreenWidth() * globalScale
 
