@@ -6,3 +6,8 @@ ignore:
   - .github
   - LICENSE
   - README.md
+
+embedded-libraries:
+  - ace3
+  - libstub
+  - callbackhandler
