@@ -899,7 +899,7 @@ local function ApplyWarpDepleteTweaks(ztp)
 end
 
 function ZT:ApplyAtrocityTweaks()
-    local ztp = self.db.profile.atrocityUI
+    local ztp = self.db.global.atrocityUI
 
     ApplyElvUITweaks(ztp)
     ApplyAddonSkinsTweaks(ztp)
