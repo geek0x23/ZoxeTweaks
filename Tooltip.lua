@@ -4,7 +4,7 @@ local ZT = LibStub("AceAddon-3.0"):GetAddon("ZoxeTweaks")
 ZT.defaultAddMoneyFunc = GameTooltip_OnTooltipAddMoney
 
 function ZT:ApplyAuctionatorFix()
-    if ZT.db.profile.auctionator then
+    if ZT.db.global.auctionator then
         ZT:EnableAuctionatorFix()
     else
         ZT:DisableAuctionatorFix()
