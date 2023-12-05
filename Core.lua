@@ -7,9 +7,6 @@ local AceConfigCmd = LibStub("AceConfigCmd-3.0")
 _G["ZoxeTweaks"] = ZT
 
 function ZT:OnInitialize()
-    self.tocVersion = (select(4, GetBuildInfo()))
-    self.isClassic = self.tocVersion < 100000
-
     local defaults = {
         global = {
             scaleFactor = 1.20,
@@ -17,7 +14,10 @@ function ZT:OnInitialize()
         }
     }
 
-    if not self.isClassic then
+    local tocVersion = (select(4, GetBuildInfo()))
+    local classic = tocVersion < 100000
+
+    if not classic then
         defaults.global.atrocityUI = {
             fonts = {
                 resize = true,
@@ -109,7 +109,7 @@ function ZT:OnInitialize()
         }
     }
 
-    if not self.isClassic then
+    if not classic then
         options.args.atrocityUI = {
             order = 10,
             name = "AtrocityUI Tweaks",
