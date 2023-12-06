@@ -53,9 +53,11 @@ function ZT:ApplyScaling()
     if QuestLogFrame then QuestLogFrame:SetScale(scale) end
     QueueStatusFrame:SetScale(scale)
     self:SecureHookScript(ReadyCheckListenerFrame, "OnShow", function(frame) frame:SetScale(scale) end)
-    RaidUtilityPanel:SetScale(scale)
-    self:SecureHookScript(RaidUtility_ShowButton, "OnShow", function(frame) frame:SetScale(scale) end)
-    self:SecureHookScript(RaidUtility_CloseButton, "OnShow", function(frame) frame:SetScale(scale) end)
+    if RaidUtilityPanel then
+        RaidUtilityPanel:SetScale(scale)
+        self:SecureHookScript(RaidUtility_ShowButton, "OnShow", function(frame) frame:SetScale(scale) end)
+        self:SecureHookScript(RaidUtility_CloseButton, "OnShow", function(frame) frame:SetScale(scale) end)
+    end
     self:SecureHookScript(SettingsPanel, "OnShow", function(frame) frame:SetScale(scale) end)
     SpellBookFrame:SetScale(scale)
     if SuperTrackedFrame then SuperTrackedFrame:SetScale(scale) end
