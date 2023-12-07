@@ -48,6 +48,7 @@ function ZT:ApplyScaling()
     if ObjectiveTrackerFrame then ObjectiveTrackerFrame:SetScale(scale) end
     if ObjectiveTrackerBlocksFrame then ObjectiveTrackerBlocksFrame:SetScale(scale) end
     OpenMailFrame:SetScale(scale)
+    PetStableFrame:SetScale(scale)
     PVEFrame:SetScale(scale)
     QuestFrame:SetScale(scale)
     if QuestLogFrame then QuestLogFrame:SetScale(scale) end
