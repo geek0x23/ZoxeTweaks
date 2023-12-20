@@ -79,6 +79,7 @@
         "ReportFrame",
         "SettingsPanel",
         "SpellBookFrame",
+        "StackSplitFrame",
         "SuperTrackedFrame",
         "TimeManagerFrame",
         "TradeFrame",
