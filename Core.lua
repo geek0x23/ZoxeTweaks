@@ -309,6 +309,5 @@ end
 
 function ZT:OnDisable()
     self:DisableAuctionatorFix()
-    self:DisableSpellPushTweaks()
     self:UnhookAll()
 end
