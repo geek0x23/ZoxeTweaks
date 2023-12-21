@@ -10,7 +10,8 @@ function ZT:OnInitialize()
     local defaults = {
         global = {
             scaleFactor = 1.20,
-            auctionator = false
+            auctionator = false,
+            disableSpellPush = false
         }
     }
 
@@ -83,7 +84,7 @@ function ZT:OnInitialize()
                     addons = {
                         order = 20,
                         type = "group",
-                        name = "Other Addons",
+                        name = "Other Stuff",
                         inline = true,
                         args = {
                             auctionator = {
@@ -95,7 +96,17 @@ function ZT:OnInitialize()
                                     self:ApplyAuctionatorFix()
                                 end,
                                 get = function() return self.db.global.auctionator end
-                            }
+                            },
+                            disableSpellPush = {
+                                name = "Disable Spell Push",
+                                desc = "Should we set a CVar to disable pushing spells onto bars automatically?",
+                                type = "toggle",
+                                set = function(_, val)
+                                    self.db.global.disableSpellPush = val
+                                    self:ApplySpellPushTweaks()
+                                end,
+                                get = function() return self.db.global.disableSpellPush end
+                            },
                         }
                     },
                     apply = {
@@ -292,10 +303,12 @@ end
 
 function ZT:OnEnable()
     self:ApplyAuctionatorFix()
+    self:ApplySpellPushTweaks()
     self:ApplyScaling()
 end
 
 function ZT:OnDisable()
     self:DisableAuctionatorFix()
+    self:DisableSpellPushTweaks()
     self:UnhookAll()
 end
