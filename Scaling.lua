@@ -22,7 +22,6 @@ end
 ---@param script? ScriptFrame the script to hook onto
 function ZT:ScaleFrame(frame, scale, script)
     if not frame then return end
-    if not scale then return end
 
     if script then
         self:SecureHookScript(frame, script, function() frame:SetScale(scale) end)
