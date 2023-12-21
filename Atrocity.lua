@@ -692,6 +692,8 @@ local function ApplyBigWigsTweaks(ztp)
 
         profile["BigWigsEmphasizeAnchor_x"] = 1080
         profile["BigWigsEmphasizeAnchor_y"] = 276
+        profile["visibleBarLimit"] = 5
+        profile["visibleBarLimitEmph"] = 5
     end
 end
 
@@ -910,7 +912,7 @@ local function ApplyWarpDepleteTweaks(ztp)
     end
 
     if ztp.elvUI.minimap then
-        profile["frameY"] = 200
+        profile["frameY"] = 170
     end
 end
 

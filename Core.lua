@@ -226,35 +226,35 @@ function ZT:OnInitialize()
                     args = {
                         sle = {
                             name = "Shadow & Light?",
-                            desc = "A bunch of font and armory tweaks for Shadow & Light",
+                            desc = "Enables a bunch of font and armory tweaks for Shadow & Light.",
                             type = "toggle",
                             set = function(_, val) self.db.global.atrocityUI.sle = val end,
                             get = function() return self.db.global.atrocityUI.sle end
                         },
                         bigWigs = {
                             name = "BigWigs Bars?",
-                            desc = "Re-position BigWigs bars for ultra-wide",
+                            desc = "Re-position BigWigs bars for ultra-wide, and set max bars shown to 5.",
                             type = "toggle",
                             set = function(_, val) self.db.global.atrocityUI.bigWigs = val end,
                             get = function() return self.db.global.atrocityUI.bigWigs end
                         },
                         omniCD = {
                             name = "OmniCD Bars?",
-                            desc = "Re-position OmniCD bars for ultra-wide",
+                            desc = "Re-position OmniCD bars for ultra-wide.",
                             type = "toggle",
                             set = function(_, val) self.db.global.atrocityUI.omniCD = val end,
                             get = function() return self.db.global.atrocityUI.omniCD end
                         },
                         details = {
                             name = "Details Tweaks?",
-                            desc = "Removes the extra windows from Details and fixes tooltip anchor for ultra-wide",
+                            desc = "Removes the extra windows from Details and fixes tooltip anchor for ultra-wide.",
                             type = "toggle",
                             set = function(_, val) self.db.global.atrocityUI.details = val end,
                             get = function() return self.db.global.atrocityUI.details end
                         },
                         plater = {
                             name = "Plater Tweaks?",
-                            desc = "Slightly increases font size, and auto-toggles friendly nameplates for dungeons and raids",
+                            desc = "Slightly increases font size, and auto-toggles friendly nameplates for dungeons and raids.",
                             type = "toggle",
                             set = function(_, val) self.db.global.atrocityUI.plater = val end,
                             get = function() return self.db.global.atrocityUI.plater end
