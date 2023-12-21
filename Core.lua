@@ -99,7 +99,7 @@ function ZT:OnInitialize()
                             },
                             disableSpellPush = {
                                 name = "Disable Spell Push",
-                                desc = "Should we set a CVar to disable pushing spells onto bars automatically?",
+                                desc = "Should we set a CVar to disable pushing spells onto bars automatically?  Note: Unchecking this does not restore the orignal value.",
                                 type = "toggle",
                                 set = function(_, val)
                                     self.db.global.disableSpellPush = val
