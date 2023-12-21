@@ -8,11 +8,6 @@ This project exists to help me accomplish 3 goals:
 
 I have not completely scaled every frame in the game.  I've just been scaling them as I encounter them.  I will update this code as I encounter more.
 
-## Installation
-
-- Download a zip from this GitHub repo and extract into a `ZoxeTweaks` folder into your WoW `Interface\AddOns` folder.
-- Or you can install via CurseForge.  Just search for `ZoxeTweaks`.
-
 ## Usage
 
 Once installed, use the `/zt` command in-game to bring up the configuration options.  You'll also find it in the default Blizzard addon options.  If you chose to change the **scale factor**, please remember to reload your UI (or relog).
