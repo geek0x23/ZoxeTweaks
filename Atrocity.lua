@@ -895,9 +895,9 @@ local function ApplyPlaterTweaks(ztp)
 end
 
 local function ApplyWarpDepleteTweaks(ztp)
-    if ztp.fonts.resize then
-        local profile = WarpDepleteDB["profiles"][profiles.atrocityUI]
+    local profile = WarpDepleteDB["profiles"][profiles.atrocityUI]
 
+    if ztp.fonts.resize then
         profile["objectivesFontSize"] = ztp.fonts.size
         profile["keyFontSize"] = ztp.fonts.size
         profile["bar1FontSize"] = ztp.fonts.size
@@ -907,6 +907,10 @@ local function ApplyWarpDepleteTweaks(ztp)
         profile["keyDetailsFontSize"] = ztp.fonts.size
         profile["deathsFontSize"] = ztp.fonts.size
         profile["forcesFontSize"] = ztp.fonts.size
+    end
+
+    if ztp.elvUI.minimap then
+        profile["frameY"] = 200
     end
 end
 
