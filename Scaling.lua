@@ -108,6 +108,7 @@ function ZT:ApplyScaling()
         self:ScaleFrame(EquipmentFlyoutFrame, scale)
     end)
     RunOnAddonLoaded("Blizzard_MacroUI", function() self:ScaleFrame(MacroFrame, scale) end)
+    RunOnAddonLoaded("Blizzard_PlayerChoice", function() self:ScaleFrame(PlayerChoiceFrame, scale) end)
     -- Professions and orders frames use ScaleGuard because Blizzard constantly resets their scale.
     RunOnAddonLoaded("Blizzard_Professions", function() self:ScaleGuard(ProfessionsFrame, scale) end)
     RunOnAddonLoaded("Blizzard_ProfessionsCustomerOrders", function()
