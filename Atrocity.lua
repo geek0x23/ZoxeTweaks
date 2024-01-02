@@ -284,7 +284,7 @@ local function ApplyElvUITweaks(ztp)
 
     if ztp.elvUI.minimap then
         -- Minimap
-        E.global.datatexts.customPanels.Clock.width = 262
+        E.global.datatexts.customPanels.Clock.width = 270
 
         elv["general"]["minimap"]["scale"] = 1.25
         elvColor["general"]["minimap"]["scale"] = 1.25
@@ -372,10 +372,10 @@ local function ApplyElvUITweaks(ztp)
         elvHealer["movers"]["BNETMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-3,-290"
         elvHealerColor["movers"]["BNETMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-3,-290"
 
-        elv["movers"]["DTPanelClockMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-3,-233"
-        elvColor["movers"]["DTPanelClockMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-3,-233"
-        elvHealer["movers"]["DTPanelClockMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-3,-233"
-        elvHealerColor["movers"]["DTPanelClockMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-3,-233"
+        elv["movers"]["DTPanelClockMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-3,-240"
+        elvColor["movers"]["DTPanelClockMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-3,-240"
+        elvHealer["movers"]["DTPanelClockMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-3,-240"
+        elvHealerColor["movers"]["DTPanelClockMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-3,-240"
 
         elv["movers"]["BuffsMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-269,-3"
         elvColor["movers"]["BuffsMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-269,-3"
@@ -716,8 +716,8 @@ local function ApplyMRTTweaks(ztp)
         raidCDs.posY = 523.1322631835938
     end
 
-    if ZT.db.profile.scaleFactor then
-        VMRT.Addon.Scale = ZT.db.profile.scaleFactor
+    if ZT.db.global.scaleFactor then
+        VMRT.Addon.Scale = ZT.db.global.scaleFactor
     end
 
     if ztp.mrtRaidNotes then
@@ -772,7 +772,9 @@ local function ApplyMRTTweaks(ztp)
 end
 
 local function ApplyOmniCDTweaks(ztp)
-    OmniCDDB.global.optionPanelScale = ZT.db.profile.scaleFactor
+    if ZT.db.global.scaleFactor then
+        OmniCDDB.global.optionPanelScale = ZT.db.global.scaleFactor
+    end
 
     local profile = OmniCDDB["profiles"][profiles.atrocityUI]
 
