@@ -21,16 +21,23 @@ local function ApplyElvUITweaks(ztp)
     local elvPrivHealer = ElvPrivateDB["profiles"][profiles.atrocityUIHealer]
     local elvPrivHealerColor = ElvPrivateDB["profiles"][profiles.atrocityUIHealerColor]
 
+    local descaledFontSize = math.floor(ztp.fonts.size - (ztp.fonts.size * (ZT.db.global.scaleFactor - 1)))
+    local diminishedFontSize = math.ceil((ztp.fonts.size - descaledFontSize) / 2) + ztp.fonts.size
+
     if ztp.fonts.resize then
         -- Fonts
         elvPriv["general"]["nameplateFontSize"] = ztp.fonts.size
         elvPriv["general"]["nameplateLargeFontSize"] = ztp.fonts.size
+        elvPriv["general"]["chatBubbleFontSize"] = descaledFontSize
         elvPrivColor["general"]["nameplateFontSize"] = ztp.fonts.size
         elvPrivColor["general"]["nameplateLargeFontSize"] = ztp.fonts.size
+        elvPrivColor["general"]["chatBubbleFontSize"] = descaledFontSize
         elvPrivHealer["general"]["nameplateFontSize"] = ztp.fonts.size
         elvPrivHealer["general"]["nameplateLargeFontSize"] = ztp.fonts.size
+        elvPrivHealer["general"]["chatBubbleFontSize"] = descaledFontSize
         elvPrivHealerColor["general"]["nameplateFontSize"] = ztp.fonts.size
         elvPrivHealerColor["general"]["nameplateLargeFontSize"] = ztp.fonts.size
+        elvPrivHealerColor["general"]["chatBubbleFontSize"] = descaledFontSize
 
         elv["general"]["fonts"] = elv["general"]["fonts"] or {}
         elvColor["general"]["fonts"] = elvColor["general"]["fonts"] or {}
@@ -40,13 +47,13 @@ local function ApplyElvUITweaks(ztp)
         local smallFont = {
             enable = true,
             outline = "OUTLINE",
-            size = ztp.fonts.size - 4
+            size = descaledFontSize
         }
 
         local normalFont = {
             enable = true,
             outline = "OUTLINE",
-            size = ztp.fonts.size - 2
+            size = diminishedFontSize
         }
 
         elv["general"]["fonts"]["objective"] = smallFont
@@ -338,20 +345,20 @@ local function ApplyElvUITweaks(ztp)
         elv["unitframe"]["units"]["party"]["raidRoleIcons"]["xOffset"] = -27
         elvColor["unitframe"]["units"]["party"]["raidRoleIcons"]["xOffset"] = -27
 
-        elv["unitframe"]["units"]["raid1"]["buffs"]["countFontSize"] = ztp.fonts.size - 2
-        elvColor["unitframe"]["units"]["raid1"]["buffs"]["countFontSize"] = ztp.fonts.size - 2
-        elvHealer["unitframe"]["units"]["raid1"]["buffs"]["countFontSize"] = ztp.fonts.size - 2
-        elvHealerColor["unitframe"]["units"]["raid1"]["buffs"]["countFontSize"] = ztp.fonts.size - 2
+        elv["unitframe"]["units"]["raid1"]["buffs"]["countFontSize"] = diminishedFontSize
+        elvColor["unitframe"]["units"]["raid1"]["buffs"]["countFontSize"] = diminishedFontSize
+        elvHealer["unitframe"]["units"]["raid1"]["buffs"]["countFontSize"] = diminishedFontSize
+        elvHealerColor["unitframe"]["units"]["raid1"]["buffs"]["countFontSize"] = diminishedFontSize
 
-        elv["unitframe"]["units"]["raid2"]["buffs"]["countFontSize"] = ztp.fonts.size - 2
-        elvColor["unitframe"]["units"]["raid2"]["buffs"]["countFontSize"] = ztp.fonts.size - 2
-        elvHealer["unitframe"]["units"]["raid2"]["buffs"]["countFontSize"] = ztp.fonts.size - 2
-        elvHealerColor["unitframe"]["units"]["raid2"]["buffs"]["countFontSize"] = ztp.fonts.size - 2
+        elv["unitframe"]["units"]["raid2"]["buffs"]["countFontSize"] = diminishedFontSize
+        elvColor["unitframe"]["units"]["raid2"]["buffs"]["countFontSize"] = diminishedFontSize
+        elvHealer["unitframe"]["units"]["raid2"]["buffs"]["countFontSize"] = diminishedFontSize
+        elvHealerColor["unitframe"]["units"]["raid2"]["buffs"]["countFontSize"] = diminishedFontSize
 
-        elv["unitframe"]["units"]["raid3"]["buffs"]["countFontSize"] = ztp.fonts.size - 2
-        elvColor["unitframe"]["units"]["raid3"]["buffs"]["countFontSize"] = ztp.fonts.size - 2
-        elvHealer["unitframe"]["units"]["raid3"]["buffs"]["countFontSize"] = ztp.fonts.size - 2
-        elvHealerColor["unitframe"]["units"]["raid3"]["buffs"]["countFontSize"] = ztp.fonts.size - 2
+        elv["unitframe"]["units"]["raid3"]["buffs"]["countFontSize"] = diminishedFontSize
+        elvColor["unitframe"]["units"]["raid3"]["buffs"]["countFontSize"] = diminishedFontSize
+        elvHealer["unitframe"]["units"]["raid3"]["buffs"]["countFontSize"] = diminishedFontSize
+        elvHealerColor["unitframe"]["units"]["raid3"]["buffs"]["countFontSize"] = diminishedFontSize
     end
 
     if ztp.elvUI.panels then
