@@ -435,8 +435,8 @@ local function ApplyElvUITweaks(ztp)
         elvHealer["movers"]["ElvUF_FocusMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-800,550"
         elvHealerColor["movers"]["ElvUF_FocusMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-800,550"
 
-        elv["movers"]["ElvUF_PartyMover"] = "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,893,580"
-        elvColor["movers"]["ElvUF_PartyMover"] = "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,893,580"
+        elv["movers"]["ElvUF_PartyMover"] = "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,965,535"
+        elvColor["movers"]["ElvUF_PartyMover"] = "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,965,535"
     end
 
     if ztp.elvUI.actionBars then
@@ -785,15 +785,11 @@ local function ApplyOmniCDTweaks(ztp)
     end
 
     if ztp.omniCD then
-        profile["Party"]["party"]["icons"]["scale"] = 1.05
-        profile["Party"]["party"]["position"]["offsetX"] = 2
-        profile["Party"]["party"]["position"]["offsetY"] = 3
+        profile["Party"]["party"]["extraBars"]["raidBar0"]["manualPos"]["raidBar0"]["x"] = 514.9332700888335
+        profile["Party"]["party"]["extraBars"]["raidBar0"]["manualPos"]["raidBar0"]["y"] = 434.4000392119051
 
-        profile["Party"]["party"]["extraBars"]["raidBar0"]["manualPos"]["raidBar0"]["x"] = 476.8001343409123
-        profile["Party"]["party"]["extraBars"]["raidBar0"]["manualPos"]["raidBar0"]["y"] = 442.1335348447028
-
-        profile["Party"]["party"]["extraBars"]["raidBar1"]["manualPos"]["raidBar1"]["x"] = 476.8001343409123
-        profile["Party"]["party"]["extraBars"]["raidBar1"]["manualPos"]["raidBar1"]["y"] = 332.5332158565579
+        profile["Party"]["party"]["extraBars"]["raidBar1"]["manualPos"]["raidBar1"]["x"] = 514.9332700888335
+        profile["Party"]["party"]["extraBars"]["raidBar1"]["manualPos"]["raidBar1"]["y"] = 311.7332822004973
     end
 
     local healerProfile = OmniCDDB["profiles"][profiles.atrocityUIHealer]
@@ -805,8 +801,7 @@ local function ApplyOmniCDTweaks(ztp)
     end
 
     if ztp.omniCD then
-        healerProfile["Party"]["party"]["extraBars"]["raidBar0"]["manualPos"]["raidBar0"]["x"] = 620.5329708258505
-        healerProfile["Party"]["party"]["extraBars"]["raidBar0"]["manualPos"]["raidBar0"]["y"] = 197.6001509825292
+        healerProfile["Party"]["party"]["extraBars"]["raidBar0"]["manualPos"]["raidBar0"]["x"] = 1065.866798448551
     end
 end
 
