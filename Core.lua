@@ -110,7 +110,7 @@ function ZT:OnInitialize()
                             },
                             keepTargetOnScreen = {
                                 name = "Target Nameplate",
-                                desc = "Plater broke the 'Keep Target On Screen' checkbox.  This fixes it by manipulating CVars.",
+                                desc = "Plater recently broke the 'Target Always on the Screen' checkbox.  This fixes it by manipulating CVars.",
                                 type = "toggle",
                                 set = function(_, val)
                                     self.db.global.keepTargetOnScreen = val
