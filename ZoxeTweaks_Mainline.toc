@@ -10,6 +10,5 @@
 embeds.xml
 Core.lua
 Scaling.lua
-Tooltip.lua
-Extras.lua
+Others.lua
 Atrocity.lua
