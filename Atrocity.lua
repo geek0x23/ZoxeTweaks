@@ -659,11 +659,21 @@ local function ApplyWeakAurasTweaks(ztp)
             "Player Castbar (Caster)",
             "Player Castbar (Healer)",
             "Focus Castbar",
+            "Settings - Automark"
         }
+
+        local combatTextAuras = WeakAurasSaved["displays"]["Combat Text"]["controlledChildren"]
+        for _, child in ipairs(combatTextAuras) do
+            table.insert(auras, child)
+        end
 
         for _, auraName in ipairs(auras) do
             local aura = WeakAurasSaved["displays"][auraName]
             if aura then
+                if aura["regionType"] == "text" and aura["fontSize"] then
+                    aura["fontSize"] = ztp.fonts.size
+                end
+
                 local regions = aura["subRegions"]
                 for i in ipairs(regions) do
                     local region = regions[i]
@@ -674,6 +684,8 @@ local function ApplyWeakAurasTweaks(ztp)
             end
         end
     end
+
+    WeakAurasSaved["displays"]["Automark"]["yOffset"] = -50
 
     if ztp.elvUI.panels then
         -- Combat Info
