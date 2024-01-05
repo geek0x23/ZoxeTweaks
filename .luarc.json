@@ -45,6 +45,8 @@
         "ItemSocketingFrame",
         "ItemTextFrame",
         "ItemUpgradeFrame",
+        "L_Numy_DropDownList1",
+        "L_Numy_DropDownList2",
         "LFGDungeonReadyPopup",
         "LFGListApplicationDialog",
         "LFGListInviteDialog",

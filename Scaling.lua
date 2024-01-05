@@ -89,6 +89,10 @@ function ZT:ApplyScaling()
     RunOnAddonLoaded("Blizzard_ClassTalentUI", function()
         self:ScaleFrame(ClassTalentFrame, scale, "OnShow")
         self:ScaleFrame(ClassTalentLoadoutImportDialog, scale)
+
+        local listScale = globalScale * scale
+        self:ScaleFrame(L_Numy_DropDownList1, listScale, "OnShow")
+        self:ScaleFrame(L_Numy_DropDownList2, listScale, "OnShow")
     end)
     RunOnAddonLoaded("Blizzard_Collections", function()
         self:ScaleFrame(CollectionsJournal, scale)
