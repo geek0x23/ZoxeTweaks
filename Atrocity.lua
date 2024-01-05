@@ -372,6 +372,15 @@ local function ApplyElvUITweaks(ztp)
         elvColor["unitframe"]["units"]["raid3"]["width"] = 99
     end
 
+    elv["unitframe"]["units"]["raid1"]["roleIcon"] = { damager = false }
+    elvColor["unitframe"]["units"]["raid1"]["roleIcon"] = { damager = false }
+
+    elv["unitframe"]["units"]["raid2"]["roleIcon"] = { damager = false }
+    elvColor["unitframe"]["units"]["raid2"]["roleIcon"] = { damager = false }
+
+    elv["unitframe"]["units"]["raid3"]["roleIcon"] = { damager = false }
+    elvColor["unitframe"]["units"]["raid3"]["roleIcon"] = { damager = false }
+
     -- Movers
     if ztp.elvUI.minimap then
         elv["movers"]["BNETMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-3,-290"
