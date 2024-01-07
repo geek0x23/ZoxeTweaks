@@ -72,6 +72,7 @@
         "ProfessionsCustomerOrdersFrameOrdersTab",
         "ProfessionsFrame",
         "PVEFrame",
+        "PVPParentFrame",
         "QuestFrame",
         "QuestLogFrame",
         "QueueStatusFrame",
