@@ -7,13 +7,17 @@ local RunOnAddonLoaded = EventUtil.ContinueOnAddOnLoaded
 ---@param frame Frame the frame to scale
 ---@param scale number the desired scale factor
 function ZT:ScaleGuard(frame, scale)
+    if not frame then return end
+
     local guard
     self:SecureHook(frame, "SetScale", function()
         if guard then return end
         guard = true
-        frame:SetScale(scale)
+        self:ScaleFrame(frame, scale)
         guard = false
     end)
+
+    self:ScaleFrame(frame, scale)
 end
 
 ---Scale a frame with some basic safety.
@@ -39,7 +43,7 @@ function ZT:ApplyScaling()
     -- Blizzard frames that are always loaded
     self:ScaleFrame(AddonList, scale)
     self:ScaleFrame(ChannelFrame, scale)
-    self:ScaleFrame(CharacterFrame, scale)
+    self:ScaleGuard(CharacterFrame, scale)
     self:ScaleFrame(ChatConfigFrame, scale)
     self:ScaleFrame(CinematicFrameCloseDialog, scale)
     self:ScaleFrame(DressUpFrame, scale)
