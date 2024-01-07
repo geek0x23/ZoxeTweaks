@@ -372,14 +372,25 @@ local function ApplyElvUITweaks(ztp)
         elvColor["unitframe"]["units"]["raid3"]["width"] = 99
     end
 
-    elv["unitframe"]["units"]["raid1"]["roleIcon"] = { damager = false }
-    elvColor["unitframe"]["units"]["raid1"]["roleIcon"] = { damager = false }
+    local roleIcons = {
+        enable = true,
+        damager = false
+    }
 
-    elv["unitframe"]["units"]["raid2"]["roleIcon"] = { damager = false }
-    elvColor["unitframe"]["units"]["raid2"]["roleIcon"] = { damager = false }
+    elv["unitframe"]["units"]["raid1"]["roleIcon"] = roleIcons
+    elvColor["unitframe"]["units"]["raid1"]["roleIcon"] = roleIcons
+    elvHealer["unitframe"]["units"]["raid1"]["roleIcon"] = roleIcons
+    elvHealerColor["unitframe"]["units"]["raid1"]["roleIcon"] = roleIcons
 
-    elv["unitframe"]["units"]["raid3"]["roleIcon"] = { damager = false }
-    elvColor["unitframe"]["units"]["raid3"]["roleIcon"] = { damager = false }
+    elv["unitframe"]["units"]["raid2"]["roleIcon"] = roleIcons
+    elvColor["unitframe"]["units"]["raid2"]["roleIcon"] = roleIcons
+    elvHealer["unitframe"]["units"]["raid2"]["roleIcon"] = roleIcons
+    elvHealerColor["unitframe"]["units"]["raid2"]["roleIcon"] = roleIcons
+
+    elv["unitframe"]["units"]["raid3"]["roleIcon"] = roleIcons
+    elvColor["unitframe"]["units"]["raid3"]["roleIcon"] = roleIcons
+    elvHealer["unitframe"]["units"]["raid3"]["roleIcon"] = roleIcons
+    elvHealerColor["unitframe"]["units"]["raid3"]["roleIcon"] = roleIcons
 
     -- Movers
     if ztp.elvUI.minimap then
