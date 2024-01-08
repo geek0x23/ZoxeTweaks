@@ -127,6 +127,7 @@ function ZT:ApplyScaling()
         self:ScaleGuard(ProfessionsCustomerOrdersFrame, scale)
     end)
     RunOnAddonLoaded("Blizzard_TrainerUI", function() self:ScaleFrame(ClassTrainerFrame, scale, "OnShow") end)
+    RunOnAddonLoaded("Blizzard_TradeSkillUI", function() self:ScaleFrame(TradeSkillFrame, scale) end)
     RunOnAddonLoaded("Blizzard_WeeklyRewards", function() self:ScaleFrame(WeeklyRewardsFrame, scale) end)
 
     self:SecureHook("AlertFrame_ShowNewAlert", function(frame) frame:SetScale(scale) end)

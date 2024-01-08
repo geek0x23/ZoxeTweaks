@@ -88,6 +88,7 @@
         "SuperTrackedFrame",
         "TimeManagerFrame",
         "TradeFrame",
+        "TradeSkillFrame",
         "UIWidgetTopCenterContainerFrame",
         "VMRT",
         "WardrobeFrame",
