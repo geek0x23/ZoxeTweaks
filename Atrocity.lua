@@ -248,6 +248,16 @@ local function ApplyElvUITweaks(ztp)
         elvColor["actionbar"]["bar3"]["buttons"] = 12
         elvHealer["actionbar"]["bar3"]["buttons"] = 12
         elvHealerColor["actionbar"]["bar3"]["buttons"] = 12
+
+        elv["actionbar"]["bar3"]["buttonSize"] = 45
+        elvColor["actionbar"]["bar3"]["buttonSize"] = 45
+        elvHealer["actionbar"]["bar3"]["buttonSize"] = 45
+        elvHealerColor["actionbar"]["bar3"]["buttonSize"] = 45
+
+        elv["actionbar"]["barPet"]["buttonSize"] = 45
+        elvColor["actionbar"]["barPet"]["buttonSize"] = 45
+        elvHealer["actionbar"]["barPet"]["buttonSize"] = 45
+        elvHealerColor["actionbar"]["barPet"]["buttonSize"] = 45
     end
 
 
