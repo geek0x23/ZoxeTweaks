@@ -372,10 +372,23 @@ local function ApplyElvUITweaks(ztp)
         elvColor["unitframe"]["units"]["raid3"]["width"] = 99
     end
 
-    local roleIcons = {
-        enable = true,
-        damager = false
-    }
+    elv["unitframe"]["units"]["raid1"]["roleIcon"] = elv["unitframe"]["units"]["raid1"]["roleIcon"] or {}
+    elvColor["unitframe"]["units"]["raid1"]["roleIcon"] = elvColor["unitframe"]["units"]["raid1"]["roleIcon"] or {}
+    elvHealer["unitframe"]["units"]["raid1"]["roleIcon"] = elvHealer["unitframe"]["units"]["raid1"]["roleIcon"] or {}
+    elvHealerColor["unitframe"]["units"]["raid1"]["roleIcon"] =
+        elvHealerColor["unitframe"]["units"]["raid1"]["roleIcon"] or {}
+
+    elv["unitframe"]["units"]["raid2"]["roleIcon"] = elv["unitframe"]["units"]["raid2"]["roleIcon"] or {}
+    elvColor["unitframe"]["units"]["raid2"]["roleIcon"] = elvColor["unitframe"]["units"]["raid2"]["roleIcon"] or {}
+    elvHealer["unitframe"]["units"]["raid2"]["roleIcon"] = elvHealer["unitframe"]["units"]["raid2"]["roleIcon"] or {}
+    elvHealerColor["unitframe"]["units"]["raid2"]["roleIcon"] =
+        elvHealerColor["unitframe"]["units"]["raid2"]["roleIcon"] or {}
+
+    elv["unitframe"]["units"]["raid3"]["roleIcon"] = elv["unitframe"]["units"]["raid3"]["roleIcon"] or {}
+    elvColor["unitframe"]["units"]["raid3"]["roleIcon"] = elvColor["unitframe"]["units"]["raid3"]["roleIcon"] or {}
+    elvHealer["unitframe"]["units"]["raid3"]["roleIcon"] = elvHealer["unitframe"]["units"]["raid3"]["roleIcon"] or {}
+    elvHealerColor["unitframe"]["units"]["raid3"]["roleIcon"] =
+        elvHealerColor["unitframe"]["units"]["raid3"]["roleIcon"] or {}
 
     elv["unitframe"]["units"]["raid1"]["roleIcon"]["enable"] = true
     elv["unitframe"]["units"]["raid1"]["roleIcon"]["damager"] = false
