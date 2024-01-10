@@ -11,8 +11,7 @@ function ZT:OnInitialize()
         global = {
             scaleFactor = 1.20,
             auctionator = false,
-            disableSpellPush = false,
-            keepTargetOnScreen = false
+            disableSpellPush = false
         }
     }
 
@@ -107,16 +106,6 @@ function ZT:OnInitialize()
                                     self:ApplySpellPushTweaks()
                                 end,
                                 get = function() return self.db.global.disableSpellPush end
-                            },
-                            keepTargetOnScreen = {
-                                name = "Target Nameplate",
-                                desc = "Plater recently broke the 'Target Always on the Screen' checkbox.  This fixes it by manipulating CVars.",
-                                type = "toggle",
-                                set = function(_, val)
-                                    self.db.global.keepTargetOnScreen = val
-                                    self:ApplyPlaterTargetTweaks()
-                                end,
-                                get = function() return self.db.global.keepTargetOnScreen end
                             }
                         }
                     },
