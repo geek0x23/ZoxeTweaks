@@ -514,8 +514,8 @@ local function ApplyElvUITweaks(ztp)
     if ztp.elvUI.actionBars then
         elv["movers"]["ElvAB_5"] = "BOTTOM,ElvUIParent,BOTTOM,-277,3"
         elvColor["movers"]["ElvAB_5"] = "BOTTOM,ElvUIParent,BOTTOM,-277,3"
-        elvHealer["movers"]["ElvAB_5"] = "BOTTOM,ElvUIParent,BOTTOM,-260,3"
-        elvHealerColor["movers"]["ElvAB_5"] = "BOTTOM,ElvUIParent,BOTTOM,-260,3"
+        elvHealer["movers"]["ElvAB_5"] = "BOTTOM,ElvUIParent,BOTTOM,-259,3"
+        elvHealerColor["movers"]["ElvAB_5"] = "BOTTOM,ElvUIParent,BOTTOM,-259,3"
 
         elv["movers"]["ElvAB_6"] = "BOTTOM,ElvUIParent,BOTTOM,0,36"
         elvColor["movers"]["ElvAB_6"] = "BOTTOM,ElvUIParent,BOTTOM,0,36"
@@ -529,14 +529,14 @@ local function ApplyElvUITweaks(ztp)
 
         elv["movers"]["ElvAB_6"] = "BOTTOM,ElvUIParent,BOTTOM,-277,3"
         elvColor["movers"]["ElvAB_6"] = "BOTTOM,ElvUIParent,BOTTOM,-277,3"
-        elvHealer["movers"]["ElvAB_6"] = "BOTTOM,ElvUIParent,BOTTOM,-260,3"
-        elvHealerColor["movers"]["ElvAB_6"] = "BOTTOM,ElvUIParent,BOTTOM,-260,3"
+        elvHealer["movers"]["ElvAB_6"] = "BOTTOM,ElvUIParent,BOTTOM,-259,3"
+        elvHealerColor["movers"]["ElvAB_6"] = "BOTTOM,ElvUIParent,BOTTOM,-259,3"
     end
 
     elv["movers"]["ElvAB_4"] = "BOTTOM,ElvUIParent,BOTTOM,277,3"
     elvColor["movers"]["ElvAB_4"] = "BOTTOM,ElvUIParent,BOTTOM,277,3"
-    elvHealer["movers"]["ElvAB_4"] = "BOTTOM,ElvUIParent,BOTTOM,260,3"
-    elvHealerColor["movers"]["ElvAB_4"] = "BOTTOM,ElvUIParent,BOTTOM,260,3"
+    elvHealer["movers"]["ElvAB_4"] = "BOTTOM,ElvUIParent,BOTTOM,259,3"
+    elvHealerColor["movers"]["ElvAB_4"] = "BOTTOM,ElvUIParent,BOTTOM,259,3"
 
     elv["movers"]["ElvAB_1"] = "BOTTOM,ElvUIParent,BOTTOM,0,3"
     elvColor["movers"]["ElvAB_1"] = "BOTTOM,ElvUIParent,BOTTOM,0,3"
