@@ -512,11 +512,6 @@ local function ApplyElvUITweaks(ztp)
     elvHealerColor["movers"]["AlertFrameMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-1000,-300"
 
     if ztp.elvUI.actionBars then
-        elv["movers"]["ElvAB_4"] = "BOTTOM,ElvUIParent,BOTTOM,277,3"
-        elvColor["movers"]["ElvAB_4"] = "BOTTOM,ElvUIParent,BOTTOM,277,3"
-        elvHealer["movers"]["ElvAB_4"] = "BOTTOM,ElvUIParent,BOTTOM,260,3"
-        elvHealerColor["movers"]["ElvAB_4"] = "BOTTOM,ElvUIParent,BOTTOM,260,3"
-
         elv["movers"]["ElvAB_5"] = "BOTTOM,ElvUIParent,BOTTOM,-277,3"
         elvColor["movers"]["ElvAB_5"] = "BOTTOM,ElvUIParent,BOTTOM,-277,3"
         elvHealer["movers"]["ElvAB_5"] = "BOTTOM,ElvUIParent,BOTTOM,-260,3"
@@ -526,7 +521,27 @@ local function ApplyElvUITweaks(ztp)
         elvColor["movers"]["ElvAB_6"] = "BOTTOM,ElvUIParent,BOTTOM,0,36"
         elvHealer["movers"]["ElvAB_6"] = "BOTTOM,ElvUIParent,BOTTOM,0,34"
         elvHealerColor["movers"]["ElvAB_6"] = "BOTTOM,ElvUIParent,BOTTOM,0,34"
+    else
+        elv["movers"]["ElvAB_5"] = "BOTTOM,ElvUIParent,BOTTOM,0,36"
+        elvColor["movers"]["ElvAB_5"] = "BOTTOM,ElvUIParent,BOTTOM,0,36"
+        elvHealer["movers"]["ElvAB_5"] = "BOTTOM,ElvUIParent,BOTTOM,0,34"
+        elvHealerColor["movers"]["ElvAB_5"] = "BOTTOM,ElvUIParent,BOTTOM,0,34"
+
+        elv["movers"]["ElvAB_6"] = "BOTTOM,ElvUIParent,BOTTOM,-277,3"
+        elvColor["movers"]["ElvAB_6"] = "BOTTOM,ElvUIParent,BOTTOM,-277,3"
+        elvHealer["movers"]["ElvAB_6"] = "BOTTOM,ElvUIParent,BOTTOM,-260,3"
+        elvHealerColor["movers"]["ElvAB_6"] = "BOTTOM,ElvUIParent,BOTTOM,-260,3"
     end
+
+    elv["movers"]["ElvAB_4"] = "BOTTOM,ElvUIParent,BOTTOM,277,3"
+    elvColor["movers"]["ElvAB_4"] = "BOTTOM,ElvUIParent,BOTTOM,277,3"
+    elvHealer["movers"]["ElvAB_4"] = "BOTTOM,ElvUIParent,BOTTOM,260,3"
+    elvHealerColor["movers"]["ElvAB_4"] = "BOTTOM,ElvUIParent,BOTTOM,260,3"
+
+    elv["movers"]["ElvAB_1"] = "BOTTOM,ElvUIParent,BOTTOM,0,3"
+    elvColor["movers"]["ElvAB_1"] = "BOTTOM,ElvUIParent,BOTTOM,0,3"
+    elvHealer["movers"]["ElvAB_1"] = "BOTTOM,ElvUIParent,BOTTOM,0,3"
+    elvHealerColor["movers"]["ElvAB_1"] = "BOTTOM,ElvUIParent,BOTTOM,0,3"
 end
 
 local function ApplyAddonSkinsTweaks(ztp)
