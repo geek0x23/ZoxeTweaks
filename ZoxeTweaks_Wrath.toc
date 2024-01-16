@@ -4,7 +4,7 @@
 ## Title: ZoxeTweaks
 ## Version: @project-version@
 ## X-Curse-Project-ID: 937180
-## OptionalDeps: Auctionator, ElvUI, Plater
+## OptionalDeps: Auctionator, ElvUI
 ## SavedVariables: ZoxeTweaksDB
 
 embeds.xml
