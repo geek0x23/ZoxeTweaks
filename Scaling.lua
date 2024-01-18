@@ -89,6 +89,7 @@ function ZT:ApplyScaling()
 
     -- Blizzard frames that are loaded on demand.
     RunOnAddonLoaded("Blizzard_AchievementUI", function() self:ScaleFrame(AchievementFrame, scale) end)
+    RunOnAddonLoaded("Blizzard_BlackMarketUI", function() self:ScaleFrame(BlackMarketFrame, scale) end)
     RunOnAddonLoaded("Blizzard_AuctionHouseUI", function() self:ScaleFrame(AuctionHouseFrame, scale) end)
     RunOnAddonLoaded("Blizzard_Calendar", function() self:ScaleFrame(CalendarFrame, scale) end)
     RunOnAddonLoaded("Blizzard_ClassTalentUI", function()
