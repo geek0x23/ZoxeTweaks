@@ -38,7 +38,13 @@ function ZT:OnInitialize()
             bigWigs = true,
             omniCD = true,
             details = true,
-            plater = true,
+            plater = {
+                fonts = {
+                    resize = true,
+                    size = 8
+                },
+                friendly = false
+            },
             mrtRaidNotes = false
         }
     end
@@ -229,8 +235,40 @@ function ZT:OnInitialize()
                         }
                     }
                 },
-                others = {
+                plater = {
                     order = 30,
+                    type = "group",
+                    name = "Plater Tweaks",
+                    inline = true,
+                    args = {
+                        resizeFonts = {
+                            name = "Change font size?",
+                            desc = "Should we change font size for Plater nameplates?",
+                            type = "toggle",
+                            set = function(_, val) self.db.global.atrocityUI.plater.fonts.resize = val end,
+                            get = function() return self.db.global.atrocityUI.plater.fonts.resize end
+                        },
+                        size = {
+                            name = "Desired font size",
+                            desc = "If 'Change font size' is enabled, what size should we use?",
+                            type = "range",
+                            min = 6,
+                            max = 30,
+                            step = 1,
+                            set = function(_, val) self.db.global.atrocityUI.plater.fonts.size = val end,
+                            get = function() return self.db.global.atrocityUI.plater.fonts.size end
+                        },
+                        friendly = {
+                            name = "Friendly plates?",
+                            desc = "Should we auto-enable friendly nameplates in dungeons and raids?",
+                            type = "toggle",
+                            set = function(_, val) self.db.global.atrocityUI.plater.friendly = val end,
+                            get = function() return self.db.global.atrocityUI.plater.friendly end
+                        }
+                    }
+                },
+                others = {
+                    order = 40,
                     type = "group",
                     name = "Other Addons",
                     inline = true,
@@ -262,13 +300,6 @@ function ZT:OnInitialize()
                             type = "toggle",
                             set = function(_, val) self.db.global.atrocityUI.details = val end,
                             get = function() return self.db.global.atrocityUI.details end
-                        },
-                        plater = {
-                            name = "Plater Tweaks?",
-                            desc = "Slightly increases font size, and auto-toggles friendly nameplates for dungeons and raids.",
-                            type = "toggle",
-                            set = function(_, val) self.db.global.atrocityUI.plater = val end,
-                            get = function() return self.db.global.atrocityUI.plater end
                         },
                         mrtRaidNotes = {
                             name = "MRT Raid Notes?",
