@@ -20,6 +20,8 @@
         "CollectionsJournal",
         "CovenantMissionFrame",
         "CommunitiesFrame",
+        "CommunitiesGuildLogFrame",
+        "CommunitiesGuildNewsFiltersFrame",
         "CommunitiesGuildTextEditFrame",
         "Details",
         "DLAPI",
