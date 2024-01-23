@@ -82,6 +82,7 @@
         "RaidUtility_CloseButton",
         "RaidUtility_ShowButton",
         "RaidUtilityPanel",
+        "ReadyCheckFrame",
         "ReadyCheckListenerFrame",
         "ReloadUI",
         "ReportFrame",

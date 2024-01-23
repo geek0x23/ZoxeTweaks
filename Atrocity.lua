@@ -237,10 +237,10 @@ local function ApplyElvUITweaks(ztp)
         elvHealer["chat"]["panelWidth"] = 500
         elvHealerColor["chat"]["panelWidth"] = 500
 
-        elv["chat"]["panelHeight"] = 272
-        elvColor["chat"]["panelHeight"] = 272
-        elvHealer["chat"]["panelHeight"] = 272
-        elvHealerColor["chat"]["panelHeight"] = 272
+        elv["chat"]["panelHeight"] = 268
+        elvColor["chat"]["panelHeight"] = 268
+        elvHealer["chat"]["panelHeight"] = 268
+        elvHealerColor["chat"]["panelHeight"] = 268
 
         -- this is here because we don't want to use 12 buttons unless
         -- we are resizing the chat panels, too.
@@ -544,15 +544,6 @@ local function ApplyElvUITweaks(ztp)
     elvHealerColor["movers"]["ElvAB_1"] = "BOTTOM,ElvUIParent,BOTTOM,0,3"
 end
 
-local function ApplyAddonSkinsTweaks(ztp)
-    if ztp.elvUI.panels then
-        AddOnSkinsDB["profiles"]["Default"]["EmbedLeftWidth"] = 250
-        AddOnSkinsDB["profiles"]["Default"]["EmbedSystemDual"] = true
-    end
-
-    AddOnSkinsDB["profiles"]["Default"]["EmbedSystemMessage"] = false
-end
-
 local function ApplySLETweaks(ztp)
     -- main profiles
     local sleBase = ElvDB["profiles"][profiles.atrocityUI]["sle"]
@@ -765,11 +756,11 @@ local function ApplyWeakAurasTweaks(ztp)
     if ztp.elvUI.panels then
         -- Combat Info
         WeakAurasSaved["displays"]["Combat Ress"]["xOffset"] = -1274
-        WeakAurasSaved["displays"]["Combat Ress"]["yOffset"] = -432
+        WeakAurasSaved["displays"]["Combat Ress"]["yOffset"] = -434
         WeakAurasSaved["displays"]["Combat Ress"]["justify"] = "RIGHT"
 
         WeakAurasSaved["displays"]["Combat Time"]["xOffset"] = -1668
-        WeakAurasSaved["displays"]["Combat Time"]["yOffset"] = -432
+        WeakAurasSaved["displays"]["Combat Time"]["yOffset"] = -434
         WeakAurasSaved["displays"]["Combat Time"]["justify"] = "LEFT"
     end
 end
@@ -905,25 +896,49 @@ local function ApplyOmniCDTweaks(ztp)
 end
 
 local function ApplyDetailsTweaks(ztp)
+    local dtp = Details:GetProfile(profiles.atrocityUI)
+
+    if ZT.db.global.scaleFactor then
+        dtp.options_window = { scale = ZT.db.global.scaleFactor }
+    end
+
     if ztp.fonts.resize then
         Details.tooltip.fontsize = ztp.fonts.size
         Details.tooltip.fontsize_title = ztp.fonts.size
+        dtp.font_sizes = { menus = ztp.fonts.size }
     end
 
-    local count = 1
-    local idsToDelete = {};
-
     for id, instance in Details:ListInstances() do
-        if count >= 3 then
-            table.insert(idsToDelete, id)
-        else
-            if ztp.fonts.resize then
-                instance:SetBarTextSettings(ztp.fonts.size)
-                instance:AttributeMenu(nil, nil, nil, nil, ztp.fonts.size)
+        if ztp.fonts.resize then
+            instance:SetBarTextSettings(ztp.fonts.size)
+            instance:AttributeMenu(nil, nil, nil, nil, ztp.fonts.size)
+
+            if ztp.elvUI.panels then
+                local position = instance:CreatePositionTable()
+
+                -- for idempotency
+                if position.w ~= 248 then
+                    position.w = 248
+
+                    -- Main damage window
+                    if id == 1 then
+                        position.x = position.x - 26
+                        position.h = position.h + 24
+                    end
+
+                    -- Healing window
+                    if id == 2 then
+                        position.y = position.y + 22
+                    end
+
+                    if id == 3 then
+                        position.h = position.h + 24
+                    end
+
+                    instance:RestorePositionFromPositionTable(position)
+                end
             end
         end
-
-        count = count + 1
     end
 
     if ztp.details then
@@ -935,12 +950,10 @@ local function ApplyDetailsTweaks(ztp)
         Details.tooltip.anchor_point = "bottomright"
         Details.tooltip.anchor_relative = "bottomright"
         Details.tooltip.anchor_offset = { 0, -6 }
-
-        -- Atrocity likes more than 2 windows.  I do not.
-        for _, id in ipairs(idsToDelete) do
-            Details:DeleteInstance(id)
-        end
     end
+
+    Details:SaveProfile()
+    Details:ApplyProfile(profiles.atrocityUI, false)
 end
 
 local function ApplyPlaterTweaks(ztp)
@@ -1018,7 +1031,6 @@ function ZT:ApplyAtrocityTweaks()
     local ztp = self.db.global.atrocityUI
 
     ApplyElvUITweaks(ztp)
-    ApplyAddonSkinsTweaks(ztp)
     ApplySLETweaks(ztp)
     ApplyWeakAurasTweaks(ztp)
     ApplyBigWigsTweaks(ztp)
