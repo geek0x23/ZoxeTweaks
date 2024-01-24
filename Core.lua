@@ -32,7 +32,9 @@ function ZT:OnInitialize()
                 minimapDataTexts = false,
                 minimap = true,
                 tooltip = false,
-                unitFrames = true
+                unitFrames = true,
+                guildRepairs = true,
+                acceptInvitesFromGuildmates = true
             },
             sle = false,
             bigWigs = true,
@@ -232,6 +234,20 @@ function ZT:OnInitialize()
                             type = "toggle",
                             set = function(_, val) self.db.global.atrocityUI.elvUI.unitFrames = val end,
                             get = function() return self.db.global.atrocityUI.elvUI.unitFrames end
+                        },
+                        guildRepairs = {
+                            name = "Use guild repairs?",
+                            desc = "Should we auto-repair with guild funds?",
+                            type = "toggle",
+                            set = function(_, val) self.db.global.atrocityUI.elvUI.guildRepairs = val end,
+                            get = function() return self.db.global.atrocityUI.elvUI.guildRepairs end
+                        },
+                        autoAcceptInvites = {
+                            name = "Auto accept invites?",
+                            desc = "Should we automatically accept group invites from guild mates and friends?",
+                            type = "toggle",
+                            set = function(_, val) self.db.global.atrocityUI.elvUI.autoAcceptInvites = val end,
+                            get = function() return self.db.global.atrocityUI.elvUI.autoAcceptInvites end
                         }
                     }
                 },
@@ -268,7 +284,7 @@ function ZT:OnInitialize()
                     }
                 },
                 others = {
-                    order = 40,
+                    order = 100,
                     type = "group",
                     name = "Other Addons",
                     inline = true,
@@ -296,17 +312,10 @@ function ZT:OnInitialize()
                         },
                         details = {
                             name = "Details Tweaks?",
-                            desc = "Removes the extra windows from Details and fixes tooltip anchor for ultra-wide.",
+                            desc = "Fixes the details tooltip anchor for ultra-wide.",
                             type = "toggle",
                             set = function(_, val) self.db.global.atrocityUI.details = val end,
                             get = function() return self.db.global.atrocityUI.details end
-                        },
-                        mrtRaidNotes = {
-                            name = "MRT Raid Notes?",
-                            desc = "I lead raids for my guild, and I wrote some notes for Amirdrassil.  This will replace any existing notes.  Do you want them?",
-                            type = "toggle",
-                            set = function(_, val) self.db.global.atrocityUI.mrtRaidNotes = val end,
-                            get = function() return self.db.global.atrocityUI.mrtRaidNotes end
                         }
                     }
                 },

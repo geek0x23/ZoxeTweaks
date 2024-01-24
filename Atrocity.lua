@@ -427,6 +427,23 @@ local function ApplyElvUITweaks(ztp)
     elvHealerColor["unitframe"]["units"]["raid3"]["roleIcon"]["enable"] = true
     elvHealerColor["unitframe"]["units"]["raid3"]["roleIcon"]["damager"] = false
 
+
+    -- Auto repairs
+    if not ztp.elvUI.guildRepairs then
+        elv["general"]["autoRepair"] = "PLAYER"
+        elvColor["general"]["autoRepair"] = "PLAYER"
+        elvHealer["general"]["autoRepair"] = "PLAYER"
+        elvHealerColor["general"]["autoRepair"] = "PLAYER"
+    end
+
+
+    -- Auto accept invites
+    elv["general"]["autoAcceptInvite"] = ztp.elvUI.autoAcceptInvites
+    elvColor["general"]["autoAcceptInvite"] = ztp.elvUI.autoAcceptInvites
+    elvHealer["general"]["autoAcceptInvite"] = ztp.elvUI.autoAcceptInvites
+    elvHealerColor["general"]["autoAcceptInvite"] = ztp.elvUI.autoAcceptInvites
+
+
     -- Movers
     if ztp.elvUI.minimap then
         elv["movers"]["BNETMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-3,-290"
@@ -917,7 +934,7 @@ local function ApplyDetailsTweaks(ztp)
                 local position = instance:CreatePositionTable()
 
                 -- for idempotency
-                if position.w ~= 248 then
+                if math.floor(position.w) ~= 248 then
                     position.w = 248
 
                     -- Main damage window
