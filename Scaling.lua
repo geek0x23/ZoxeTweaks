@@ -140,17 +140,23 @@ function ZT:ApplyScaling()
         if not listFrame then return end
 
         local listScale = globalScale * scale
+
         self:ScaleGuard(listFrame, listScale)
 
         -- frames anchored to mouse pointer need to be re-positioned because this manual scaling
         -- throws off Blizz's default calculations.
         if anchorName == "cursor" then
+            if MinimapRightClickMenu and listFrame.dropdown == MinimapRightClickMenu then
+                -- ElvUI tries to move its micro menu left, but our logic should supersede
+                xOffset = 0
+            end
+
             if not xOffset then xOffset = 0 end
             if not yOffset then yOffset = 0 end
 
+            local cursorX, cursorY = GetCursorPosition()
             local verticalAnchorPoint = "TOP"
             local horizontalAnchorPoint = "LEFT"
-            local cursorX, cursorY = GetCursorPosition()
             local dropDownHeight = listFrame:GetHeight() * listScale
             local dropDownWidth = listFrame:GetWidth() * listScale
 
@@ -174,18 +180,4 @@ function ZT:ApplyScaling()
 
     -- Addon Frames
     self:ScaleGuard(ElvLootFrame, scale)
-    if MinimapRightClickMenu then
-        self:ScaleGuard(MinimapRightClickMenu, scale)
-        self:SecureHookScript(MinimapRightClickMenu, "OnShow", function(frame)
-            local point, relativeTo, relativePoint, xOffset, yOffset = frame:GetPoint()
-            if not point then return end
-            if not relativePoint then return end
-            if not xOffset then xOffset = 0 end
-            if not yOffset then yOffset = 0 end
-            xOffset = xOffset / scale
-            yOffset = yOffset / scale
-            frame:ClearAllPoints()
-            frame:SetPoint(point, relativeTo, relativePoint, xOffset, yOffset)
-        end)
-    end
 end
