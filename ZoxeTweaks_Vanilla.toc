@@ -1,5 +1,5 @@
 ## Author: Zoxe
-## Interface: 11500
+## Interface: 11501
 ## Notes: An addon to fix 1440p scaling, and make AtrocityUI more visible with proper ultra-wide support.
 ## Title: ZoxeTweaks
 ## Version: @project-version@
