@@ -933,27 +933,25 @@ local function ApplyDetailsTweaks(ztp)
             if ztp.elvUI.panels then
                 local position = instance:CreatePositionTable()
 
-                -- for idempotency
-                if math.floor(position.w) ~= 248 then
-                    position.w = 248
+                position.w = 248
 
-                    -- Main damage window
-                    if id == 1 then
-                        position.x = position.x - 26
-                        position.h = position.h + 24
-                    end
-
-                    -- Healing window
-                    if id == 2 then
-                        position.y = position.y + 22
-                    end
-
-                    if id == 3 then
-                        position.h = position.h + 24
-                    end
-
-                    instance:RestorePositionFromPositionTable(position)
+                -- Main damage window
+                if id == 1 then
+                    position.x = -254
+                    position.h = 242
                 end
+
+                -- Healing window
+                if id == 2 then
+                    position.y = 118
+                end
+
+                -- Deeaths window
+                if id == 3 then
+                    position.h = 99
+                end
+
+                instance:RestorePositionFromPositionTable(position)
             end
         end
     end
