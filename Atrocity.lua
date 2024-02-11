@@ -770,15 +770,19 @@ local function ApplyWeakAurasTweaks(ztp)
 
     WeakAurasSaved["displays"]["Automark"]["yOffset"] = -50
 
-    if ztp.elvUI.panels then
-        -- Combat Info
+    if ztp.weakAuras then
         WeakAurasSaved["displays"]["Combat Ress"]["xOffset"] = -1274
-        WeakAurasSaved["displays"]["Combat Ress"]["yOffset"] = -434
         WeakAurasSaved["displays"]["Combat Ress"]["justify"] = "RIGHT"
 
         WeakAurasSaved["displays"]["Combat Time"]["xOffset"] = -1668
-        WeakAurasSaved["displays"]["Combat Time"]["yOffset"] = -434
         WeakAurasSaved["displays"]["Combat Time"]["justify"] = "LEFT"
+
+        WeakAurasSaved["displays"]["Missing Buffs"]["xOffset"] = -1716
+    end
+
+    if ztp.elvUI.panels then
+        WeakAurasSaved["displays"]["Combat Ress"]["yOffset"] = -434
+        WeakAurasSaved["displays"]["Combat Time"]["yOffset"] = -434
     end
 end
 
@@ -946,7 +950,7 @@ local function ApplyDetailsTweaks(ztp)
                     position.y = 118
                 end
 
-                -- Deeaths window
+                -- Deaths window
                 if id == 3 then
                     position.h = 99
                 end

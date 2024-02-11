@@ -40,6 +40,7 @@ function ZT:OnInitialize()
             bigWigs = true,
             omniCD = true,
             details = true,
+            weakAuras = true,
             plater = {
                 fonts = {
                     resize = true,
@@ -85,7 +86,7 @@ function ZT:OnInitialize()
                                 order = 10,
                                 type = "description",
                                 fontSize = "medium",
-                                name = "You need to click the 'Apply' button or reload your UI after changing this.\n"
+                                name = "You need to reload your UI after changing this.\n"
                             }
                         }
                     },
@@ -119,7 +120,8 @@ function ZT:OnInitialize()
                     },
                     apply = {
                         order = 1000,
-                        name = "Apply",
+                        name = "Reload UI",
+                        desc = "To apply scale factor changes, you need to reload your UI.",
                         type = "execute",
                         func = function () return ReloadUI() end
                     }
@@ -143,8 +145,8 @@ function ZT:OnInitialize()
                         description = {
                             type = "description",
                             fontSize = "medium",
-                            name = "These settings are only applied when you click the `Apply` button below.  You'll "..
-                                "need to re-apply these settings every time you update or install AtrocityUI."
+                            name = "These settings are only applied when you click the `Apply Tweaks` button below.  "..
+                                "You'll need to re-apply these settings every time you update or install AtrocityUI."
                         }
                     }
                 },
@@ -316,12 +318,20 @@ function ZT:OnInitialize()
                             type = "toggle",
                             set = function(_, val) self.db.global.atrocityUI.details = val end,
                             get = function() return self.db.global.atrocityUI.details end
+                        },
+                        weakAuras = {
+                            name = "WeakAuras Tweaks?",
+                            desc = "Moves missing buffs, combat time, and combat res indicators for ultra-wide.",
+                            type = "toggle",
+                            set = function(_, val) self.db.global.atrocityUI.weakAuras = val end,
+                            get = function() return self.db.global.atrocityUI.weakAuras end
                         }
                     }
                 },
                 apply = {
                     order = 1000,
-                    name = "Apply",
+                    name = "Apply Tweaks",
+                    desc = "Use this button to apply any the tweaks you have enabled.",
                     type = "execute",
                     func = function () return ZT:ApplyAtrocityTweaks() end
                 }
