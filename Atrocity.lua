@@ -461,10 +461,10 @@ local function ApplyElvUITweaks(ztp)
         elvHealer["movers"]["BuffsMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-269,-3"
         elvHealerColor["movers"]["BuffsMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-269,-3"
 
-        elv["movers"]["DebuffsMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-269,-211"
-        elvColor["movers"]["DebuffsMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-269,-211"
-        elvHealer["movers"]["DebuffsMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-269,-211"
-        elvHealerColor["movers"]["DebuffsMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-269,-211"
+        elv["movers"]["DebuffsMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-269,-228"
+        elvColor["movers"]["DebuffsMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-269,-228"
+        elvHealer["movers"]["DebuffsMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-269,-228"
+        elvHealerColor["movers"]["DebuffsMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-269,-228"
 
         elv["movers"]["QueueStatusMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-8,-210"
         elvColor["movers"]["QueueStatusMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-8,-210"
@@ -771,12 +771,6 @@ local function ApplyWeakAurasTweaks(ztp)
     WeakAurasSaved["displays"]["Automark"]["yOffset"] = -50
 
     if ztp.weakAuras then
-        WeakAurasSaved["displays"]["Combat Ress"]["xOffset"] = -1274
-        WeakAurasSaved["displays"]["Combat Ress"]["justify"] = "RIGHT"
-
-        WeakAurasSaved["displays"]["Combat Time"]["xOffset"] = -1668
-        WeakAurasSaved["displays"]["Combat Time"]["justify"] = "LEFT"
-
         WeakAurasSaved["displays"]["Missing Buffs"]["xOffset"] = -1716
     end
 
