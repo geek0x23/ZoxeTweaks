@@ -772,6 +772,8 @@ local function ApplyWeakAurasTweaks(ztp)
 
     if ztp.weakAuras then
         WeakAurasSaved["displays"]["Missing Buffs"]["xOffset"] = -1716
+        WeakAurasSaved["displays"]["Combat Ress"]["xOffset"] = -1658
+        WeakAurasSaved["displays"]["Combat Time"]["xOffset"] = -1265
     end
 
     if ztp.elvUI.panels then
