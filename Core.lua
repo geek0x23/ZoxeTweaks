@@ -46,7 +46,8 @@ function ZT:OnInitialize()
                     resize = true,
                     size = 8
                 },
-                friendly = false
+                friendly = false,
+                globalScale = 1
             },
             mrtRaidNotes = false
         }
@@ -260,6 +261,7 @@ function ZT:OnInitialize()
                     inline = true,
                     args = {
                         resizeFonts = {
+                            order = 1,
                             name = "Change font size?",
                             desc = "Should we change font size for Plater nameplates?",
                             type = "toggle",
@@ -267,6 +269,7 @@ function ZT:OnInitialize()
                             get = function() return self.db.global.atrocityUI.plater.fonts.resize end
                         },
                         size = {
+                            order = 10,
                             name = "Desired font size",
                             desc = "If 'Change font size' is enabled, what size should we use?",
                             type = "range",
@@ -277,11 +280,24 @@ function ZT:OnInitialize()
                             get = function() return self.db.global.atrocityUI.plater.fonts.size end
                         },
                         friendly = {
+                            order = 20,
                             name = "Friendly plates?",
                             desc = "Should we auto-enable friendly nameplates in dungeons and raids?",
                             type = "toggle",
                             set = function(_, val) self.db.global.atrocityUI.plater.friendly = val end,
                             get = function() return self.db.global.atrocityUI.plater.friendly end
+                        },
+                        globalScale = {
+                            order = 30,
+                            name = "Global Scale",
+                            desc = "Sometimes Atrocity makes Plater stuff to small.  Should we scale it up?",
+                            type = "range",
+                            min = 1.00,
+                            max = 2.00,
+                            step = 0.01,
+                            isPercent = true,
+                            set = function(_, val) self.db.global.atrocityUI.plater.globalScale = val end,
+                            get = function() return self.db.global.atrocityUI.plater.globalScale end
                         }
                     }
                 },

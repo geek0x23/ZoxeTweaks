@@ -1017,6 +1017,8 @@ local function ApplyPlaterTweaks(ztp)
         }
     end
 
+    Plater.db.profile.saved_cvars.nameplateGlobalScale = ztp.plater.globalScale
+
     Plater.RefreshDBUpvalues()
     Plater.UpdateAllPlates()
     Plater.RefreshAutoToggle()
