@@ -1,0 +1,13 @@
+## Author: Zoxe
+## Interface: 40400
+## Notes: An addon to fix 1440p scaling, and make AtrocityUI more visible with proper ultra-wide support.
+## Title: ZoxeTweaks
+## Version: v4.5.1
+## X-Curse-Project-ID: 937180
+## OptionalDeps: Auctionator, ElvUI
+## SavedVariables: ZoxeTweaksDB
+
+embeds.xml
+Core.lua
+Scaling.lua
+Others.lua
