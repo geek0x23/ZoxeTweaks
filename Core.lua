@@ -366,6 +366,13 @@ function ZT:OnInitialize()
     end)
 end
 
+function ZT:Debug(...)
+    local status, res = pcall(format, ...)
+    if status then
+        if DLAPI then DLAPI.DebugLog("ZoxeTweaks", res) end
+    end
+end
+
 function ZT:OnEnable()
     self:ApplyAuctionatorFix()
     self:ApplySpellPushTweaks()

@@ -8,7 +8,10 @@ local RunOnAddonLoaded = EventUtil.ContinueOnAddOnLoaded
 ---@param scale number the desired scale factor
 ---@param script? ScriptFrame the script to hook onto
 function ZT:ScaleGuard(frame, scale, script)
-    if not frame then return end
+    if not frame then
+        ZT:Debug("No frame found: " .. debugstack());
+        return
+    end
     if self:IsHooked(frame, "SetScale") then return end
 
     local guard
@@ -32,7 +35,7 @@ function ZT:ApplyScaling()
     local globalScale = UIParent:GetEffectiveScale()
     local scaledScreenWidth = GetScreenWidth() * globalScale
 
-    -- Blizzard frames that are always loaded
+    -- Retail frames (always loaded)
     self:ScaleGuard(AddonList, scale)
     self:ScaleGuard(ChannelFrame, scale)
     self:ScaleGuard(CharacterFrame, scale)
@@ -54,17 +57,10 @@ function ZT:ApplyScaling()
     self:ScaleGuard(MailFrame, scale)
     self:ScaleGuard(MerchantFrame, scale, "OnShow")
     self:ScaleGuard(MirrorTimerContainer, scale)
-    self:ScaleGuard(MirrorTimer1, scale)
-    self:ScaleGuard(MirrorTimer2, scale)
-    self:ScaleGuard(MirrorTimer3, scale)
     self:ScaleGuard(ObjectiveTrackerFrame, scale)
-    self:ScaleGuard(ObjectiveTrackerBlocksFrame, scale)
     self:ScaleGuard(OpenMailFrame, scale)
-    self:ScaleGuard(PetStableFrame, scale)
     self:ScaleGuard(PVEFrame, scale)
-    self:ScaleGuard(PVPParentFrame, scale)
     self:ScaleGuard(QuestFrame, scale)
-    self:ScaleGuard(QuestLogFrame, scale)
     self:ScaleGuard(QueueStatusFrame, scale)
     self:ScaleGuard(ReadyCheckFrame, scale)
     self:ScaleGuard(ReadyCheckListenerFrame, scale, "OnShow")
@@ -73,27 +69,18 @@ function ZT:ApplyScaling()
     self:ScaleGuard(RaidUtility_CloseButton, scale, "OnShow")
     self:ScaleGuard(ReportFrame, scale)
     self:ScaleGuard(SettingsPanel, scale, "OnShow")
-    self:ScaleGuard(SpellBookFrame, scale)
     self:ScaleGuard(StackSplitFrame, scale)
+    self:ScaleGuard(StableFrame, scale)
     self:ScaleGuard(SuperTrackedFrame, scale)
     self:ScaleGuard(TimeManagerFrame, scale)
     self:ScaleGuard(TradeFrame, scale)
     self:ScaleGuard(UIWidgetTopCenterContainerFrame, scale)
-    self:ScaleGuard(WatchFrame, scale)
 
-    -- Blizzard frames that are loaded on demand.
+    -- Retail frames (loaded on demand)
     RunOnAddonLoaded("Blizzard_AchievementUI", function() self:ScaleGuard(AchievementFrame, scale) end)
     RunOnAddonLoaded("Blizzard_BlackMarketUI", function() self:ScaleGuard(BlackMarketFrame, scale) end)
     RunOnAddonLoaded("Blizzard_AuctionHouseUI", function() self:ScaleGuard(AuctionHouseFrame, scale) end)
     RunOnAddonLoaded("Blizzard_Calendar", function() self:ScaleGuard(CalendarFrame, scale) end)
-    RunOnAddonLoaded("Blizzard_ClassTalentUI", function()
-        self:ScaleGuard(ClassTalentFrame, scale)
-        self:ScaleGuard(ClassTalentLoadoutImportDialog, scale)
-
-        local listScale = globalScale * scale
-        self:ScaleGuard(L_Numy_DropDownList1, listScale, "OnShow")
-        self:ScaleGuard(L_Numy_DropDownList2, listScale, "OnShow")
-    end)
     RunOnAddonLoaded("Blizzard_Collections", function()
         self:ScaleGuard(CollectionsJournal, scale)
         self:ScaleGuard(WardrobeFrame, scale)
@@ -121,17 +108,33 @@ function ZT:ApplyScaling()
     end)
     RunOnAddonLoaded("Blizzard_MacroUI", function() self:ScaleGuard(MacroFrame, scale) end)
     RunOnAddonLoaded("Blizzard_PlayerChoice", function() self:ScaleGuard(PlayerChoiceFrame, scale) end)
-    -- Professions and orders frames use ScaleGuard because Blizzard constantly resets their scale.
+    RunOnAddonLoaded("Blizzard_PlayerSpells", function()
+        self:ScaleGuard(ClassTalentLoadoutImportDialog, scale)
+        self:ScaleGuard(PlayerSpellsFrame, scale, "OnShow")
+    end)
     RunOnAddonLoaded("Blizzard_Professions", function() self:ScaleGuard(ProfessionsFrame, scale) end)
+    RunOnAddonLoaded("Blizzard_ProfessionsBook", function() self:ScaleGuard(ProfessionsBookFrame, scale) end)
     RunOnAddonLoaded("Blizzard_ProfessionsCustomerOrders", function()
         self:ScaleGuard(ProfessionsCustomerOrdersFrame, scale)
     end)
-    RunOnAddonLoaded("Blizzard_TalentUI", function() self:ScaleGuard(PlayerTalentFrame, scale) end)
     RunOnAddonLoaded("Blizzard_TrainerUI", function() self:ScaleGuard(ClassTrainerFrame, scale, "OnShow") end)
-    RunOnAddonLoaded("Blizzard_TradeSkillUI", function() self:ScaleGuard(TradeSkillFrame, scale) end)
     RunOnAddonLoaded("Blizzard_WeeklyRewards", function() self:ScaleGuard(WeeklyRewardsFrame, scale) end)
 
-    -- Blizzard Frames that require secure hooks
+
+    -- Classic frames (always loaded)
+    self:ScaleGuard(MirrorTimer1, scale)
+    self:ScaleGuard(MirrorTimer2, scale)
+    self:ScaleGuard(MirrorTimer3, scale)
+    self:ScaleGuard(PetStableFrame, scale)
+    self:ScaleGuard(PVPParentFrame, scale)
+    self:ScaleGuard(QuestLogFrame, scale)
+    self:ScaleGuard(WatchFrame, scale)
+
+    -- Classic frames (loaded on demand)
+    RunOnAddonLoaded("Blizzard_TalentUI", function() self:ScaleGuard(PlayerTalentFrame, scale) end)
+
+
+    -- Frames that require secure hooks
     self:SecureHook("AlertFrame_ShowNewAlert", function(frame) self:ScaleGuard(frame, scale) end)
     self:SecureHook("StaticPopup_OnShow", function(frame) self:ScaleGuard(frame, scale) end)
     self:SecureHook("ToggleDropDownMenu", function(level, _, _, anchorName, xOffset, yOffset)
