@@ -48,8 +48,7 @@ function ZT:OnInitialize()
                 },
                 friendly = false,
                 globalScale = 1
-            },
-            mrtRaidNotes = false
+            }
         }
     end
 
@@ -356,11 +355,11 @@ function ZT:OnInitialize()
     end
 
     AceConfig:RegisterOptionsTable("ZoxeTweaks", options)
-    local optionsFrame = AceConfigDialog:AddToBlizOptions("ZoxeTweaks", "ZoxeTweaks")
+    AceConfigDialog:AddToBlizOptions("ZoxeTweaks", "ZoxeTweaks")
 
     self:RegisterChatCommand("zt", function(input)
         if not input or input:trim() == "" then
-            InterfaceOptionsFrame_OpenToCategory(optionsFrame)
+            Settings.OpenToCategory("ZoxeTweaks")
         else
             AceConfigCmd.HandleCommand(ZT, "zt", "ZoxeTweaks", input)
         end
