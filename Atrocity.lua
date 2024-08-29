@@ -748,6 +748,8 @@ local function ApplySLETweaks(ztp)
 end
 
 local function ApplyWeakAurasTweaks(ztp)
+    if not WeakAurasSaved then return end
+
     if ztp.fonts.resize then
         -- Fix font size on various auras
         local auras = {
@@ -796,6 +798,7 @@ local function ApplyWeakAurasTweaks(ztp)
 end
 
 local function ApplyBigWigsTweaks(ztp)
+    if not BigWigs3DB then return end
     local profile = BigWigs3DB["namespaces"]["BigWigs_Plugins_Bars"]["profiles"][profiles.atrocityUI]
 
     if ztp.fonts.resize then
@@ -820,6 +823,7 @@ local function ApplyBigWigsTweaks(ztp)
 end
 
 local function ApplyMRTTweaks(ztp)
+    if not VMRT then return end
     if ztp.fonts.resize then
         VMRT.Note.FontSize = ztp.fonts.size
 
@@ -844,6 +848,8 @@ local function ApplyMRTTweaks(ztp)
 end
 
 local function ApplyOmniCDTweaks(ztp)
+    if not OmniCDDB then return end
+
     if ZT.db.global.scaleFactor then
         OmniCDDB.global.optionPanelScale = ZT.db.global.scaleFactor
     end
@@ -883,6 +889,8 @@ local function ApplyOmniCDTweaks(ztp)
 end
 
 local function ApplyDetailsTweaks(ztp)
+    if not Details then return end
+
     local dtp = Details:GetProfile(profiles.atrocityUI)
 
     if ZT.db.global.scaleFactor then
@@ -942,6 +950,8 @@ local function ApplyDetailsTweaks(ztp)
 end
 
 local function ApplyPlaterTweaks(ztp)
+    if not Plater then return end
+
     if ztp.plater.fonts.resize then
         Plater.db.profile.plate_config.enemynpc.actorname_text_size = ztp.plater.fonts.size
         Plater.db.profile.plate_config.enemynpc.big_actorname_text_size = ztp.plater.fonts.size
@@ -995,6 +1005,8 @@ local function ApplyPlaterTweaks(ztp)
 end
 
 local function ApplyWarpDepleteTweaks(ztp)
+    if not WarpDepleteDB then return end
+
     local profile = WarpDepleteDB["profiles"][profiles.atrocityUI]
 
     if ztp.fonts.resize then
