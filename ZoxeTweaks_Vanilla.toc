@@ -4,6 +4,7 @@
 ## Title: ZoxeTweaks
 ## Version: @project-version@
 ## X-Curse-Project-ID: 937180
+## X-Wago-ID: vNAe1QNo
 ## OptionalDeps: Auctionator, ElvUI
 ## SavedVariables: ZoxeTweaksDB
 
