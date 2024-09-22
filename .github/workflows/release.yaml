@@ -16,9 +16,7 @@ jobs:
 
         steps:
           - name: Clone project
-            uses: actions/checkout@v3
-            with:
-                fetch-depth: 0
+            uses: actions/checkout@v4
 
           - name: Package and release
             uses: BigWigsMods/packager@v2
