@@ -140,7 +140,7 @@ function ZT:ApplyScaling()
     self:SecureHook("ToggleDropDownMenu", function(level, _, _, anchorName, xOffset, yOffset)
         if not level then level = 1 end
 
-        local listFrame = _G["DropDownList"..level]
+        local listFrame = _G["DropDownList" .. level]
         if not listFrame then return end
 
         local listScale = globalScale * scale

@@ -98,7 +98,8 @@ function ZT:OnInitialize()
                         args = {
                             auctionator = {
                                 name = "Auctionator Tweaks",
-                                desc = "Should we hide WoW's default vendor pricing on the item tooltip (only when Auctionator is installed)?",
+                                desc = "Should we hide WoW's default vendor pricing on the item tooltip (only when " ..
+                                    "Auctionator is installed)?",
                                 type = "toggle",
                                 set = function(_, val)
                                     self.db.global.auctionator = val
@@ -108,7 +109,8 @@ function ZT:OnInitialize()
                             },
                             disableSpellPush = {
                                 name = "Disable Spell Push",
-                                desc = "Should we set a CVar to disable pushing spells onto bars automatically?  Note: Unchecking this does not restore the orignal value.",
+                                desc = "Should we set a CVar to disable pushing spells onto bars automatically?  " ..
+                                    "Note: Unchecking this does not restore the orignal value.",
                                 type = "toggle",
                                 set = function(_, val)
                                     self.db.global.disableSpellPush = val
@@ -123,7 +125,7 @@ function ZT:OnInitialize()
                         name = "Reload UI",
                         desc = "To apply scale factor changes, you need to reload your UI.",
                         type = "execute",
-                        func = function () return ReloadUI() end
+                        func = function() return ReloadUI() end
                     }
                 }
             }
@@ -145,8 +147,8 @@ function ZT:OnInitialize()
                         description = {
                             type = "description",
                             fontSize = "medium",
-                            name = "These settings are only applied when you click the `Apply Tweaks` button below.  "..
-                                "You'll need to re-apply these settings every time you update or install AtrocityUI."
+                            name = "These settings are only applied when you click the `Apply Tweaks` button below. " ..
+                                " You'll need to re-apply these settings every time you update or install AtrocityUI."
                         }
                     }
                 },
@@ -232,7 +234,8 @@ function ZT:OnInitialize()
                         },
                         unitFrames = {
                             name = "Unit frame positions?",
-                            desc = "On ultra-wide resolutions the unit frames are positioned incorrectly.  Should we fix them?",
+                            desc = "On ultra-wide resolutions the unit frames are positioned incorrectly.  " ..
+                                "Should we fix them?",
                             type = "toggle",
                             set = function(_, val) self.db.global.atrocityUI.elvUI.unitFrames = val end,
                             get = function() return self.db.global.atrocityUI.elvUI.unitFrames end
@@ -348,7 +351,7 @@ function ZT:OnInitialize()
                     name = "Apply Tweaks",
                     desc = "Use this button to apply any the tweaks you have enabled.",
                     type = "execute",
-                    func = function () return ZT:ApplyAtrocityTweaks() end
+                    func = function() return ZT:ApplyAtrocityTweaks() end
                 }
             }
         }
@@ -371,6 +374,17 @@ function ZT:Debug(...)
     if status then
         if DLAPI then DLAPI.DebugLog("ZoxeTweaks", res) end
     end
+end
+
+function ZT:Split(text, token)
+    if token == nil then
+        token = "%s"
+    end
+    local t = {}
+    for str in string.gmatch(text, "([^" .. token .. "]+)") do
+        table.insert(t, str)
+    end
+    return t
 end
 
 function ZT:OnEnable()
