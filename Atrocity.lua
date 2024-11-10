@@ -61,24 +61,28 @@ local function ApplyElvUITweaks(ztp)
         elv["general"]["fonts"]["questtext"] = normalFont
         elv["general"]["fonts"]["questtitle"] = normalFont
         elv["general"]["fonts"]["mailbody"] = normalFont
+        elv["general"]["fonts"]["errortext"] = normalFont
 
         elvColor["general"]["fonts"]["objective"] = smallFont
         elvColor["general"]["fonts"]["questsmall"] = normalFont
         elvColor["general"]["fonts"]["questtext"] = normalFont
         elvColor["general"]["fonts"]["questtitle"] = normalFont
         elvColor["general"]["fonts"]["mailbody"] = normalFont
+        elvColor["general"]["fonts"]["errortext"] = normalFont
 
         elvHealer["general"]["fonts"]["objective"] = smallFont
         elvHealer["general"]["fonts"]["questsmall"] = normalFont
         elvHealer["general"]["fonts"]["questtext"] = normalFont
         elvHealer["general"]["fonts"]["questtitle"] = normalFont
         elvHealer["general"]["fonts"]["mailbody"] = normalFont
+        elvHealer["general"]["fonts"]["errortext"] = normalFont
 
         elvHealerColor["general"]["fonts"]["objective"] = smallFont
         elvHealerColor["general"]["fonts"]["questsmall"] = normalFont
         elvHealerColor["general"]["fonts"]["questtext"] = normalFont
         elvHealerColor["general"]["fonts"]["questtitle"] = normalFont
         elvHealerColor["general"]["fonts"]["mailbody"] = normalFont
+        elvHealerColor["general"]["fonts"]["errortext"] = normalFont
     end
 
 
@@ -730,6 +734,257 @@ local function ApplySLETweaks(ztp)
     sleHealer["armory"] = armory
     sleHealerColor["armory"] = armory
 
+    local objectiveTracker = {
+        uiWidgets = {
+            headerText = {
+                text = {
+                    font = "Expressway",
+                    enable = true,
+                    fontSize = 14,
+                },
+            },
+            header = {
+                text = {
+                    fontSize = 16,
+                    enable = true,
+                    font = "Expressway",
+                },
+            },
+            entryText = {
+                text = {
+                    enable = true,
+                    font = "Expressway",
+                    fontSize = 14,
+                },
+            },
+        },
+        scenario = {
+            headerText = {
+                text = {
+                    font = "Expressway",
+                    enable = true,
+                    fontSize = 14,
+                },
+            },
+            header = {
+                text = {
+                    font = "Expressway",
+                    enable = true,
+                },
+            },
+            entryText = {
+                text = {
+                    enable = true,
+                    font = "Expressway",
+                    fontSize = 14,
+                },
+            },
+        },
+        adventure = {
+            headerText = {
+                text = {
+                    font = "Expressway",
+                    enable = true,
+                    fontSize = 14,
+                },
+            },
+            header = {
+                text = {
+                    fontSize = 16,
+                    enable = true,
+                    font = "Expressway",
+                },
+            },
+            entryText = {
+                text = {
+                    enable = true,
+                    font = "Expressway",
+                    fontSize = 14,
+                },
+            },
+        },
+        worldQuest = {
+            headerText = {
+                text = {
+                    font = "Expressway",
+                    enable = true,
+                    fontSize = 14,
+                },
+            },
+            header = {
+                text = {
+                    fontSize = 16,
+                    enable = true,
+                    font = "Expressway",
+                },
+            },
+            entryText = {
+                text = {
+                    enable = true,
+                    font = "Expressway",
+                    fontSize = 14,
+                },
+            },
+        },
+        achievement = {
+            headerText = {
+                text = {
+                    font = "Expressway",
+                    enable = true,
+                    fontSize = 14,
+                },
+            },
+            header = {
+                text = {
+                    fontSize = 16,
+                    enable = true,
+                    font = "Expressway",
+                },
+            },
+            entryText = {
+                text = {
+                    enable = true,
+                    font = "Expressway",
+                    fontSize = 14,
+                },
+            },
+        },
+        professionsReceipe = {
+            headerText = {
+                text = {
+                    font = "Expressway",
+                    enable = true,
+                    fontSize = 14,
+                },
+            },
+            header = {
+                text = {
+                    fontSize = 16,
+                    enable = true,
+                    font = "Expressway",
+                },
+            },
+            entryText = {
+                text = {
+                    enable = true,
+                    font = "Expressway",
+                    fontSize = 14,
+                },
+            },
+        },
+        campaign = {
+            headerText = {
+                text = {
+                    font = "Expressway",
+                    enable = true,
+                    fontSize = 14,
+                },
+            },
+            header = {
+                text = {
+                    fontSize = 16,
+                    enable = true,
+                    font = "Expressway",
+                },
+            },
+            entryText = {
+                text = {
+                    enable = true,
+                    font = "Expressway",
+                    fontSize = 14,
+                },
+            },
+        },
+        mainHeader = {
+            header = {
+                text = {
+                    fontSize = 18,
+                    enable = true,
+                    font = "Expressway",
+                },
+            },
+        },
+        monthlyActivities = {
+            headerText = {
+                text = {
+                    font = "Expressway",
+                    enable = true,
+                    fontSize = 14,
+                },
+            },
+            header = {
+                text = {
+                    fontSize = 16,
+                    enable = true,
+                    font = "Expressway",
+                },
+            },
+            entryText = {
+                text = {
+                    enable = true,
+                    fontSize = 14,
+                },
+            },
+        },
+        quest = {
+            headerText = {
+                text = {
+                    font = "Expressway",
+                    enable = true,
+                    fontSize = 14,
+                },
+            },
+            header = {
+                text = {
+                    fontSize = 16,
+                    enable = true,
+                    font = "Expressway",
+                },
+            },
+            entryText = {
+                text = {
+                    enable = true,
+                    font = "Expressway",
+                    fontSize = 14,
+                },
+            },
+            progressBar = {
+                text = {
+                    fontSize = 14,
+                    enable = true,
+                    font = "Expressway",
+                },
+            },
+        },
+        bonus = {
+            headerText = {
+                text = {
+                    font = "Expressway",
+                    enable = true,
+                    fontSize = 14,
+                },
+            },
+            header = {
+                text = {
+                    fontSize = 16,
+                    enable = true,
+                    font = "Expressway",
+                },
+            },
+            entryText = {
+                text = {
+                    enable = true,
+                    font = "Expressway",
+                    fontSize = 14,
+                },
+            },
+        },
+    }
+
+    sleBase["objectiveTracker"] = objectiveTracker
+    sleColor["objectiveTracker"] = objectiveTracker
+    sleHealer["objectiveTracker"] = objectiveTracker
+    sleHealerColor["objectiveTracker"] = objectiveTracker
 
     -- private profiles
     local privates = {
@@ -738,7 +993,7 @@ local function ApplySLETweaks(ztp)
                 enable = false,
             },
         },
-        install_complete = "4.73",
+        install_complete = "4.83",
     }
 
     ElvPrivateDB["profiles"][profiles.atrocityUI]["sle"] = privates
