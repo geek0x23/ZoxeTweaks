@@ -4,6 +4,7 @@ ignore:
   - .gitignore
   - .luarc.json
   - .github
+  - GetTOCData.ps1
   - LICENSE
   - README.md
 
