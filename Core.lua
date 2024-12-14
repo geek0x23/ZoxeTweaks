@@ -387,6 +387,20 @@ function ZT:Split(text, token)
     return t
 end
 
+function ZT:StartsWithIgnoreCase(val, starts)
+    local lowerVal = string.lower(val)
+    local lowerStarts = string.lower(starts)
+
+    return string.sub(lowerVal, 1, #lowerStarts) == lowerStarts
+end
+
+function ZT:ContainsIgnoreCase(val, search)
+    local lowerVal = string.lower(val)
+    local lowerSearch = string.lower(search)
+
+    return string.find(lowerVal, lowerSearch, 1, true) ~= nil
+end
+
 function ZT:OnEnable()
     self:ApplyAuctionatorFix()
     self:ApplySpellPushTweaks()
