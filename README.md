@@ -17,7 +17,7 @@ Once installed, use the `/zt` command in-game to bring up the configuration opti
 If you'd like to use my tweaks for AtrocityUI, follow these steps whenever Atrocity releases a new version of his UI:
 
 - Install the [AtrocityUI pack](https://uipacks.wago.io/user/59dabe91b7ebeeaf72eec80a) of your choice.  You will need the [Wago App](https://addons.wago.io/app) for this.
-- Run the AtrocityUI installer: `/aui install` (highly recommended).
+- Run the Wago installer: `/wago` (highly recommended).
 - Run ZoxeTweaks (`/zt`).  Choose which AtrocityUI Tweaks you'd like and click `Apply`.
 
 ## Getting Help
