@@ -1,6 +1,5 @@
 ---@class ZoxeTweaks
 local ZT = LibStub("AceAddon-3.0"):GetAddon("ZoxeTweaks")
-local E = select(1, unpack(ElvUI))
 
 local profiles = {
     elv = {
@@ -21,62 +20,72 @@ local profiles = {
 
 local function LoadProfiles()
     -- ElvUI Base
-    local elvProfiles = ElvDB["profiles"]
-    for p, _ in pairs(elvProfiles) do
-        local isAUI = ZT:StartsWithIgnoreCase(p, "atrocityui")
-        if isAUI then
-            local isHealer = ZT:ContainsIgnoreCase(p, "healer")
-            if isHealer then
-                table.insert(profiles.elv.healer, elvProfiles[p])
-            else
-                table.insert(profiles.elv.dps, elvProfiles[p])
+    if ElvDB then
+        local elvProfiles = ElvDB["profiles"]
+        for p, _ in pairs(elvProfiles) do
+            local isAUI = ZT:StartsWithIgnoreCase(p, "atrocityui")
+            if isAUI then
+                local isHealer = ZT:ContainsIgnoreCase(p, "healer")
+                if isHealer then
+                    table.insert(profiles.elv.healer, elvProfiles[p])
+                else
+                    table.insert(profiles.elv.dps, elvProfiles[p])
+                end
             end
         end
     end
 
     -- ElvUI Private
-    local elvPrivateProfiles = ElvPrivateDB["profiles"]
-    for p, _ in pairs(elvPrivateProfiles) do
-        local isAUI = ZT:StartsWithIgnoreCase(p, "atrocityui")
-        if isAUI then
-            local isHealer = ZT:ContainsIgnoreCase(p, "healer")
-            if isHealer then
-                table.insert(profiles.elvPrivate.healer, elvPrivateProfiles[p])
-            else
-                table.insert(profiles.elvPrivate.dps, elvPrivateProfiles[p])
+    if ElvPrivateDB then
+        local elvPrivateProfiles = ElvPrivateDB["profiles"]
+        for p, _ in pairs(elvPrivateProfiles) do
+            local isAUI = ZT:StartsWithIgnoreCase(p, "atrocityui")
+            if isAUI then
+                local isHealer = ZT:ContainsIgnoreCase(p, "healer")
+                if isHealer then
+                    table.insert(profiles.elvPrivate.healer, elvPrivateProfiles[p])
+                else
+                    table.insert(profiles.elvPrivate.dps, elvPrivateProfiles[p])
+                end
             end
         end
     end
 
     -- BigWigs
-    local bigWigsProfiles = BigWigs3DB["namespaces"]["BigWigs_Plugins_Bars"]["profiles"]
-    for p, _ in pairs(bigWigsProfiles) do
-        local isAUI = ZT:StartsWithIgnoreCase(p, "atrocityui")
-        if isAUI then
-            table.insert(profiles.bigWigs, bigWigsProfiles[p])
+    if BigWigs3DB then
+        local bigWigsProfiles = BigWigs3DB["namespaces"]["BigWigs_Plugins_Bars"]["profiles"]
+        for p, _ in pairs(bigWigsProfiles) do
+            local isAUI = ZT:StartsWithIgnoreCase(p, "atrocityui")
+            if isAUI then
+                table.insert(profiles.bigWigs, bigWigsProfiles[p])
+            end
         end
     end
 
     -- OmniCD
-    local omniCDProfiles = OmniCDDB["profiles"]
-    for p, _ in pairs(omniCDProfiles) do
-        local isAUI = ZT:StartsWithIgnoreCase(p, "atrocityui")
-        if isAUI then
-            local isHealer = ZT:ContainsIgnoreCase(p, "healer")
-            if isHealer then
-                table.insert(profiles.omniCD.healer, omniCDProfiles[p])
-            else
-                table.insert(profiles.omniCD.dps, omniCDProfiles[p])
+    if OmniCDDB then
+        local omniCDProfiles = OmniCDDB["profiles"]
+        for p, _ in pairs(omniCDProfiles) do
+            local isAUI = ZT:StartsWithIgnoreCase(p, "atrocityui")
+            if isAUI then
+                local isHealer = ZT:ContainsIgnoreCase(p, "healer")
+                if isHealer then
+                    table.insert(profiles.omniCD.healer, omniCDProfiles[p])
+                else
+                    table.insert(profiles.omniCD.dps, omniCDProfiles[p])
+                end
             end
         end
     end
 
     -- WarpDeplete
-    local warpDepleteProfiles = WarpDepleteDB["profiles"]
-    for p, _ in pairs(warpDepleteProfiles) do
-        local isAUI = ZT:StartsWithIgnoreCase(p, "atrocityui")
-        if isAUI then
-            table.insert(profiles.bigWigs, warpDepleteProfiles[p])
+    if WarpDepleteDB then
+        local warpDepleteProfiles = WarpDepleteDB["profiles"]
+        for p, _ in pairs(warpDepleteProfiles) do
+            local isAUI = ZT:StartsWithIgnoreCase(p, "atrocityui")
+            if isAUI then
+                table.insert(profiles.bigWigs, warpDepleteProfiles[p])
+            end
         end
     end
 end
@@ -106,6 +115,9 @@ local function SetValue(dest, path, value)
 end
 
 local function ApplyElvUITweaks(ztp)
+    if not ElvUI then return end
+
+    local E = select(1, unpack(ElvUI))
     local descaledFontSize = math.floor(ztp.fonts.size - (ztp.fonts.size * (ZT.db.global.scaleFactor - 1)))
     local diminishedFontSize = math.ceil((ztp.fonts.size - descaledFontSize) / 2) + ztp.fonts.size
 
