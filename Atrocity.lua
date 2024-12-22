@@ -953,23 +953,6 @@ end
 
 local function ApplyMRTTweaks(ztp)
     if not VMRT then return end
-    if ztp.fonts.resize then
-        VMRT.Note.FontSize = ztp.fonts.size
-
-        -- Generic Column in Raid Cooldowns
-        local genericSettings = VMRT.ExCD2.colSet[11]
-        genericSettings.fontLeftSize = ztp.fonts.size
-        genericSettings.fontLeftShadow = true
-        genericSettings.fontLeftOutline = true
-        genericSettings.iconMasque = false
-    end
-
-    if ztp.elvUI.panels then
-        -- Raid CD's
-        local raidCDs = VMRT.ExCD2.colSet[1]
-        raidCDs.posX = 507.7777099609375
-        raidCDs.posY = 523.1322631835938
-    end
 
     if ZT.db.global.scaleFactor then
         VMRT.Addon.Scale = ZT.db.global.scaleFactor
@@ -1006,6 +989,12 @@ local function ApplyOmniCDTweaks(ztp)
 
         SetValue(profiles.omniCD.healer, "Party.party.extraBars.raidBar1.manualPos.raidBar1.x", 1065.866798448551)
         SetValue(profiles.omniCD.healer, "Party.arena.extraBars.raidBar1.manualPos.raidBar1.x", 1065.866798448551)
+    end
+
+    if ztp.elvUI.panels then
+        -- move externals if we made panels bigger
+        SetValue(profiles.omniCD.dps, "Party.raid.extraBars.raidBar2.manualPos.raidBar2.x", 270.1335264583522)
+        SetValue(profiles.omniCD.dps, "Party.raid.extraBars.raidBar2.manualPos.raidBar2.y", 174.1336679359447)
     end
 end
 
