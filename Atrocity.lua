@@ -268,11 +268,11 @@ local function ApplyElvUITweaks(ztp)
         SetValue(profiles.elv.dps, "actionbar.bar3.buttons", 12)
         SetValue(profiles.elv.healer, "actionbar.bar3.buttons", 12)
 
-        SetValue(profiles.elv.dps, "actionbar.bar3.buttonSize", 45)
-        SetValue(profiles.elv.healer, "actionbar.bar3.buttonSize", 45)
+        SetValue(profiles.elv.dps, "actionbar.bar3.buttonSize", 43)
+        SetValue(profiles.elv.healer, "actionbar.bar3.buttonSize", 43)
 
-        SetValue(profiles.elv.dps, "actionbar.barPet.buttonSize", 45)
-        SetValue(profiles.elv.healer, "actionbar.barPet.buttonSize", 45)
+        SetValue(profiles.elv.dps, "actionbar.barPet.buttonSize", 43)
+        SetValue(profiles.elv.healer, "actionbar.barPet.buttonSize", 43)
     end
 
 
@@ -1131,6 +1131,10 @@ end
 
 local function ApplyWarpDepleteTweaks(ztp)
     if not WarpDepleteDB then return end
+
+    if ZT.db.global.scaleFactor then
+        SetValue(profiles.warpDeplete, "frameScale", ZT.db.global.scaleFactor)
+    end
 
     if ztp.fonts.resize then
         SetValue(profiles.warpDeplete, "objectivesFontSize", ztp.fonts.size)
