@@ -102,6 +102,8 @@ local function SetValue(dest, path, value)
         local current = dest[j]
         for i = 1, #keys - 1 do
             local key = keys[i]
+            key = tonumber(key) or key
+
             -- If the key doesn't exist or isn't a table, create a new table
             if type(current[key]) ~= "table" then
                 current[key] = {}
@@ -995,6 +997,9 @@ local function ApplyOmniCDTweaks(ztp)
         -- move externals if we made panels bigger
         SetValue(profiles.omniCD.dps, "Party.raid.extraBars.raidBar2.manualPos.raidBar2.x", 270.1335264583522)
         SetValue(profiles.omniCD.dps, "Party.raid.extraBars.raidBar2.manualPos.raidBar2.y", 174.1336679359447)
+
+        SetValue(profiles.omniCD.healer, "Party.raid.extraBars.raidBar2.manualPos.raidBar2.x", 270.1335264583522)
+        SetValue(profiles.omniCD.healer, "Party.raid.manualPos.5.x", 270.1335264583522)
     end
 end
 
