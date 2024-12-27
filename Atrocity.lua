@@ -84,7 +84,7 @@ local function LoadProfiles()
         for p, _ in pairs(warpDepleteProfiles) do
             local isAUI = ZT:StartsWithIgnoreCase(p, "atrocityui")
             if isAUI then
-                table.insert(profiles.bigWigs, warpDepleteProfiles[p])
+                table.insert(profiles.warpDeplete, warpDepleteProfiles[p])
             end
         end
     end
