@@ -22,29 +22,28 @@ function ZT:OnInitialize()
     if not classic then
         defaults.global.atrocityUI = {
             fonts = {
-                resize = true,
+                resize = false,
                 size = 16,
             },
             elvUI = {
-                databars = true,
+                databars = false,
                 disableBags = false,
-                actionBars = false,
-                panels = true,
+                panels = false,
                 minimapDataTexts = false,
-                minimap = true,
+                minimap = false,
                 tooltip = false,
-                unitFrames = true,
-                guildRepairs = true,
-                acceptInvitesFromGuildmates = true
+                unitFrames = false,
+                guildRepairs = false,
+                acceptInvitesFromGuildmates = false
             },
             sle = false,
-            bigWigs = true,
-            omniCD = true,
-            details = true,
-            weakAuras = true,
+            bigWigs = false,
+            omniCD = false,
+            details = false,
+            weakAuras = false,
             plater = {
                 fonts = {
-                    resize = true,
+                    resize = false,
                     size = 8
                 },
                 friendly = false,
