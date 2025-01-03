@@ -9,6 +9,7 @@ _G["ZoxeTweaks"] = ZT
 function ZT:OnInitialize()
     local defaults = {
         global = {
+            scaleEnabled = false,
             scaleFactor = 1.20,
             auctionator = false,
             disableSpellPush = false
@@ -70,8 +71,17 @@ function ZT:OnInitialize()
                         name = "Scaling",
                         inline = true,
                         args = {
+                            scaleEnabled = {
+                                order = 10,
+                                name = "Enable Scaling Fixes",
+                                desc = "Attempts to scale frames to the desired factor directly, without modifying " ..
+                                    "global scale settings.",
+                                type = "toggle",
+                                set = function(_, val) self.db.global.scaleEnabled = val end,
+                                get = function() return self.db.global.scaleEnabled end
+                            },
                             scaleFactor = {
-                                order = 1,
+                                order = 20,
                                 name = "Scale Factor",
                                 desc = "A percentage multiplier used to determine how much to scale.",
                                 type = "range",
@@ -83,7 +93,7 @@ function ZT:OnInitialize()
                                 get = function() return self.db.global.scaleFactor end
                             },
                             reminder = {
-                                order = 10,
+                                order = 30,
                                 type = "description",
                                 fontSize = "medium",
                                 name = "You need to reload your UI after changing this.\n"
@@ -152,8 +162,52 @@ function ZT:OnInitialize()
                         }
                     }
                 },
-                fonts = {
+                ultrawide = {
                     order = 10,
+                    type = "group",
+                    name = "Ultra-wide Tweaks",
+                    inline = true,
+                    args = {
+                        unitFrames = {
+                            name = "Unit frame positions?",
+                            desc = "On ultra-wide resolutions the unit frames are positioned incorrectly.  " ..
+                                "Should we fix them?",
+                            type = "toggle",
+                            set = function(_, val) self.db.global.atrocityUI.elvUI.unitFrames = val end,
+                            get = function() return self.db.global.atrocityUI.elvUI.unitFrames end
+                        },
+                        bigWigs = {
+                            name = "BigWigs Bars?",
+                            desc = "Re-position BigWigs bars for ultra-wide, and set max bars shown to 5.",
+                            type = "toggle",
+                            set = function(_, val) self.db.global.atrocityUI.bigWigs = val end,
+                            get = function() return self.db.global.atrocityUI.bigWigs end
+                        },
+                        omniCD = {
+                            name = "OmniCD Bars?",
+                            desc = "Re-position OmniCD bars for ultra-wide.",
+                            type = "toggle",
+                            set = function(_, val) self.db.global.atrocityUI.omniCD = val end,
+                            get = function() return self.db.global.atrocityUI.omniCD end
+                        },
+                        details = {
+                            name = "Details Tweaks?",
+                            desc = "Fixes the details tooltip anchor for ultra-wide.",
+                            type = "toggle",
+                            set = function(_, val) self.db.global.atrocityUI.details = val end,
+                            get = function() return self.db.global.atrocityUI.details end
+                        },
+                        weakAuras = {
+                            name = "WeakAuras Tweaks?",
+                            desc = "Moves missing buffs, combat time, and combat res indicators for ultra-wide.",
+                            type = "toggle",
+                            set = function(_, val) self.db.global.atrocityUI.weakAuras = val end,
+                            get = function() return self.db.global.atrocityUI.weakAuras end
+                        },
+                    },
+                },
+                fonts = {
+                    order = 20,
                     type = "group",
                     name = "Font Tweaks",
                     inline = true,
@@ -178,7 +232,7 @@ function ZT:OnInitialize()
                     }
                 },
                 elvUI = {
-                    order = 20,
+                    order = 30,
                     type = "group",
                     name = "ElvUI Tweaks",
                     inline = true,
@@ -196,13 +250,6 @@ function ZT:OnInitialize()
                             type = "toggle",
                             set = function(_, val) self.db.global.atrocityUI.elvUI.disableBags = val end,
                             get = function() return self.db.global.atrocityUI.elvUI.disableBags end
-                        },
-                        actionBars = {
-                            name = "Swap action bars?",
-                            desc = "Should we re-organize bars 4, 5, and 6?  You probably don't want this.",
-                            type = "toggle",
-                            set = function(_, val) self.db.global.atrocityUI.elvUI.actionBars = val end,
-                            get = function() return self.db.global.atrocityUI.elvUI.actionBars end
                         },
                         panels = {
                             name = "Bigger chat panels?",
@@ -232,14 +279,6 @@ function ZT:OnInitialize()
                             set = function(_, val) self.db.global.atrocityUI.elvUI.tooltip = val end,
                             get = function() return self.db.global.atrocityUI.elvUI.tooltip end
                         },
-                        unitFrames = {
-                            name = "Unit frame positions?",
-                            desc = "On ultra-wide resolutions the unit frames are positioned incorrectly.  " ..
-                                "Should we fix them?",
-                            type = "toggle",
-                            set = function(_, val) self.db.global.atrocityUI.elvUI.unitFrames = val end,
-                            get = function() return self.db.global.atrocityUI.elvUI.unitFrames end
-                        },
                         guildRepairs = {
                             name = "Use guild repairs?",
                             desc = "Should we auto-repair with guild funds?",
@@ -253,11 +292,18 @@ function ZT:OnInitialize()
                             type = "toggle",
                             set = function(_, val) self.db.global.atrocityUI.elvUI.autoAcceptInvites = val end,
                             get = function() return self.db.global.atrocityUI.elvUI.autoAcceptInvites end
-                        }
+                        },
+                        sle = {
+                            name = "Shadow & Light?",
+                            desc = "Enables a bunch of font and armory tweaks for Shadow & Light.",
+                            type = "toggle",
+                            set = function(_, val) self.db.global.atrocityUI.sle = val end,
+                            get = function() return self.db.global.atrocityUI.sle end
+                        },
                     }
                 },
                 plater = {
-                    order = 30,
+                    order = 40,
                     type = "group",
                     name = "Plater Tweaks",
                     inline = true,
@@ -292,7 +338,7 @@ function ZT:OnInitialize()
                         globalScale = {
                             order = 30,
                             name = "Global Scale",
-                            desc = "Sometimes Atrocity makes Plater stuff to small.  Should we scale it up?",
+                            desc = "Should we apply a custom scale to Plater frames?",
                             type = "range",
                             min = 1.00,
                             max = 2.00,
@@ -300,49 +346,6 @@ function ZT:OnInitialize()
                             isPercent = true,
                             set = function(_, val) self.db.global.atrocityUI.plater.globalScale = val end,
                             get = function() return self.db.global.atrocityUI.plater.globalScale end
-                        }
-                    }
-                },
-                others = {
-                    order = 100,
-                    type = "group",
-                    name = "Other Addons",
-                    inline = true,
-                    args = {
-                        sle = {
-                            name = "Shadow & Light?",
-                            desc = "Enables a bunch of font and armory tweaks for Shadow & Light.",
-                            type = "toggle",
-                            set = function(_, val) self.db.global.atrocityUI.sle = val end,
-                            get = function() return self.db.global.atrocityUI.sle end
-                        },
-                        bigWigs = {
-                            name = "BigWigs Bars?",
-                            desc = "Re-position BigWigs bars for ultra-wide, and set max bars shown to 5.",
-                            type = "toggle",
-                            set = function(_, val) self.db.global.atrocityUI.bigWigs = val end,
-                            get = function() return self.db.global.atrocityUI.bigWigs end
-                        },
-                        omniCD = {
-                            name = "OmniCD Bars?",
-                            desc = "Re-position OmniCD bars for ultra-wide.",
-                            type = "toggle",
-                            set = function(_, val) self.db.global.atrocityUI.omniCD = val end,
-                            get = function() return self.db.global.atrocityUI.omniCD end
-                        },
-                        details = {
-                            name = "Details Tweaks?",
-                            desc = "Fixes the details tooltip anchor for ultra-wide.",
-                            type = "toggle",
-                            set = function(_, val) self.db.global.atrocityUI.details = val end,
-                            get = function() return self.db.global.atrocityUI.details end
-                        },
-                        weakAuras = {
-                            name = "WeakAuras Tweaks?",
-                            desc = "Moves missing buffs, combat time, and combat res indicators for ultra-wide.",
-                            type = "toggle",
-                            set = function(_, val) self.db.global.atrocityUI.weakAuras = val end,
-                            get = function() return self.db.global.atrocityUI.weakAuras end
                         }
                     }
                 },

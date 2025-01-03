@@ -31,6 +31,8 @@ end
 
 ---Apply scaling to all frames.
 function ZT:ApplyScaling()
+    if not self.db.global.scaleEnabled then return end
+
     local scale = self.db.global.scaleFactor
     local globalScale = UIParent:GetEffectiveScale()
     local scaledScreenWidth = GetScreenWidth() * globalScale

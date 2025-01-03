@@ -211,30 +211,6 @@ local function ApplyElvUITweaks(ztp)
     SetValue(profiles.elv.healer, "general.queueStatus.scale", 0.4)
 
 
-    if ztp.elvUI.actionBars then
-        -- Action Bars
-        SetValue(profiles.elv.dps, "actionbar.bar5.buttonSize", 28)
-        SetValue(profiles.elv.healer, "actionbar.bar5.buttonSize", 26)
-
-        SetValue(profiles.elv.dps, "actionbar.bar6.buttonSize", 30)
-        SetValue(profiles.elv.healer, "actionbar.bar6.buttonSize", 28)
-
-        SetValue(profiles.elv.dps, "actionbar.bar4.point", "BOTTOMLEFT")
-        SetValue(profiles.elv.healer, "actionbar.bar4.point", "BOTTOMLEFT")
-
-        SetValue(profiles.elv.dps, "actionbar.bar5.buttonsPerRow", 6)
-        SetValue(profiles.elv.healer, "actionbar.bar5.buttonsPerRow", 6)
-
-        SetValue(profiles.elv.dps, "actionbar.bar5.backdrop", true)
-        SetValue(profiles.elv.healer, "actionbar.bar5.backdrop", true)
-
-        SetValue(profiles.elv.dps, "actionbar.bar6.buttonsPerRow", 12)
-        SetValue(profiles.elv.healer, "actionbar.bar6.buttonsPerRow", 12)
-
-        SetValue(profiles.elv.dps, "actionbar.bar6.backdrop", false)
-        SetValue(profiles.elv.healer, "actionbar.bar6.backdrop", false)
-    end
-
     if ztp.fonts.resize then
         -- Auras
         SetValue(profiles.elv.dps, "auras.debuffs.timeFontSize", ztp.fonts.size)
@@ -256,6 +232,7 @@ local function ApplyElvUITweaks(ztp)
         SetValue(profiles.elv.dps, "chat.tabFontSize", ztp.fonts.size)
         SetValue(profiles.elv.healer, "chat.tabFontSize", ztp.fonts.size)
     end
+
 
     if ztp.elvUI.panels then
         -- Chat continued
