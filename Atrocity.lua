@@ -913,6 +913,9 @@ end
 local function ApplyMRTTweaks(ztp)
     if not VMRT then return end
 
+    -- disable the auto-accept invites option since we already use that in the ElvUI section.
+    VMRT.InviteTool.AutoInvAccept = false
+
     if ZT.db.global.scaleFactor then
         VMRT.Addon.Scale = ZT.db.global.scaleFactor
     end
