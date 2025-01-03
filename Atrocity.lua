@@ -15,7 +15,8 @@ local profiles = {
         healer = {},
     },
     bigWigs = {},
-    warpDeplete = {}
+    warpDeplete = {},
+    plater = {}
 }
 
 local function LoadProfiles()
@@ -85,6 +86,17 @@ local function LoadProfiles()
             local isAUI = ZT:StartsWithIgnoreCase(p, "atrocityui")
             if isAUI then
                 table.insert(profiles.warpDeplete, warpDepleteProfiles[p])
+            end
+        end
+    end
+
+    -- Plater
+    if Plater then
+        local platerProfiles = Plater.db["profiles"]
+        for p, _ in pairs(platerProfiles) do
+            local isAUI = ZT:StartsWithIgnoreCase(p, "atrocityui")
+            if isAUI then
+                table.insert(profiles.plater, platerProfiles[p])
             end
         end
     end
@@ -834,7 +846,7 @@ local function ApplySLETweaks(ztp)
                 enable = false,
             },
         },
-        install_complete = "4.83",
+        install_complete = "4.85",
     }
 
     SetValue(profiles.elvPrivate.dps, "sle", privates)
@@ -966,10 +978,15 @@ end
 local function ApplyDetailsTweaks(ztp)
     if not Details then return end
 
+    -- We don't do the normal SetValue stuff for Details, because if you modify *some* profile values (like tooltip)
+    -- without using the global "Details" table, the settings are not persisted.
     for _, profile in ipairs(Details:GetProfileList()) do
         local isAUI = ZT:StartsWithIgnoreCase(profile, "atrocityui")
         if isAUI then
             local dtp = Details:GetProfile(profile)
+
+            -- Apply the profile first, so that references to Details below will resolve the correct profile.
+            Details:ApplyProfile(profile)
 
             if ZT.db.global.scaleFactor then
                 dtp.options_window = { scale = ZT.db.global.scaleFactor }
@@ -985,42 +1002,43 @@ local function ApplyDetailsTweaks(ztp)
                 if ztp.fonts.resize then
                     instance:SetBarTextSettings(ztp.fonts.size)
                     instance:AttributeMenu(nil, nil, nil, nil, ztp.fonts.size)
+                end
 
-                    if ztp.elvUI.panels then
-                        local position = instance:CreatePositionTable()
+                if ztp.elvUI.panels then
+                    local position = instance:CreatePositionTable()
 
-                        position.w = 248
+                    position.w = 248
 
-                        -- Main damage window
-                        if id == 1 then
-                            position.x = -254
-                            position.h = 242
-                        end
-
-                        -- Healing window
-                        if id == 2 then
-                            position.y = 125
-                        end
-
-                        -- Deaths window
-                        if id == 3 then
-                            position.h = 99
-                        end
-
-                        instance:RestorePositionFromPositionTable(position)
+                    -- Main damage window
+                    if id == 1 then
+                        position.x = -254
+                        position.h = 242
                     end
+
+                    -- Healing window
+                    if id == 2 then
+                        position.y = 125
+                    end
+
+                    -- Deaths window
+                    if id == 3 then
+                        position.h = 99
+                    end
+
+                    instance:RestorePositionFromPositionTable(position)
                 end
             end
 
+            -- Re-position tooltip for ultra-wide
             if ztp.details then
-                if ztp.elvUI.panels then
-                    Details.tooltip.anchor_screen_pos = { 1144, -710 }
-                end
-
                 Details.tooltip.anchored_to = 2
                 Details.tooltip.anchor_point = "bottomright"
                 Details.tooltip.anchor_relative = "bottomright"
                 Details.tooltip.anchor_offset = { 0, -6 }
+
+                if ztp.elvUI.panels then
+                    Details.tooltip.anchor_screen_pos = { 1144, -710 }
+                end
             end
 
             Details:SaveProfile(profile)
@@ -1032,51 +1050,51 @@ local function ApplyPlaterTweaks(ztp)
     if not Plater then return end
 
     if ztp.plater.fonts.resize then
-        Plater.db.profile.plate_config.enemynpc.actorname_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.enemynpc.big_actorname_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.enemynpc.big_actortitle_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.enemynpc.level_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.enemynpc.percent_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.enemynpc.spellname_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.enemynpc.spellpercent_text_size = ztp.plater.fonts.size
+        SetValue(profiles.plater, "plate_config.enemynpc.actorname_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.enemynpc.big_actorname_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.enemynpc.big_actortitle_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.enemynpc.level_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.enemynpc.percent_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.enemynpc.spellname_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.enemynpc.spellpercent_text_size", ztp.plater.fonts.size)
 
-        Plater.db.profile.plate_config.enemyplayer.actorname_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.enemyplayer.big_actorname_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.enemyplayer.big_actortitle_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.enemyplayer.level_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.enemyplayer.percent_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.enemyplayer.spellname_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.enemyplayer.spellpercent_text_size = ztp.plater.fonts.size
+        SetValue(profiles.plater, "plate_config.enemyplayer.actorname_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.enemyplayer.big_actorname_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.enemyplayer.big_actortitle_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.enemyplayer.level_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.enemyplayer.percent_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.enemyplayer.spellname_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.enemyplayer.spellpercent_text_size", ztp.plater.fonts.size)
 
-        Plater.db.profile.plate_config.friendlynpc.actorname_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.friendlynpc.big_actorname_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.friendlynpc.big_actortitle_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.friendlynpc.level_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.friendlynpc.percent_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.friendlynpc.spellname_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.friendlynpc.spellpercent_text_size = ztp.plater.fonts.size
+        SetValue(profiles.plater, "plate_config.friendlynpc.actorname_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.friendlynpc.big_actorname_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.friendlynpc.big_actortitle_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.friendlynpc.level_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.friendlynpc.percent_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.friendlynpc.spellname_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.friendlynpc.spellpercent_text_size", ztp.plater.fonts.size)
 
-        Plater.db.profile.plate_config.friendlyplayer.actorname_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.friendlyplayer.big_actorname_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.friendlyplayer.big_actortitle_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.friendlyplayer.level_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.friendlyplayer.percent_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.friendlyplayer.spellname_text_size = ztp.plater.fonts.size
-        Plater.db.profile.plate_config.friendlyplayer.spellpercent_text_size = ztp.plater.fonts.size
+        SetValue(profiles.plater, "plate_config.friendlyplayer.actorname_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.friendlyplayer.big_actorname_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.friendlyplayer.big_actortitle_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.friendlyplayer.level_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.friendlyplayer.percent_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.friendlyplayer.spellname_text_size", ztp.plater.fonts.size)
+        SetValue(profiles.plater, "plate_config.friendlyplayer.spellpercent_text_size", ztp.plater.fonts.size)
     end
 
     if ztp.plater.friendly then
-        Plater.db.profile.auto_toggle_friendly_enabled = true
-        Plater.db.profile.auto_toggle_friendly = {
+        SetValue(profiles.plater, "auto_toggle_friendly_enabled", true)
+        SetValue(profiles.plater, "auto_toggle_friendly", {
             party = true,
             arena = false,
             raid = true,
             cities = false,
             world = false
-        }
+        })
     end
 
-    Plater.db.profile.saved_cvars.nameplateGlobalScale = ztp.plater.globalScale
+    SetValue(profiles.plater, "saved_cvars.nameplateGlobalScale", ztp.plater.globalScale)
 
     Plater.RefreshDBUpvalues()
     Plater.UpdateAllPlates()
