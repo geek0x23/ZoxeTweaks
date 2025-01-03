@@ -424,26 +424,6 @@ local function ApplyElvUITweaks(ztp)
 
     SetValue(profiles.elv.dps, "movers.AlertFrameMover", "TOPRIGHT,ElvUIParent,TOPRIGHT,-1000,-300")
     SetValue(profiles.elv.healer, "movers.AlertFrameMover", "TOPRIGHT,ElvUIParent,TOPRIGHT,-1000,-300")
-
-    if ztp.elvUI.actionBars then
-        SetValue(profiles.elv.dps, "movers.ElvAB_5", "BOTTOM,ElvUIParent,BOTTOM,-277,3")
-        SetValue(profiles.elv.healer, "movers.ElvAB_5", "BOTTOM,ElvUIParent,BOTTOM,-259,3")
-
-        SetValue(profiles.elv.dps, "movers.ElvAB_6", "BOTTOM,ElvUIParent,BOTTOM,0,36")
-        SetValue(profiles.elv.healer, "movers.ElvAB_6", "BOTTOM,ElvUIParent,BOTTOM,0,34")
-    else
-        SetValue(profiles.elv.dps, "movers.ElvAB_5", "BOTTOM,ElvUIParent,BOTTOM,0,36")
-        SetValue(profiles.elv.healer, "movers.ElvAB_5", "BOTTOM,ElvUIParent,BOTTOM,0,34")
-
-        SetValue(profiles.elv.dps, "movers.ElvAB_6", "BOTTOM,ElvUIParent,BOTTOM,-277,3")
-        SetValue(profiles.elv.healer, "movers.ElvAB_6", "BOTTOM,ElvUIParent,BOTTOM,-259,3")
-    end
-
-    SetValue(profiles.elv.dps, "movers.ElvAB_4", "BOTTOM,ElvUIParent,BOTTOM,277,3")
-    SetValue(profiles.elv.healer, "movers.ElvAB_4", "BOTTOM,ElvUIParent,BOTTOM,259,3")
-
-    SetValue(profiles.elv.dps, "movers.ElvAB_1", "BOTTOM,ElvUIParent,BOTTOM,0,3")
-    SetValue(profiles.elv.healer, "movers.ElvAB_1", "BOTTOM,ElvUIParent,BOTTOM,0,3")
 end
 
 local function ApplySLETweaks(ztp)
