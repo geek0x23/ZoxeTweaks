@@ -425,17 +425,17 @@ local function ApplyElvUITweaks(ztp)
     SetValue(profiles.elv.healer, "movers.LossControlMover", "TOP,ElvUIParent,TOP,0,-500")
 
     if ztp.elvUI.unitFrames then
-        SetValue(profiles.elv.dps, "movers.BossHeaderMover", "TOPRIGHT,ElvUIParent,TOPRIGHT,-700,-300")
-        SetValue(profiles.elv.healer, "movers.BossHeaderMover", "TOPRIGHT,ElvUIParent,TOPRIGHT,-700,-300")
+        SetValue(profiles.elv.dps, "movers.BossHeaderMover", "TOPRIGHT,ElvUIParent,TOPRIGHT,-706,-445")
+        SetValue(profiles.elv.healer, "movers.BossHeaderMover", "TOPRIGHT,ElvUIParent,TOPRIGHT,-706,-445")
 
-        SetValue(profiles.elv.dps, "movers.ElvUF_FocusMover", "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-800,550")
-        SetValue(profiles.elv.healer, "movers.ElvUF_FocusMover", "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-800,550")
+        SetValue(profiles.elv.dps, "movers.ElvUF_FocusMover", "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-978,520")
+        SetValue(profiles.elv.healer, "movers.ElvUF_FocusMover", "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-740,492")
+
+        SetValue(profiles.elv.dps, "movers.LootFrameMover", "TOPRIGHT,ElvUIParent,TOPRIGHT,-1060,-585")
+        SetValue(profiles.elv.healer, "movers.LootFrameMover", "TOPRIGHT,ElvUIParent,TOPRIGHT,-1060,-585")
 
         SetValue(profiles.elv.dps, "movers.ElvUF_PartyMover", "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,965,535")
     end
-
-    SetValue(profiles.elv.dps, "movers.AlertFrameMover", "TOPRIGHT,ElvUIParent,TOPRIGHT,-1000,-300")
-    SetValue(profiles.elv.healer, "movers.AlertFrameMover", "TOPRIGHT,ElvUIParent,TOPRIGHT,-1000,-300")
 end
 
 local function ApplySLETweaks(ztp)
