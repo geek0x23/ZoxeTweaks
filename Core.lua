@@ -17,7 +17,9 @@ function ZT:OnInitialize()
     }
 
     local tocVersion = (select(4, GetBuildInfo()))
-    local classic = tocVersion < 100000
+    local retail = tocVersion > 110000
+    local classic = tocVersion < 40000
+    local cata = tocVersion > 40000 and tocVersion < 110000
 
     if not classic then
         defaults.global.atrocityUI = {
@@ -184,8 +186,10 @@ function ZT:OnInitialize()
                         },
                         omniCD = {
                             name = "OmniCD Bars?",
-                            desc = "Re-position OmniCD bars for ultra-wide.",
+                            desc = "Re-position OmniCD bars for ultra-wide (Retail only for now).",
                             type = "toggle",
+                            disabled = cata,
+                            hidden = cata,
                             set = function(_, val) self.db.global.atrocityUI.omniCD = val end,
                             get = function() return self.db.global.atrocityUI.omniCD end
                         },
@@ -296,6 +300,8 @@ function ZT:OnInitialize()
                             name = "Shadow & Light?",
                             desc = "Enables a bunch of font and armory tweaks for Shadow & Light.",
                             type = "toggle",
+                            disabled = cata,
+                            hidden = cata,
                             set = function(_, val) self.db.global.atrocityUI.sle = val end,
                             get = function() return self.db.global.atrocityUI.sle end
                         },

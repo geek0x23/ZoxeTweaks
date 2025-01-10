@@ -5,10 +5,11 @@
 ## Version: @project-version@
 ## X-Curse-Project-ID: 937180
 ## X-Wago-ID: vNAe1QNo
-## OptionalDeps: Auctionator, ElvUI
+## OptionalDeps: AddOnSkins, Auctionator, BigWigs, Details, ElvUI, Plater, WeakAuras
 ## SavedVariables: ZoxeTweaksDB
 
 embeds.xml
 Core.lua
 Scaling.lua
 Others.lua
+Atrocity.lua
