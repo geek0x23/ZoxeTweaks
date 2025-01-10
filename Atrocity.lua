@@ -273,17 +273,11 @@ local function ApplyElvUITweaks(ztp)
         SetValue(profiles.elv.healer, "datatexts.fontSize", ztp.fonts.size)
     end
 
-    if ztp.elvUI.minimapDataTexts then
-        local minimapPanel = {
-            nil, -- [1]
-            "Durability", -- [2]
-            ["enable"] = true,
-            ["backdrop"] = true
-        }
+    SetValue(profiles.elv.dps, "datatexts.panels.MinimapPanel.enable", ztp.elvUI.minimapDataTexts)
+    SetValue(profiles.elv.healer, "datatexts.panels.MinimapPanel.enable", ztp.elvUI.minimapDataTexts)
+    SetValue(profiles.elv.dps, "datatexts.panels.MinimapPanel.backdrop", true)
+    SetValue(profiles.elv.healer, "datatexts.panels.MinimapPanel.backdrop", true)
 
-        SetValue(profiles.elv.dps, "datatexts.panels.MinimapPanel", minimapPanel)
-        SetValue(profiles.elv.healer, "datatexts.panels.MinimapPanel", minimapPanel)
-    end
 
     -- Maps
     E.global.general.smallerWorldMap = false
@@ -912,11 +906,20 @@ local function ApplyBigWigsTweaks(ztp)
     end
 
     if ztp.bigWigs then
-        if ztp.elvUI.minimap then
-            SetValue(profiles.bigWigs, "normalPosition", { "TOPRIGHT", "TOPRIGHT", -4, -291 })
-            SetValue(profiles.bigWigs, "normalWidth", 240)
+        local yPosition = -227
+        local width = 197
+
+        if ztp.elvUI.minimapDataTexts then
+            yPosition = yPosition - 22
         end
 
+        if ztp.elvUI.minimap then
+            yPosition = yPosition - 42
+            width = 240
+        end
+
+        SetValue(profiles.bigWigs, "normalPosition", { "TOPRIGHT", "TOPRIGHT", -4, yPosition })
+        SetValue(profiles.bigWigs, "normalWidth", width)
         SetValue(profiles.bigWigs, "visibleBarLimit", 5)
         SetValue(profiles.bigWigs, "visibleBarLimitEmph", 5)
     end
