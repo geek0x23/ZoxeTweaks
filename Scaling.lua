@@ -16,10 +16,13 @@ function ZT:ScaleGuard(frame, scale, script)
 
     local guard
     self:SecureHook(frame, "SetScale", function()
-        if guard then return end
-        guard = true
-        frame:SetScale(scale)
-        guard = false
+        -- Can't scale in combat or Blizzard will yell at us.
+        if not UnitAffectingCombat("player") then
+            if guard then return end
+            guard = true
+            frame:SetScale(scale)
+            guard = false
+        end
     end)
 
     if script and not self:IsHooked(frame, script) then
