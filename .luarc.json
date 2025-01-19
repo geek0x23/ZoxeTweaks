@@ -23,6 +23,8 @@
         "CommunitiesGuildNewsFiltersFrame",
         "CommunitiesGuildTextEditFrame",
         "CurrencyTransferMenu",
+        "DelvesCompanionConfigurationFrame",
+        "DelvesDifficultyPickerFrame",
         "Details",
         "DLAPI",
         "DressUpFrame",
