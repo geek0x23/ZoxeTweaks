@@ -860,6 +860,12 @@ local function ApplyWeakAurasTweaks(ztp)
             "Focus Castbar",
             "Combat Ress",
             "Combat Time",
+            "Standard Bar Template 1",
+            "Misc Bar Template 1",
+            "Kick/Stop Bar Template 1",
+            "Kick/Stop Bar Template 2",
+            "Tank Hit CD Bar Template 1",
+            "Tank Hit Inc & Targeted By Spell Bar Template 1",
         }
 
         local combatTextAuras = WeakAurasSaved["displays"]["Combat Text"]["controlledChildren"]
@@ -882,6 +888,18 @@ local function ApplyWeakAurasTweaks(ztp)
                     end
                 end
             end
+        end
+
+        -- for Anchor icons, resize fonts for everything after "Text 1"
+        local template = WeakAurasSaved["displays"]["Affix Icon Template 1"]
+        if template then
+            template["subRegions"][4]["text_fontSize"] = ztp.fonts.size
+        end
+
+        template = WeakAurasSaved["displays"]["Standard Icon Template 1"]
+        if template then
+            template["subRegions"][4]["text_fontSize"] = ztp.fonts.size
+            template["subRegions"][5]["text_fontSize"] = ztp.fonts.size
         end
     end
 
