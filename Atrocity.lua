@@ -993,27 +993,60 @@ local function ApplyOmniCDTweaks(ztp)
     end
 
     if ztp.omniCD then
+        -- PARTY (DPS)
+        -- Interrupts
         SetValue(profiles.omniCD.dps, "Party.party.extraBars.raidBar1.manualPos.raidBar1.x", 514.9332700888335)
-        SetValue(profiles.omniCD.dps, "Party.party.extraBars.raidBar1.manualPos.raidBar1.y", 434.4000392119051)
+        SetValue(profiles.omniCD.dps, "Party.party.extraBars.raidBar1.manualPos.raidBar1.y", 431.7334052562655)
+        -- Group Defensives
         SetValue(profiles.omniCD.dps, "Party.party.extraBars.raidBar2.manualPos.raidBar2.x", 514.9332700888335)
-        SetValue(profiles.omniCD.dps, "Party.party.extraBars.raidBar2.manualPos.raidBar2.y", 311.7332822004973)
+        SetValue(profiles.omniCD.dps, "Party.party.extraBars.raidBar2.manualPos.raidBar2.y", 311.1997210343834)
+        -- Stops
+        SetValue(profiles.omniCD.dps, "Party.party.extraBars.raidBar3.manualPos.raidBar3.x", 648.8002217451576)
+        SetValue(profiles.omniCD.dps, "Party.party.extraBars.raidBar3.manualPos.raidBar3.y", 544.8000977357151)
+        -- Externals
+        SetValue(profiles.omniCD.dps, "Party.party.extraBars.raidBar4.manualPos.raidBar4.x", 514.9332700888335)
+        SetValue(profiles.omniCD.dps, "Party.party.extraBars.raidBar4.manualPos.raidBar4.y", 292.5330554803368)
 
+
+        -- ARENA (DPS)
+        -- Interrupts
         SetValue(profiles.omniCD.dps, "Party.arena.extraBars.raidBar1.manualPos.raidBar1.x", 514.9332700888335)
-        SetValue(profiles.omniCD.dps, "Party.arena.extraBars.raidBar1.manualPos.raidBar1.y", 434.4000392119051)
+        SetValue(profiles.omniCD.dps, "Party.arena.extraBars.raidBar1.manualPos.raidBar1.y", 431.7334052562655)
+        -- Group Defensives
         SetValue(profiles.omniCD.dps, "Party.arena.extraBars.raidBar2.manualPos.raidBar2.x", 514.9332700888335)
-        SetValue(profiles.omniCD.dps, "Party.arena.extraBars.raidBar2.manualPos.raidBar2.y", 311.7332822004973)
+        SetValue(profiles.omniCD.dps, "Party.arena.extraBars.raidBar2.manualPos.raidBar2.y", 311.1997210343834)
+        -- Stops
+        SetValue(profiles.omniCD.dps, "Party.arena.extraBars.raidBar3.manualPos.raidBar3.x", 648.8002217451576)
+        SetValue(profiles.omniCD.dps, "Party.arena.extraBars.raidBar3.manualPos.raidBar3.y", 544.8000977357151)
+        -- Externals
+        SetValue(profiles.omniCD.dps, "Party.arena.extraBars.raidBar4.manualPos.raidBar4.x", 514.9332700888335)
+        SetValue(profiles.omniCD.dps, "Party.arena.extraBars.raidBar4.manualPos.raidBar4.y", 292.5330554803368)
 
-        SetValue(profiles.omniCD.healer, "Party.party.extraBars.raidBar1.manualPos.raidBar1.x", 1065.866798448551)
-        SetValue(profiles.omniCD.healer, "Party.arena.extraBars.raidBar1.manualPos.raidBar1.x", 1065.866798448551)
+
+        -- PARTY (HEALER)
+        -- Interrupts
+        SetValue(profiles.omniCD.healer, "Party.party.extraBars.raidBar1.manualPos.raidBar1.x", 648.8002217451576)
+        -- Stops
+        SetValue(profiles.omniCD.healer, "Party.party.extraBars.raidBar3.manualPos.raidBar3.x", 748.5340048630605)
+
+
+        -- ARENA (HEALER)
+        -- Interrupts
+        SetValue(profiles.omniCD.healer, "Party.arena.extraBars.raidBar1.manualPos.raidBar1.x", 648.8002217451576)
+        -- Stops
+        SetValue(profiles.omniCD.healer, "Party.arena.extraBars.raidBar3.manualPos.raidBar3.x", 748.5340048630605)
+
+
+        -- RAID (HEALER)
+        -- Externals
+        SetValue(profiles.omniCD.healer, "Party.raid.extraBars.raidBar2.manualPos.raidBar2.x", 1061.600262244523)
     end
 
     if ztp.elvUI.panels then
-        -- move externals if we made panels bigger
+        -- RAID (DPS)
+        -- Externals
         SetValue(profiles.omniCD.dps, "Party.raid.extraBars.raidBar2.manualPos.raidBar2.x", 270.1335264583522)
         SetValue(profiles.omniCD.dps, "Party.raid.extraBars.raidBar2.manualPos.raidBar2.y", 174.1336679359447)
-
-        SetValue(profiles.omniCD.healer, "Party.raid.extraBars.raidBar2.manualPos.raidBar2.x", 270.1335264583522)
-        SetValue(profiles.omniCD.healer, "Party.raid.manualPos.5.x", 270.1335264583522)
     end
 end
 
