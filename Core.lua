@@ -42,7 +42,6 @@ function ZT:OnInitialize()
             bigWigs = false,
             omniCD = false,
             details = false,
-            weakAuras = false,
             plater = {
                 fonts = {
                     resize = false,
@@ -199,13 +198,6 @@ function ZT:OnInitialize()
                             type = "toggle",
                             set = function(_, val) self.db.global.atrocityUI.details = val end,
                             get = function() return self.db.global.atrocityUI.details end
-                        },
-                        weakAuras = {
-                            name = "WeakAuras Tweaks?",
-                            desc = "Moves missing buffs, combat time, and combat res indicators for ultra-wide.",
-                            type = "toggle",
-                            set = function(_, val) self.db.global.atrocityUI.weakAuras = val end,
-                            get = function() return self.db.global.atrocityUI.weakAuras end
                         },
                     },
                 },

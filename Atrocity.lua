@@ -858,8 +858,9 @@ local function ApplyWeakAurasTweaks(ztp)
             "Player Castbar (Caster)",
             "Player Castbar (Healer)",
             "Focus Castbar",
+            "Target Castbar",
             "Combat Ress",
-            "Combat Time",
+            "Combat Timer",
             "Standard Bar Template 1",
             "Misc Bar Template 1",
             "Kick/Stop Bar Template 1",
@@ -903,33 +904,11 @@ local function ApplyWeakAurasTweaks(ztp)
         end
     end
 
-    if ztp.weakAuras then
-        if WeakAurasSaved["displays"]["Missing Buffs"] then
-            WeakAurasSaved["displays"]["Missing Buffs"]["xOffset"] = -1716
-        end
-
-        if WeakAurasSaved["displays"]["Combat Ress"] then
-            WeakAurasSaved["displays"]["Combat Ress"]["xOffset"] = -1657
-        end
-
-        if WeakAurasSaved["displays"]["Combat Time"] then
-            WeakAurasSaved["displays"]["Combat Time"]["xOffset"] = -1265
-        end
-
-        if WeakAurasSaved["displays"]["Anchor » Icons Affixes"] then
-            WeakAurasSaved["displays"]["Anchor » Icons Affixes"]["xOffset"] = -1716
-        end
+    if WeakAurasSaved["displays"]["Anchor » Icons Affixes"] then
+        WeakAurasSaved["displays"]["Anchor » Icons Affixes"]["xOffset"] = -1716
     end
 
     if ztp.elvUI.panels then
-        if WeakAurasSaved["displays"]["Combat Ress"] then
-            WeakAurasSaved["displays"]["Combat Ress"]["yOffset"] = -437
-        end
-
-        if WeakAurasSaved["displays"]["Combat Time"] then
-            WeakAurasSaved["displays"]["Combat Time"]["yOffset"] = -437
-        end
-
         if WeakAurasSaved["displays"]["Anchor » Icons Affixes"] then
             WeakAurasSaved["displays"]["Anchor » Icons Affixes"]["yOffset"] = -395
         end
