@@ -6,7 +6,7 @@ using namespace System.Net.Sockets
 function Get-TOCData {
     $programs = [Ordered]@{
         "Retail:   " = "wow"
-        "Cataclysm:" = "wow_classic"
+        "MoP:      " = "wow_classic"
         "Classic:  " = "wow_classic_era"
     }
 
