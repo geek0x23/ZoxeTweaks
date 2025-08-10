@@ -904,13 +904,13 @@ local function ApplyWeakAurasTweaks(ztp)
         end
     end
 
-    if WeakAurasSaved["displays"]["Anchor » Icons Affixes"] then
-        WeakAurasSaved["displays"]["Anchor » Icons Affixes"]["xOffset"] = -1716
+    if WeakAurasSaved["displays"]["Anchor » Icons Dungeon Buffs"] then
+        WeakAurasSaved["displays"]["Anchor » Icons Dungeon Buffs"]["xOffset"] = -1716
     end
 
     if ztp.elvUI.panels then
-        if WeakAurasSaved["displays"]["Anchor » Icons Affixes"] then
-            WeakAurasSaved["displays"]["Anchor » Icons Affixes"]["yOffset"] = -395
+        if WeakAurasSaved["displays"]["Anchor » Icons Dungeon Buffs"] then
+            WeakAurasSaved["displays"]["Anchor » Icons Dungeon Buffs"]["yOffset"] = -395
         end
     end
 end
