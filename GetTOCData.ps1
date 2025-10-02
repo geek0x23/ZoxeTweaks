@@ -13,38 +13,26 @@ function Get-TOCData {
     foreach ($label in $programs.Keys) {
         $program = $($programs.$label)
 
-        $client = [TcpClient]::new()
-        $client.Connect("us.version.battle.net", 1119)
-
-        $stream = $client.GetStream()
-        $reader = [StreamReader]::new($stream)
-        $writer = [StreamWriter]::new($stream)
-
-        $writer.WriteLine("v1/products/${program}/versions")
-        $writer.Flush()
-
-        $version = Read-Version -Reader $reader
+        $versions = Invoke-WebRequest -Uri "https://us.version.battle.net/v2/products/${program}/versions"
+        $version = Read-Version -Versions $versions
         $toc = (Convert-VersionToTOC -Version $version) ?? "[ERROR] Could not read from Battle.net"
 
         Write-Host "${label} ${toc}"
-
-        $reader.Close()
-        $writer.Close()
-        $stream.Close()
-        $client.Close()
     }
 }
 
 function Read-Version {
     param (
-        [StreamReader]$Reader
+        [String]$Versions
     )
 
-    while ($Reader.EndOfStream -eq $false) {
-        $line = $Reader.ReadLine()
+    if ([String]::IsNullOrWhiteSpace($Versions)) {
+        return $null
+    }
 
+    $lines = $Versions.Split("`n")
+    foreach ($line in $lines) {
         if ($line.StartsWith("us|")) {
-            $Reader.DiscardBufferedData()
             $tokens = $line.Split("|")
             return $tokens[5]
         }
